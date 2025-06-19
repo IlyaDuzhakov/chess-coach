@@ -16,7 +16,7 @@ html, body {
   flex-direction: column;
   background: linear-gradient(180deg, #f5f8fc 0%, #e6f0fa 100%); /*	Градиент сверху вниз */
   background-color: #f5f8fc; /*Резерв на случай, если градиент не прогрузится*/
-  background-image: url("svg/chess-bg.svg");
+  background-image: url("./svg/chess-bg.svg");
   background-size: 40px 40px;  /*Размер фона (мелкая сетка)*/
   background-attachment: fixed; /*Фон остаётся на месте при прокрутке (параллакс)*/
   background-repeat: repeat;

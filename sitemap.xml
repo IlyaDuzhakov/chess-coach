@@ -2,19 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://ilyaduzhakov.github.io/chess-coach/</loc>
     <lastmod>2025-06-19</lastmod>
     <priority>1.0</priority>
   </url>
 
   <url>
-    <loc>https://example.com/#champions</loc>
+    <loc>https://ilyaduzhakov.github.io/chess-coach/#champions</loc>
     <lastmod>2025-06-19</lastmod>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://example.com/#lessons</loc>
+    <loc>https://ilyaduzhakov.github.io/chess-coach/#lessons</loc>
     <lastmod>2025-06-19</lastmod>
     <priority>0.8</priority>
   </url>

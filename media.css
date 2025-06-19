@@ -173,6 +173,14 @@
 }
 /* Маленькие экраны: до 480px */
 @media (max-width: 490px) {
+  html, body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
   .header__title {
     font-size: 22px;
   }

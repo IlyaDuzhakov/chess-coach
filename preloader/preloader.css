@@ -1,0 +1,102 @@
+body {
+  background-color: white; /* или #f5f8fc, или #e0e0e0 — по вкусу */
+}
+
+  
+  .preloader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("../images/chess-bg.svg");
+  background-size: 40px 40px;
+  background-repeat: repeat;
+  background-position: center;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease;
+    }
+
+    .preloader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.6s ease;
+    }
+
+    .scene {
+      position: relative;
+      width: 100vw;
+      height: 70vh;
+      background-color: #f5f0e6;
+      overflow: hidden;
+    }
+
+    .background {
+      background-image: url('../images/desert-2.webp');
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      /* background-repeat: repeat; */
+      background-position: bottom;
+       background-repeat: repeat-x;
+      background-size: contain;
+      animation: move-bg 20s linear infinite;
+      /* z-index: 100; */
+    }
+
+    @keyframes move-bg {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .horse {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 270px;
+      z-index: 101;
+    }
+
+    .track {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #333;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: fadeOut 2s forwards;
+    }
+
+    @keyframes fadeOut {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.5); }
+    }
+
+    .preloader-title {
+      margin: 30px auto 0;
+      font-size: 36px;
+      color: #1f2d78;
+      text-align: center;
+      animation: pop 1.5s ease-in-out;
+      position: relative;
+      z-index: 200;
+    }
+
+    @keyframes pop {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }

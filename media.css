@@ -1,0 +1,281 @@
+
+@media (max-width: 1120px) {
+  .logo-svg {
+    margin-left: -500px;
+  }
+}
+/* Планшет: до 1024px */
+@media (max-width: 1024px) {
+  .header__title {
+    font-size: 36px;
+  }
+
+  .text__title {
+    font-size: 18px;
+  }
+
+  .header__logo-left {
+    width: 50px;
+    height: 50px;
+  }
+  .camera-icon {
+  top: 30px;
+  right: 50px;
+  width: 60px;
+  height: 60px;
+}
+}
+
+@media (max-width: 960px) {
+   .icon {
+    right: 40px;
+  }
+
+}
+
+@media (max-width: 850px) {
+  .logo-svg {
+    margin-left: -450px;
+    width: 380px;
+    height: 380px;
+  }
+}
+
+/* Телефон: до 768px */
+@media (max-width: 768px) {
+  .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
+    display: none;
+  }
+  .header__top {
+    display: flex;
+    flex-direction: column;
+  }
+  .logo-svg {
+    margin-left: -300px;
+    margin-top: -228px;
+  }
+  .header__logo-left {
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .header__title {
+    font-size: 28px;
+  }
+
+  .text__title {
+    font-size: 16px;
+    padding: 0 10px;
+    text-align: center;
+    max-width: 400px;
+  }
+
+  .header__button {
+    font-size: 14px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 10px;
+  }
+  .nav a {
+    font-size: 16px;
+    text-align: center;
+  }
+    .burger {
+    display: flex;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 90;
+  }
+  .nav {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: white;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+  border-radius: 10px;
+  padding: 15px 0;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+  .about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .quality__mark {
+    width: 150px;
+    height: 150px;
+    margin-top: -200px;
+  }
+  .preloader-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .horse {
+    height: 180px;
+  }
+}
+@media (max-width: 720px) {
+   .logo-svg {
+    margin-left: -350px;
+    margin-top: -141px;
+    width: 250px;
+    height: 250px;
+  }
+  .lesson-heading .icon {
+    width: 80px;
+    height: 80px;
+  }
+  .camera-icon {
+  top: 10px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+}
+.preloader-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .horse {
+    height: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-svg {
+    margin-left: -300px; 
+    margin-top: -189px;
+    margin-bottom: 100px;  
+  }
+  .quality__mark {
+    right: -20px;
+  }
+}
+
+@media (max-width: 550px)  {
+  .logo-svg {
+    margin-left: -250px; 
+    margin-top: -189px;
+    margin-bottom: 130px;  
+  }
+}
+/* Маленькие экраны: до 480px */
+@media (max-width: 490px) {
+  .header__title {
+    font-size: 22px;
+  }
+
+  .text__title {
+    font-size: 14px;
+  }
+
+  .header__button {
+    max-width: 60%;
+  }
+
+  .nav {
+    font-size: 14px;
+  }
+  .logo-svg {
+    margin-left: -180px; 
+    margin-bottom: 150px;  
+  }
+   .lesson-heading .icon {
+    width: 60px;
+    height: 60px;
+  }
+  .full-text {
+    display: none;
+  }
+  .short-text {
+    display: inline;
+  }
+  .preloader-title {
+    font-size: 1.5rem;
+    /* padding: 0 15px; */
+  }
+
+  .horse {
+    height: 22vh;
+    max-height: 160px;
+  }
+}
+
+@media (max-width: 420px) {
+  .header__title {
+    font-size: 22px;
+  }
+  
+  .text__title {
+    font-size: 10px;
+    max-width: 200px;
+  } 
+  .quality__mark {
+    right: 0 auto;
+    margin-top: -205px;
+  } 
+
+  .header__button {
+    max-width: 60%;
+  }
+
+  .nav {
+    font-size: 14px;
+  }  
+  .logo-svg {
+    margin-left: 70px; 
+    margin-bottom: 200px;  
+  }
+  .preloader-title {
+    font-size: 1.3rem;
+    /* padding: 0 15px; */
+  }
+
+  .horse {
+    height: 19vh;
+    max-height: 160px;
+  }
+}
+
+@media (max-width: 380px) {
+  .preloader-title {
+    font-size: 1.3rem !important;
+    padding: 0 20px !important;
+    line-height: 1.2 !important;
+    margin-top: -100;
+  }
+
+  .horse {
+    height: 17vh !important;
+    max-height: 140px !important;
+  }
+}
+
+@media (hover: none) {
+  .tooltip:hover .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+

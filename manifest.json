@@ -1,0 +1,23 @@
+{
+  "name": "Илья Дужаков — тренер по шахматам",
+  "short_name": "Шахматы",
+  "description": "Шахматный сайт и тренерский портал Ильи Дужакова.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "lang": "ru",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

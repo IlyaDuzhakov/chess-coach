@@ -130,3 +130,45 @@ document.querySelectorAll('.accordion-header').forEach(header => {
     item.classList.toggle('active');
   });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('telegramForm');
+  const status = document.getElementById('form-status');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.elements['name'].value;
+    const phone = form.elements['phone'].value;
+    const comment = form.elements['comment'].value;
+
+    try {
+      const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name,
+          email: phone, // будем использовать "email" как поле для телефона
+          message: comment
+        })
+      });
+
+      const result = await response.json();
+
+      if (result.ok) {
+        status.style.color = 'green';
+        status.textContent = '✅ Заявка отправлена!';
+        form.reset();
+      } else {
+        status.style.color = 'red';
+        status.textContent = '❌ Ошибка при отправке.';
+      }
+    } catch (error) {
+      status.style.color = 'red';
+      status.textContent = '❌ Ошибка соединения.';
+      console.error('Ошибка:', error);
+    }
+  });
+});

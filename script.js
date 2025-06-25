@@ -139,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
 
     const name = form.elements['name'].value;
+    const email = form.elements['email'].value;
     const phone = form.elements['phone'].value;
     const comment = form.elements['comment'].value;
 
@@ -150,25 +151,32 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         body: JSON.stringify({
           name,
-          email: phone, // будем использовать "email" как поле для телефона
-          message: comment
+          email,
+          phone,
+          comment
         })
       });
 
       const result = await response.json();
 
       if (result.ok) {
-        status.style.color = 'green';
-        status.textContent = '✅ Заявка отправлена!';
+        status.textContent = '✅ Заявка успешно отправлена!';
         form.reset();
       } else {
-        status.style.color = 'red';
-        status.textContent = '❌ Ошибка при отправке.';
+        status.textContent = '⚠️ Ошибка при отправке. Попробуйте снова.';
       }
+
     } catch (error) {
-      status.style.color = 'red';
-      status.textContent = '❌ Ошибка соединения.';
       console.error('Ошибка:', error);
+      status.textContent = '🚫 Ошибка сервера. Попробуйте позже.';
     }
   });
+});
+
+
+const botIcon = document.getElementById('bot-icon');
+const botForm = document.getElementById('bot-form');
+
+botIcon.addEventListener('click', () => {
+  botForm.classList.toggle('hidden');
 });

@@ -717,16 +717,24 @@
 
 <!-- -->
 
+<!-- Блок с иконкой бота -->
+<div id="bot-icon">
+  🤖
+</div>
+
+<div id="bot-form" class="hidden">
 <section id="contact-form" class="form-section">
   <h2>Записаться на пробное занятие</h2>
   <form id="telegramForm">
     <input type="text" name="name" placeholder="Ваше имя" required />
+    <input type="email" name="email" placeholder="Email" required />
     <input type="tel" name="phone" placeholder="Телефон" required />
     <textarea name="comment" placeholder="Комментарий"></textarea>
     <button type="submit">Отправить</button>
     <p id="form-status"></p>
   </form>
 </section>
+</div>
             
 <footer class="reveal-bottom footer" id="contact">
   <div class="footer__top">

@@ -1041,10 +1041,11 @@ section p, section li {
 
 /* FAQ*/
 .faq {
-  padding: 60px 20px;
+  width: 100%;
   background: linear-gradient(to bottom right, #f0f8ff, #e8f4ff);
-  border-radius: 20px;
-  margin-bottom: 60px;
+  padding: 80px 20px;
+  box-sizing: border-box;
+  margin-bottom: 100px;
 }
 
 .accordion {
@@ -1055,6 +1056,7 @@ section p, section li {
 .accordion-item {
   border: 1px solid #6ef845;
   margin-bottom: 15px;
+  background: #fff;
 }
 
 .accordion-header {
@@ -1101,15 +1103,15 @@ section p, section li {
 }
 
 .faq-icon {
-  width: 32px;
-  height: 32px;
-  margin-right: 12px;
-  fill: #1f2d78; /* меняет цвет заливки */
+  width: 50px;
+  height: 50px;
+  margin-right: 25px;
+  fill: #1f2d78;
   transition: fill 0.3s ease;
 }
 
 .faq-icon:hover {
-  fill: #f08a24; /* цвет при наведении */
+  fill: #f08a24;
 }
 
 
@@ -1267,5 +1269,55 @@ section p, section li {
   color: green;
 }
 
+#form-modal {
+  display: none;
+  /* или opacity: 0, если ты используешь анимации */
+}
+
+#form-modal.visible {
+  display: block;
+  /* или opacity: 1 */
+}
+
+
+#bot-icon {
+  position: fixed;
+  left: 10px;
+  bottom: 250px;
+  font-size: 50px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#bot-form {
+  position: fixed;
+  left: 60px;
+  bottom: 20px;
+  background: white;
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+
+#bot-icon {
+  animation: bounce 1.8s infinite;
+  transition: box-shadow 0.3s ease;
+}
+
+#bot-icon:hover {
+  animation-play-state: paused;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 
 

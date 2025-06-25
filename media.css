@@ -125,6 +125,18 @@
   .horse {
     height: 180px;
   }
+    #bot-icon {
+    left: 10px;
+    bottom: 100px; /* выше, чтобы не мешал футеру */
+    font-size: 40px;
+  }
+
+  #bot-form {
+    left: 10px;
+    bottom: 160px;
+    width: 90%;
+    max-width: 340px;
+  }
 }
 @media (max-width: 720px) {
    .logo-svg {

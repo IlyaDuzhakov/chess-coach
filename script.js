@@ -26,17 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const burger = document.getElementById('burger');
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('burger');
   const nav = document.querySelector('.nav');
 
   burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
     nav.classList.toggle('show');
     document.body.classList.toggle('lock-scroll');
   });
+
+  // Закрытие меню при клике на ссылку
   document.querySelectorAll('.nav a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('show');
-    document.body.classList.remove('lock-scroll');
+    link.addEventListener('click', () => {
+      nav.classList.remove('show');
+      burger.classList.remove('open');
+      document.body.classList.remove('lock-scroll');
+    });
   });
 });
 
@@ -62,10 +68,12 @@ setInterval(nextSlide, 2000);
 showSlide(currentSlide);
 
 window.addEventListener('load', () => {
-  const track = document.querySelector('.carousel-track');
+  if (window.innerWidth > 768) { // Только для десктопов
+    const track = document.querySelector('.carousel-track');
+
   const items = track.querySelectorAll('.carousel-item');
   const speed = 0.5; // скорость прокрутки
-
+  }
   // Клонируем элементы для бесконечной прокрутки
   items.forEach(item => {
     const clone = item.cloneNode(true);
@@ -146,29 +154,31 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          phone,
-          comment
-        })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, comment })
       });
 
       const result = await response.json();
 
       if (result.ok) {
-        status.textContent = '✅ Заявка успешно отправлена!';
+        status.textContent = '✅ Спасибо! С вами свяжутся в ближайшее время.';
         form.reset();
+
+        setTimeout(() => {
+          status.textContent = '';
+        }, 5000);
       } else {
         status.textContent = '⚠️ Ошибка при отправке. Попробуйте снова.';
+        setTimeout(() => {
+          status.textContent = '';
+        }, 5000);
       }
-
     } catch (error) {
       console.error('Ошибка:', error);
       status.textContent = '🚫 Ошибка сервера. Попробуйте позже.';
+      setTimeout(() => {
+        status.textContent = '';
+      }, 5000);
     }
   });
 });
@@ -180,3 +190,80 @@ const botForm = document.getElementById('bot-form');
 botIcon.addEventListener('click', () => {
   botForm.classList.toggle('hidden');
 });
+
+function initCarousel() {
+  const isMobile = window.innerWidth <= 768;
+  const track = document.querySelector('.carousel-track');
+  const items = track.querySelectorAll('.carousel-item');
+
+  // Очистим клоны при ресайзе
+  const clones = track.querySelectorAll('.clone');
+  clones.forEach(clone => clone.remove());
+
+  // Остановим старую анимацию
+  if (window.carouselAnimationFrame) {
+    cancelAnimationFrame(window.carouselAnimationFrame);
+  }
+
+  // Очистим классы active
+  items.forEach(item => item.classList.remove('active'));
+
+  if (isMobile) {
+    // 👉 Мобильный: одна карточка
+    let index = 0;
+    if (items.length > 0) items[index].classList.add('active');
+
+    if (window.carouselInterval) clearInterval(window.carouselInterval);
+
+    window.carouselInterval = setInterval(() => {
+      items[index].classList.remove('active');
+      index = (index + 1) % items.length;
+      items[index].classList.add('active');
+    }, 3000);
+  } else {
+    // 💻 Десктоп: автопрокрутка
+    const speed = 0.5;
+
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      clone.classList.add('clone');
+      track.appendChild(clone);
+    });
+
+    let scrollLeft = 0;
+
+    function loopScroll() {
+      scrollLeft += speed;
+      track.scrollLeft = scrollLeft;
+
+      if (scrollLeft >= track.scrollWidth / 2) {
+        scrollLeft = 0;
+      }
+
+      window.carouselAnimationFrame = requestAnimationFrame(loopScroll);
+    }
+
+    loopScroll();
+  }
+}
+
+// Запускаем при загрузке
+document.addEventListener('DOMContentLoaded', initCarousel);
+
+// Повторно запускаем при изменении размера (но с debounce)
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(initCarousel, 300);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
+    el.addEventListener('wheel', (e) => {
+      if (e.deltaY === 0) return;
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    });
+  });
+});
+

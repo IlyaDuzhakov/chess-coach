@@ -46,6 +46,31 @@
   .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
     display: none;
   }
+/* 📱 До 768px — по одному */
+@media (max-width: 768px) {
+  .carousel-track {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .carousel-item {
+    display: none !important;
+  }
+
+  .carousel-item.active {
+    display: block !important;
+    margin: 0 auto;
+  }
+
+  .carousel-item img {
+    width: 90%;
+    border-radius: 12px;
+    height: 480px; /* фиксированная высота */
+    object-fit: cover; /* чтобы фото красиво вписывалось */
+    margin: 0 auto;
+  }
+}
   .header__top {
     display: flex;
     flex-direction: column;
@@ -126,16 +151,19 @@
     height: 180px;
   }
     #bot-icon {
-    left: 10px;
-    bottom: 100px; /* выше, чтобы не мешал футеру */
+    left: 5px;
+    bottom: 10px; /* выше, чтобы не мешал футеру */
     font-size: 40px;
+  }
+    #bot-icon svg {
+      width: 110px; /* подстрой под размер */
   }
 
   #bot-form {
     left: 10px;
     bottom: 160px;
-    width: 90%;
-    max-width: 340px;
+    width: 70%;
+    max-width: 300px;
   }
 }
 @media (max-width: 720px) {
@@ -172,7 +200,7 @@
     margin-bottom: 100px;  
   }
   .quality__mark {
-    right: -20px;
+    right: 10px;
   }
 }
 
@@ -224,12 +252,26 @@
   }
   .preloader-title {
     font-size: 1.5rem;
-    /* padding: 0 15px; */
   }
 
   .horse {
     height: 22vh;
     max-height: 160px;
+  }
+    #bot-icon svg {
+      width: 90px; 
+  }
+  .form-section h2 {
+    font-size: 20px;
+  }
+  .footer-top {
+    gap: 70px;
+  }
+}
+
+@media (max-width: 460px) {
+  .form-section h2 {
+    font-size: 16px;
   }
 }
 
@@ -281,6 +323,55 @@
     height: 17vh !important;
     max-height: 140px !important;
   }
+   #bot-icon {
+    left: 5px;
+    bottom: 5px; /* выше, чтобы не мешал футеру */
+    font-size: 40px;
+  } 
+    #bot-icon svg {
+      width: 90px; /* подстрой под размер */
+  }
+   #bot-form {
+    left: 10px;
+    bottom: 145px;
+    width: 80%;
+    height: 65%;
+    max-width: 270px;
+  }
+  .form-section h2 {
+    font-size: 20px;
+  }
+  .label {
+    margin-top: -111px;
+  }
+  .work__areas .icon {
+    width: 180px;
+    height: 180px;
+    margin-bottom: -25px;
+    margin-top: -15px;
+  }
+   .section h2 {
+    font-size: 24px;
+  }
+  .zoom, .teams {
+    width: 60px;
+  }
+  .reviews h2 {
+    font-size: 24px;
+  }
+  .work__experience-title {
+    font-size: 24px;
+  }
+  .about-right h2 {
+    font-size: 1.5rem;
+  }
+  .section h2 {
+    font-size: 24px;
+  }
+  .choose__title::after {
+        width: 240px;
+        margin-top: 30px;
+  }
 }
 
 @media (hover: none) {
@@ -290,9 +381,22 @@
   }
 }
 
+/* Планшеты и ПК — от 769px */
 
+/* 💻 От 769px — горизонтальная карусель */
+@media (min-width: 769px) {
+  .carousel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: scroll;
+    scroll-behavior: auto;
+  }
 
-
+  .carousel-item {
+    flex: 0 0 auto;
+    display: block;
+  }
+}
 
 
 

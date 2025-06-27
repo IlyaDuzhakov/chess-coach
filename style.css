@@ -9,6 +9,9 @@
   --color-heart-hover: #b91c1c; /* насыщенный красный при наведении */
 }
 
+/* * {
+  outline: 1px solid rgba(255,0,0,0.3);  // для устранения горизонтального скролла проверка
+} */
 
 /* 🎨 Градиентный фон */
 html, body {
@@ -73,7 +76,7 @@ a:hover {
 
 /* === Header === */
 .header {
-  background: linear-gradient(120deg, #fef9c3, #a7f3d0, #bae6fd);
+  background: linear-gradient(135deg, #c6f0e3, #a2d5f2);
   color: var(--color-primary);
   border-bottom: 3px solid var(--color-accent);
   backdrop-filter: blur(8px);
@@ -89,7 +92,8 @@ a:hover {
 }
 
 .header__title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Raleway', serif;
+  font-weight: 700;
   color: var(--color-primary);
   animation: fadeDown 1s ease-in-out;
   text-transform: uppercase;
@@ -125,14 +129,14 @@ a:hover {
 }
 
 .fide p:hover {
-  color: #3004a1;
+  color: #9c3f01;
   /* transform: scale(1.05); */
 }
 
 .fide .text__title {
   font-size: 1.4rem;
   font-weight: 700;
-  color: rgb(169, 124, 2);
+  color: rgb(3, 50, 93);
   animation: fadeDown 1.2s ease-in-out;
   text-align: center;
   margin-bottom: 15px;
@@ -196,7 +200,10 @@ a:hover {
 
 .header__button {
   display: inline-block;
-  background: linear-gradient(135deg, #bfe6f1, #78b7e4);
+  background: linear-gradient(90deg, #53e48d, #e3f595, #5be8a9, #d7fc03);
+  /* -webkit-text-fill-color: transparent; */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 24px;
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: bold;
@@ -208,7 +215,9 @@ a:hover {
 }
 
 .header__button span {
-  color: #000;
+  color: #0c0122;
+  font-size: 18px;
+  font-weight: 800;
 }
 
 .header__button:hover {
@@ -228,18 +237,35 @@ a:hover {
   display: none;
   flex-direction: column;
   justify-content: space-between;
-  width: 25px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   cursor: pointer;
+   max-width: 40px;
+  overflow: hidden;
+  align-items: center;
   position: relative; /* или fixed, если ты хочешь, чтобы он был "прибит" к углу */
-  z-index: 100; /* выше, чем у .nav.show */
+  z-index: 150; /* выше, чем у .nav.show */
 }
 
 .burger span {
   display: block;
   height: 3px;
+  width: 100%;
   background-color: #333;
-  border-radius: 2px;
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+   transform-origin: center;
+}
+
+/* Состояние "крестик" */
+.burger.open span:nth-child(1) {
+  transform: rotate(34deg) translateY(14px);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: rotate(-34deg) translateY(-14px);
 }
 
 .nav {
@@ -274,7 +300,7 @@ a:hover {
   background-repeat: repeat;
   position: fixed;
   left: 0;
-  width: 100vw;
+  width: 100%;
   z-index: 100;
   backdrop-filter: blur(6px);
   display: flex;
@@ -611,6 +637,14 @@ nav a:hover::after {
   width: 100%;
   max-width: 100vw;
   will-change: scroll-position;
+
+  /* скрываем полосу прокрутки */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE и Edge */
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;               /* Chrome и Safari */
 }
 
 .carousel-track img {
@@ -625,6 +659,10 @@ nav a:hover::after {
   width: 80vw; /* или 250px */
   margin-right: 20px;
   cursor: pointer;
+
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: 100%;
 }
 
 .carousel-track img:hover {
@@ -697,9 +735,11 @@ section p, section li {
 /* Горизонтальный скролл */
 .video-scroll {
   display: flex;
+  box-sizing: border-box;
+  max-width: 100%;
   gap: 20px;
   overflow-x: auto;
-  padding: 10px 20px;
+  padding: 10px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
 }
@@ -712,6 +752,31 @@ section p, section li {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   scroll-snap-align: start;
 }
+
+/*  стилизуем стрелки   */
+
+.features li {
+  position: relative;
+  padding-left: 32px;
+  list-style: none;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  font-size: 16px;
+}
+
+.features li::before {
+  content: '✔'; /* можно заменить на '✓' — чуть легче выглядит */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+  transform: translateY(2px); /* выравнивание по вертикали */
+}
+
+/*  стилизуем стрелки   */
 
 .preview-wrapper {
   position: relative;
@@ -924,7 +989,6 @@ section p, section li {
   transform: scale(0.9);
 }
 
-
 .icon-link svg {
   width: 32px;
   height: 32px;
@@ -961,8 +1025,10 @@ section p, section li {
 .review-list {
   display: flex;
   gap: 20px;
+  max-width: 100vw;
+  box-sizing: border-box;
   overflow-x: auto;
-  padding: 20px;
+  padding: 0 10px;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -973,7 +1039,7 @@ section p, section li {
 }
 
 .review-card {
-  flex: 0 0 280px; /* ← фикс ширина */
+  flex: 0 0 auto; /* ← фикс ширина */
   scroll-snap-align: start;
   background: #fff;
   border-radius: 16px;
@@ -981,6 +1047,10 @@ section p, section li {
   text-align: center;
   transition: transform 0.3s;
   cursor: pointer;
+  max-width: 400px;
+  box-sizing: border-box;
+  width: 90%;
+  margin-right: 16px;
 }
 
 .review-card:hover {
@@ -1004,6 +1074,7 @@ section p, section li {
 .review-card p {
   font-size: 16px;
   font-style: italic;
+  text-align: left;
 }
 
 .review-text {
@@ -1032,6 +1103,19 @@ section p, section li {
 /* Убрать затемнение */
 .review-text:hover::after {
   display: none;
+}
+
+.review-scroll {
+  display: flex;
+  overflow-x: auto;
+  cursor: grab;
+  gap: 20px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.review-scroll:active {
+  cursor: grabbing;
 }
 
 .stars {
@@ -1220,7 +1304,7 @@ section p, section li {
 }
 
 
-/**/
+/* ---------------------------- bot -----------------------------*/
 
 .form-section {
   max-width: 500px;
@@ -1276,23 +1360,36 @@ section p, section li {
 
 #form-modal.visible {
   display: block;
+  /* position: fixed;
+  top: 50%;
+   left: 55%;  */
   /* или opacity: 1 */
 }
 
-
 #bot-icon {
   position: fixed;
-  left: 10px;
-  bottom: 250px;
-  font-size: 50px;
+  bottom: 5px;
+  left: 5px;
+  text-align: center;
   cursor: pointer;
-  z-index: 9999;
+  z-index: 100;
+}
+
+#bot-icon svg {
+  width: 130px; /* подстрой под размер */
+  animation: hop 4s ease-in-out infinite;
+  transform-origin: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.hidden {
+  display: none;
 }
 
 #bot-form {
   position: fixed;
-  left: 60px;
-  bottom: 20px;
+  left: 100px;
+  bottom: 150px;
   background: white;
   padding: 16px;
   border: 2px solid #ccc;
@@ -1300,24 +1397,36 @@ section p, section li {
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
   z-index: 1000;
 }
+#bot-icon:hover svg {
+  transform: translateY(-6px);
+  filter: drop-shadow(0 0 6px #584aed);
+}
 
-.hidden {
-  display: none;
+.label {
+  margin-top: -95px;
+  font-size: 14px;
+  color: #2304c0;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#bot-icon:hover .label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes hop {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
 }
 
 
-#bot-icon {
-  animation: bounce 1.8s infinite;
-  transition: box-shadow 0.3s ease;
-}
 
-#bot-icon:hover {
-  animation-play-state: paused;
-}
 
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
 
 

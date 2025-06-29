@@ -325,6 +325,18 @@ a:hover {
   color: #4c8fff;
 }
 
+/*        en ru */
+
+.language-switcher-desktop {
+  display: block;
+}
+
+.language-switcher-mobile {
+  display: none;
+}
+
+/*        en ru */
+
 logo__svg-board {
   width: 500px;
   height: auto;
@@ -1415,6 +1427,28 @@ section p, section li {
 #bot-icon:hover .label {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Стили для переключателя языка */
+.language-switcher-desktop {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+}
+
+/* Стиль самого select */
+#languageSwitcher {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 @keyframes hop {

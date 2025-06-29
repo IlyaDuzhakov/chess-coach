@@ -267,3 +267,85 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+/*                    english                */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const switcher = document.getElementById('languageSwitcher');
+  const elements = document.querySelectorAll('[data-i18n]');
+  const defaultLang = localStorage.getItem('lang') || 'ru';
+
+  function loadLanguage(lang) {
+    fetch('./multilang/translations.json')
+      .then(res => res.json())
+      .then(data => {
+        elements.forEach(el => {
+          const key = el.getAttribute('data-i18n');
+          if (data[lang] && data[lang][key]) {
+            el.textContent = data[lang][key];
+          }
+        });
+
+        // 👉 Дополнительно, если есть блок FAQ
+        if (data[lang].faq) {
+          const faqContainer = document.getElementById('faq');
+          if (faqContainer) {
+            faqContainer.innerHTML = ''; // очистить
+            data[lang].faq.forEach(item => {
+              const faqItem = document.createElement('div');
+              faqItem.className = 'accordion-item';
+              faqItem.innerHTML = `
+                <button class="accordion-header">
+                  <span>${item.question}</span>
+                  <svg class="icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+                </button>
+                <div class="accordion-content">
+                  ${item.answers.map(ans => `<p>${ans}</p>`).join('')}
+                </div>
+              `;
+              faqContainer.appendChild(faqItem);
+            });
+          }
+        }
+      });
+  }
+
+  switcher.value = defaultLang;
+  loadLanguage(defaultLang);
+
+  switcher.addEventListener('change', () => {
+    const selectedLang = switcher.value;
+    localStorage.setItem('lang', selectedLang);
+    loadLanguage(selectedLang);
+  });
+});
+
+const switcher = document.getElementById('languageSwitcher');
+const mobileSwitcher = document.getElementById('languageSwitcherMobile');
+
+function loadLanguage(lang) {
+  fetch('./multilang/translations.json')
+    .then(res => res.json())
+    .then(data => {
+      // твоя логика замены текста
+    });
+}
+
+const selectedLang = localStorage.getItem('lang') || 'ru';
+if (switcher) switcher.value = selectedLang;
+if (mobileSwitcher) mobileSwitcher.value = selectedLang;
+
+if (switcher) {
+  switcher.addEventListener('change', () => {
+    localStorage.setItem('lang', switcher.value);
+    location.reload();
+  });
+}
+
+if (mobileSwitcher) {
+  mobileSwitcher.addEventListener('change', () => {
+    localStorage.setItem('lang', mobileSwitcher.value);
+    location.reload();
+  });
+}
+
+loadLanguage(selectedLang);

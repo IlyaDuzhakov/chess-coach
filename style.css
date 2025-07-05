@@ -89,6 +89,7 @@ a:hover {
   padding: 2.5rem 3rem;
   top: 0;
   z-index: 100;
+  /* margin: 0 auto; */
 }
 
 .header__title {
@@ -99,12 +100,58 @@ a:hover {
   text-transform: uppercase;
   font-size: 3.2rem;
   letter-spacing: 2px;
-  margin-top: -170px;
   font-weight: bold;
   margin-bottom: 10px;
   text-align: center;
-  position: relative;
+  /* position: absolute; */
 }
+
+.header__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+   position: relative;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header__logo img {
+  width: 600px;
+  height: 200px;
+  margin-left: -250px;
+  margin-top: -30px;
+}
+
+.header__logo img {
+  animation: glow 10s infinite linear;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+  25% {
+    filter: drop-shadow(0 0 5px #00ff00);
+  }
+  50% {
+    filter: drop-shadow(0 0 5px #0000ff);
+  }
+  75% {
+    filter: drop-shadow(0 0 5px #ffff00);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+}
+
 
 .preloader {
   opacity: 1;
@@ -117,35 +164,27 @@ a:hover {
   pointer-events: none;
 }
 
-
-.fide:hover {
-  text-decoration: none;
-  color: #4e63c3; 
-}
-
-.fide p {
-  font-size: 24px;
-  width: 450px;
-}
-
-.fide p:hover {
-  color: #9c3f01;
-  /* transform: scale(1.05); */
-}
-
-.fide .text__title {
+.fide {
   font-size: 1.4rem;
   font-weight: 700;
   color: rgb(3, 50, 93);
-  animation: fadeDown 1.2s ease-in-out;
-  text-align: center;
-  margin-bottom: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.fide:hover {
+  color: #52009e;
+  text-decoration: none;
+  
+}
 
-.tooltip {      /* кастомная подсказка к переходу на сайт FIDE*/ 
+.tooltip {
   position: relative;
   display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+  max-width: 500px;
+  animation: fadeDown 1.2s ease-in-out;
 }
 
 .tooltip .tooltip-text {
@@ -159,7 +198,7 @@ a:hover {
   padding: 6px 8px;
   position: absolute;
   z-index: 100;
-  top: -10px;
+  top: -30px;
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -170,8 +209,7 @@ a:hover {
 .tooltip:hover .tooltip-text {
   visibility: visible;
   opacity: 1;
-}                          /* кастомная подсказка к переходу на сайт FIDE*/ 
-
+}
 
 .header__container {
   display: flex;
@@ -180,57 +218,53 @@ a:hover {
   gap: 1rem;
 }
 
-.header__top {
+.header__buttons {
   display: flex;
+  gap: 12px;
   justify-content: center;
-  align-items: center;
-  margin-bottom: -100px;
-}
-
-.logo-svg {
-  width: 400px;
-  height: 400px;
-  margin-left: -700px;
-  margin-top: -150px;
-}
-
-.logo-svg:hover {
-  transform: scale(1.05);
+  flex-wrap: wrap;
+  margin-top: 20px;
 }
 
 .header__button {
-  display: inline-block;
-  background: linear-gradient(90deg, #53e48d, #e3f595, #5be8a9, #d7fc03);
-  /* -webkit-text-fill-color: transparent; */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 24px;
-  padding: 12px 24px;
-  border-radius: 30px;
-  font-weight: bold;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 20px auto 30px;
-  transition: background 0.3s;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
   text-decoration: none;
-  
+  transition: all 0.3s ease;
+  color: #fff;
 }
 
-.header__button span {
-  color: #0c0122;
-  font-size: 18px;
-  font-weight: 800;
+.btn-primary {
+  background: linear-gradient(45deg, #4caf50, #81c784);
 }
 
-.header__button:hover {
-  background: #26e610;
-  transform: scale(1.1);
+.btn-primary:hover {
+  background: linear-gradient(45deg, #388e3c, #66bb6a);
   text-decoration: none;
-  
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.header__button:hover span {
-  color: #b3034f;
+.btn-secondary {
+  background: linear-gradient(45deg, #2196f3, #64b5f6);
+  text-decoration: none;
 }
+
+.btn-secondary:hover {
+  background: linear-gradient(45deg, #1976d2, #42a5f5);
+  text-decoration: none;
+}
+
+.btn-tertiary {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  text-decoration: none;
+}
+
+.btn-tertiary:hover {
+  background: linear-gradient(45deg, #f57c00, #ffa726);
+  text-decoration: none;
+}
+
 
 /* По умолчанию бургер скрыт */
 .burger {
@@ -252,25 +286,26 @@ a:hover {
   height: 3px;
   width: 100%;
   background-color: #333;
-  border-radius: 3px;
+  /* border-radius: 3px; */
   transition: all 0.3s ease-in-out;
    transform-origin: center;
 }
 
 /* Состояние "крестик" */
 .burger.open span:nth-child(1) {
-  transform: rotate(34deg) translateY(14px);
+  transform: rotate(45deg) translateY(15px);
 }
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 .burger.open span:nth-child(3) {
-  transform: rotate(-34deg) translateY(-14px);
+  transform: rotate(-45deg) translateY(-12px);
 }
 
 .nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   max-width: 800px;
   width: 100%;
   gap: 40px;
@@ -660,8 +695,7 @@ nav a:hover::after {
 }
 
 .carousel-track img {
-  height: 280px;
-  width: auto;
+  height: 100%;
   border-radius: 12px;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -671,7 +705,7 @@ nav a:hover::after {
   width: 80vw; /* или 250px */
   margin-right: 20px;
   cursor: pointer;
-
+  aspect-ratio: 3/4; /* или 360/480 */
   overflow: hidden;
   box-sizing: border-box;
   max-width: 100%;
@@ -1210,6 +1244,24 @@ section p, section li {
   fill: #f08a24;
 }
 
+/*                            telegramPriceForm              */
+.bot-button {
+  display: inline-block;
+  background: linear-gradient(90deg, #56ab2f, #a8e063);
+  color: #fff;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.bot-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+/*                            telegramPriceForm              */
 
 /* footer */
 
@@ -1315,8 +1367,530 @@ section p, section li {
   text-decoration: underline;
 }
 
+/*                    prise                                */
+.lesson-price {
+  max-width: 1000px; /* Ширина секции на больших экранах */
+  width: 90%; /* на мобилках и планшетах — не больше ширины экрана */
+   margin: 20px auto 60px auto;
+  background: linear-gradient(to right, #e0f7fa, #dcedc8);
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+ .content__prise {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left; 
+}
+
+.lesson-price h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  color: #113355;
+}
+
+.price-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.price-card h3 {
+  color: #00796b;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.price-card p {
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.info-item .icon {
+  font-size: 1.8rem;
+  margin-right: 15px;
+  flex-shrink: 0;
+}
+
+.info-item p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 0;
+}
+
+.euro {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.lesson-formats,
+.lesson-age {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.lesson-formats h3,
+.lesson-age h3 {
+  font-size: 1.5rem;
+  color: #00695c;
+  margin-bottom: 10px;
+}
+
+.lesson-formats ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+.lesson-formats li {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+  color: #333;
+}
+
+.note {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #444;
+}
+
+.lesson-age p {
+  font-size: 1.2rem;
+  color: #333;
+}
+
+
+.fancy-btn {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.fancy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+/*                          course                               */
+
+.course-card {
+  position: relative;
+
+}
+
+.badge {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  background: #007bff;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.courses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 60px auto;
+  font-family: sans-serif;
+}
+
+.course-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  flex: 1 1 300px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-card img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+}
+
+.course-content {
+  padding: 20px;
+  text-align: center;
+}
+
+.course-content h2 {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+}
+
+.course-content p {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.course-buttons {
+  display: flex;
+  flex-direction: column; /* кнопки одна под другой */
+  gap: 10px;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.course-buttons button {
+    padding: 12px 20px;
+  font-size: 16px;
+  max-width: 220px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: #01b5dd;
+  color: white;
+  text-align: center;
+}
+
+.course-buttons button:hover {
+  background: #0056b3;
+}
+
+.course-buttons button.secondary {
+  background: #f8f9fa;
+  color: #007bff;
+  border: 1px solid #007bff;
+}
+
+.course-buttons button.secondary:hover {
+  background: #e2e6ea;
+}
+
+.course-description {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.course-description h2 {
+  color: #2e4a7d;
+}
+
+.course-description h3 {
+  margin-top: 20px;
+  color: #4a4a4a;
+}
+
+.course-description ul {
+  margin-left: 20px;
+}
+
+.course-description li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.course-description p {
+  text-align: left;
+}
+.course-features {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left; /* слева */
+}
+
+.course-features h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.course-features ul {
+  list-style: none; /* убираем стандартные точки */
+  padding: 0;
+}
+
+.course-features li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.course-features li::before {
+  content: attr(data-number);
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.price {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #e53935;
+  margin: 15px 0;
+}
+
+.buy__btn {
+  display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f90;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.buy__btn:hover {
+  background: rgb(248, 0, 0);
+  text-decoration: none;
+}
+
+.course-description {
+  margin-top: 20px;
+  text-align: left;
+  /* display: none; */
+}
+.course-description h3 {
+  margin: 10px 0 5px;
+}
+.course-description ul {
+  list-style: none;
+  padding: 0;
+}
+.course-description li {
+  margin: 5px 0;
+}
+
+#course-program {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 500px;
+  text-align: left;
+}
+
+#course-program li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#course-program li span {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.more {
+  text-align: center;
+  font-style: italic;
+  margin-top: 10px;
+  color: #555;
+}
+
+#course-program-2 {
+  margin-top: 15px;
+  text-align: left;
+  list-style: none;
+  padding: 0;
+}
+
+#course-program-2 li {
+  margin: 5px 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#course-program-2 li span {
+  display: inline-block;
+  width: 24px;
+}
+#course-program-2 .more {
+  font-style: italic;
+  color: #777;
+  margin-top: 10px;
+}
+
+/*                          course                               */
 
 /* ---------------------------- bot -----------------------------*/
+
+/*                          book reader                          */
+
+.books {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.books__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.book {
+  max-width: 900px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 1rem;
+  text-align: left;
+}
+
+.book img {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.book h3 {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.book p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.book .btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #4e63c3;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.book .btn:hover {
+  background: #3546a0;
+}
+
+.book {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  position: relative;
+}
+
+.book:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: #4e63c3; /* или любой цвет рамки при ховере */
+}
+
+.pdf-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.pdf-content {
+  position: relative;
+  background: #fff;
+  max-width: 90%;
+  max-height: 90%;
+  width: 800px;
+  height: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+#close-pdf {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: #e33;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  font-size: 1rem;
+}
+
+.book__view {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4e63c3;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.book__view:hover {
+  color: #000;
+  background-color: #00ff00;
+}
+
+.book__order {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background: #106216;
+  color: white;
+  text-decoration: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: background 0.3s ease;
+  position: absolute;
+  bottom: 15px;
+  right: 14px;
+}
+
+.book__order:hover {
+  background: #de5f24;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+/*                          book reader                         */
 
 .form-section {
   max-width: 500px;
@@ -1372,10 +1946,6 @@ section p, section li {
 
 #form-modal.visible {
   display: block;
-  /* position: fixed;
-  top: 50%;
-   left: 55%;  */
-  /* или opacity: 1 */
 }
 
 #bot-icon {

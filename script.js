@@ -183,6 +183,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// Кнопка оставить заявку
+document.addEventListener('DOMContentLoaded', () => {
+  const btn = document.getElementById('requestBtn');
+  const form = document.getElementById('bot-form');
+
+  btn.addEventListener('click', () => {
+    form.classList.toggle('hidden');
+  });
+});
+
 
 const botIcon = document.getElementById('bot-icon');
 const botForm = document.getElementById('bot-form');
@@ -349,3 +359,54 @@ if (mobileSwitcher) {
 }
 
 loadLanguage(selectedLang);
+
+const courses = document.querySelectorAll('.courses-slider .course');
+let current = 0;
+
+setInterval(() => {
+  courses[current].classList.remove('active');
+  current = (current + 1) % courses.length;
+  courses[current].classList.add('active');
+}, 12000);
+
+
+document.querySelectorAll('[id^="toggle-program"]').forEach(button => {
+  button.addEventListener('click', () => {
+    const num = button.id.replace('toggle-program', '');
+    const prog = document.getElementById(`course-program${num}`);
+    const more = prog.querySelector('.more');
+
+    prog.classList.toggle('hidden');
+    if (prog.classList.contains('hidden')) {
+      button.textContent = 'Показать программу ▼';
+      if (more) more.classList.add('hidden');
+    } else {
+      button.textContent = 'Скрыть программу ▲';
+      if (more) more.classList.remove('hidden');
+    }
+  });
+});
+
+const modal = document.getElementById('pdf-modal');
+const iframe = modal.querySelector('iframe');
+const closeBtn = document.getElementById('close-pdf');
+
+document.querySelectorAll('.book__view').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const pdfSrc = btn.getAttribute('data-pdf');
+    iframe.src = pdfSrc;
+    modal.style.display = 'flex';
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  modal.style.display = 'none';
+  iframe.src = '';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+    iframe.src = '';
+  }
+});

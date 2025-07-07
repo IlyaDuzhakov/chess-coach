@@ -67,40 +67,40 @@ setInterval(nextSlide, 2000);
 // Начальный показ
 showSlide(currentSlide);
 
-window.addEventListener('load', () => {
-  if (window.innerWidth > 768) { // Только для десктопов
-    const track = document.querySelector('.carousel-track');
+// window.addEventListener('load', () => {
+//   if (window.innerWidth > 768) { // Только для десктопов
+//     const track = document.querySelector('.carousel-track');
 
-  const items = track.querySelectorAll('.carousel-item');
-  const speed = 0.5; // скорость прокрутки
-  }
-  // Клонируем элементы для бесконечной прокрутки
-  items.forEach(item => {
-    const clone = item.cloneNode(true);
-    track.appendChild(clone);
-  });
+//   const items = track.querySelectorAll('.carousel-item');
+//   const speed = 0.5; // скорость прокрутки
+//   }
+//   // Клонируем элементы для бесконечной прокрутки
+//   items.forEach(item => {
+//     const clone = item.cloneNode(true);
+//     track.appendChild(clone);
+//   });
 
-  let scrollLeft = 0;
+//   let scrollLeft = 0;
 
-  function loopScroll() {
-    scrollLeft += speed;
-    track.scrollLeft = scrollLeft;
+//   function loopScroll() {
+//     scrollLeft += speed;
+//     track.scrollLeft = scrollLeft;
 
-    // Когда прокрутка дошла до середины — сбрасываем
-    if (scrollLeft >= track.scrollWidth / 2) {
-      scrollLeft = 0;
-    }
+//     // Когда прокрутка дошла до середины — сбрасываем
+//     if (scrollLeft >= track.scrollWidth / 2) {
+//       scrollLeft = 0;
+//     }
 
-    requestAnimationFrame(loopScroll);
-  }
+//     requestAnimationFrame(loopScroll);
+//   }
 
   // Настройки стилей на всякий случай
-  track.style.display = 'flex';
-  track.style.overflow = 'hidden';
-  track.style.scrollBehavior = 'auto'; // отключить анимации по умолчанию
+//   track.style.display = 'flex';
+//   track.style.overflow = 'hidden';
+//   track.style.scrollBehavior = 'auto'; // отключить анимации по умолчанию
 
-  loopScroll();
-});
+//   loopScroll();
+// });
 
 const footer = document.querySelector('.footer');
 
@@ -257,6 +257,30 @@ function initCarousel() {
   }
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const bot = document.getElementById('bot-icon');
+  const header = document.querySelector('.header__top');
+  const botHome = bot.parentElement; // где он находится по умолчанию (например, внизу сайта)
+
+function moveBotIcon() {
+  const bot = document.getElementById('bot-icon');
+  const headerRight = document.querySelector('.header__right');
+
+  if (window.innerWidth <= 1024) {
+    if (!headerRight.contains(bot)) {
+      headerRight.appendChild(bot);
+    }
+  } else {
+    document.body.appendChild(bot); // или куда его возвращать
+  }
+}
+
+window.addEventListener('resize', moveBotIcon);
+window.addEventListener('DOMContentLoaded', moveBotIcon);
+ // при изменении размера
+});
+
+
 // Запускаем при загрузке
 document.addEventListener('DOMContentLoaded', initCarousel);
 
@@ -291,7 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elements.forEach(el => {
           const key = el.getAttribute('data-i18n');
           if (data[lang] && data[lang][key]) {
-            el.textContent = data[lang][key];
+            el.innerHTML = data[lang][key];
           }
         });
 
@@ -410,3 +434,11 @@ window.addEventListener('click', (e) => {
     iframe.src = '';
   }
 });
+
+function showLarge(src) {
+  const modal = document.getElementById('modal');
+  const modalImg = document.getElementById('modal-img');
+  modalImg.src = src;
+  modal.style.display = 'flex';
+  modal.onclick = () => modal.style.display = 'none';
+}

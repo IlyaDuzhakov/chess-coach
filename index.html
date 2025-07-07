@@ -47,6 +47,9 @@
     <link rel="stylesheet" href="media.css">
     <link rel="stylesheet" href="animations.css">
     <link rel="stylesheet" href="preloader/preloader.css">
+    <link rel="stylesheet" href="css/desktop.css" media="(max-width: 768px)">
+    <link rel="stylesheet" href="css/tablet.css" media="(max-width: 1024px)">
+    <link rel="stylesheet" href="css/mobile.css">
     <!-- Стандартный фавикон -->
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -62,8 +65,8 @@
  <div class="preloader" id="preloader">
   <div class="scene">
     <div class="background"></div>
-    <img src="images/horse.gif" class="horse" alt="Horse running">
-    <div class="preloader-title">Добро пожаловать на сайт чемпион!</div>
+    <img src="svg/knight_preloader.svg" alt="Chess Guide" class="preloader-knight">
+    <p>Загружаем Chess Guide…</p>
   </div>
 </div>
 
@@ -71,13 +74,15 @@
   <header class="header reveal-top" id="home">
     <div class="header__top">
       <div class="logo-title">
+        <!-- <div class="logo__wrapper"> -->
       <a href="#home" class="header__logo"> 
-        <img src="svg/logo.svg" alt="Chess Guide" width="200" height="100">
-        
+        <div class="nav__logo">
+        <img src="svg/logo.svg" alt="Chess Guide" width="400" height="400">
+        </div>
       </a>
       <h1 class="header__title" data-i18n="header__title">Илья Дужаков</h1>
       </div>
-
+<!-- </div> -->
       <!--  multilang-->
          <div class="header__right">
       <div class="language-switcher-desktop">
@@ -108,13 +113,13 @@
       </div>
          
        <div class="header__buttons">
-  <a href="#pricing" class="header__button btn btn-primary">
+  <a data-i18n="btn_sign_up" href="#pricing" class="header__button btn btn-primary">
     <span>Записаться на занятие</span>
   </a>
-  <a href="#courses" class="header__button btn btn-secondary">
+  <a data-i18n="btn_courses" href="#courses" class="header__button btn btn-secondary">
     <span>Курсы</span>
   </a>
-  <a href="#books" class="header__button btn btn-tertiary">
+  <a data-i18n="btn_workbooks" href="#books" class="header__button btn btn-tertiary">
     <span>Рабочие тетради</span>
   </a>
 </div>
@@ -747,35 +752,35 @@
 
 <section class="lesson-price" id="pricing">
   <div class="content__prise">
-  <h2>💰 Стоимость и формат занятий</h2>
+  <h2 data-i18n="pricing_title">💰 Стоимость и формат занятий</h2>
 
   <div class="info-item">
     <span class="icon">⏳</span>
-    <p>Длительность занятий — 30, 45 или 60 минут</p>
+    <p data-i18n="pricing_duration">Длительность занятий — 30, 45 или 60 минут</p>
   </div>
 
   <div class="price-card">
     
-    <h3>🎯 Индивидуальные занятия</h3>
-    <p>Длительность — 45 минут</p>
-    <p>Стоимость — 25 € <span class="euro">(или в рублях по курсу)</span></p>
+    <h3 data-i18n="individual_lessons_title">🎯 Индивидуальные занятия</h3>
+    <p data-i18n="individual_lessons_duration">Длительность — 45 минут</p>
+    <p data-i18n="individual_lessons_price">Стоимость — 25 € <span class="euro">(или в рублях по курсу)</span></p>
   </div>
 
   <div class="lesson-formats">
-    <h3>📋 Форматы тренировок</h3>
+    <h3 data-i18n="training_formats_title">📋 Форматы тренировок</h3>
     <ul>
-      <li>Индивидуальные занятия (онлайн)</li>
+      <li data-i18n="training_formats_list">Индивидуальные занятия (онлайн)</li>
       <li>Групповые занятия (до 6 человек)</li>
       <li>Интенсивы и мастер‑классы</li>
     </ul>
-    <p class="note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
+    <p data-i18n="training_formats_note" class="note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
   </div>
 
   <div class="lesson-age">
-    <h3>🎂 Возраст учеников</h3>
-    <p>От 5 лет и без ограничений — помогу каждому мыслить стратегически и уверенно принимать решения за шахматной доской!</p>
+    <h3 data-i18n="student_age_title">🎂 Возраст учеников</h3>
+    <p data-i18n="student_age_text">От 5 лет и без ограничений — помогу каждому мыслить стратегически и уверенно принимать решения за шахматной доской!</p>
   </div>
-<button class="fancy-btn" id="requestBtn">Оставить заявку</button>
+<button data-i18n="request_button" class="fancy-btn" id="requestBtn">Оставить заявку</button>
 
 
 
@@ -783,49 +788,49 @@
 </section>
 
 <section class="courses" id="courses">
-  
+  <div class="courses__wrapper">
   <div class="course-card">
-    <div class="badge">Курс</div>
+    <div data-i18n="courses_title" class="badge">Курс</div>
     <img src="images/best_games.png" alt="Курс 1">
     <div class="course-content">
-      <h2>📖 «Тактика и стратегия на базе моих лучших партий»</h2>
+      <h2 data-i18n="course1_title">📖 «Тактика и стратегия на базе моих лучших партий»</h2>
      <div class="course-description" id="course_description">
-  <h2>📖 О курсе</h2>
-  <p>
+  <h2 data-i18n="course1_about">📖 О курсе</h2>
+  <p data-i18n="course1_description">
     В курсе используется эффективный метод тренировки шахматиста — <strong>вопрос–ответ</strong>. 
     Вы изучите важнейшие стратегические приёмы и научитесь составлять план в любой позиции. 
     Подробно разобраны более <strong>40 партий</strong>, а также приведены примеры из партий чемпионов.
     Вас ждёт более <strong>240 упражнений на тактику и стратегию</strong>.
   </p>
 <div class="course-features">
-  <h2>💡 Что вы получите</h2>
+  <h2 data-i18n="course1_features_title">💡 Что вы получите</h2>
   <ul>
-    <li data-number="1️⃣">Более 240 упражнений по тактике и стратегии</li>
-    <li data-number="2️⃣">Знакомство с множеством шахматных правил и стратегических приёмов</li>
-    <li data-number="3️⃣">Понимание, как готовиться к сопернику</li>
-    <li data-number="4️⃣">Практические советы по построению дебютного репертуара.</li>
-    <li data-number="5️⃣">Персональный анализ 10 ваших партий с комментариями и рекомендациями.</li>
-    <li data-number="6️⃣">30‑минутный индивидуальный урок </li>
+    <li data-i18n="course1_feature_1" data-number="1️⃣">Более 240 упражнений по тактике и стратегии</li>
+    <li data-i18n="course1_feature_2" data-number="2️⃣">Знакомство с множеством шахматных правил и стратегических приёмов</li>
+    <li data-i18n="course1_feature_3" data-number="3️⃣">Понимание, как готовиться к сопернику</li>
+    <li data-i18n="course1_feature_4" data-number="4️⃣">Практические советы по построению дебютного репертуара.</li>
+    <li data-i18n="course1_feature_5" data-number="5️⃣">Персональный анализ 10 ваших партий с комментариями и рекомендациями.</li>
+    <li data-i18n="course1_feature_6" data-number="6️⃣">30‑минутный индивидуальный урок </li>
   </ul>
 </div>
 </div>
 
     <ul id="course-program" class="hidden">
-  <li><span>♟️</span> Стратегический приём «Запасная проходная»</li>
-  <li><span>🔄</span> Учимся маневрировать</li>
-  <li><span>🎯</span> Слабые поля в лагере соперника</li>
-  <li><span>📝</span> Подготовка к сопернику</li>
-  <li><span>🔥</span> Позиционная жертва качества</li>
-  <li><span>🚀</span> Чувство темпа в атаке</li>
-  <p class="more">…и ещё больше тем смотрите на сайте 👇</p>
+  <li data-i18n="course1_program_1"><span>♟️</span> Стратегический приём «Запасная проходная»</li>
+  <li data-i18n="course1_program_2"><span>🔄</span> Учимся маневрировать</li>
+  <li data-i18n="course1_program_3"><span>🎯</span> Слабые поля в лагере соперника</li>
+  <li data-i18n="course1_program_4"><span>📝</span> Подготовка к сопернику</li>
+  <li data-i18n="course1_program_5"><span>🔥</span> Позиционная жертва качества</li>
+  <li data-i18n="course1_program_6"><span>🚀</span> Чувство темпа в атаке</li>
+  <p data-i18n="more_themes" class="more">…и ещё больше тем смотрите на сайте 👇</p>
 </ul>
 
 
       <div class="course-buttons">
-      <button id="toggle-program">Показать программу ▼</button>
+      <button data-i18n="show_program" id="toggle-program">Показать программу ▼</button>
   </div>
-       <p class="price">8 999 ₽</p>
-  <a href="https://krivenkochess.getcourse.ru/teach/control/stream/view/id/924410928" target="_blank" rel="noopener noreferrer" class="buy__btn">
+       <p  class="price">8 999 ₽</p>
+  <a href="https://krivenkochess.getcourse.ru/teach/control/stream/view/id/924410928" data-i18n="buy_course" target="_blank" rel="noopener noreferrer" class="buy__btn">
   Купить курс
 </a>
 
@@ -834,45 +839,46 @@
   </div>
 
   <div class="course-card">
-    <span class="badge">Курс</span>
+    <span  data-i18n="courses_title" class="badge">Курс</span>
   <img src="images/viennese_game.png" alt="Курс 2">
   <div class="course-content">
-    <h2>📖 «Современная Венская партия белыми»</h2>
+    <h2 data-i18n="course2_title">📖 «Современная Венская партия белыми»</h2>
 
     <div class="course-description">
-      <h2>📖 О курсе</h2>
-      <p>
+      <h2 data-i18n="course2_about">📖 О курсе</h2>
+      <p data-i18n="course2_description">
         На курсе вы узнаете, как играть белыми против самого плотного ответа чёрных 1…e5.
         Изучите планы дебюта, теорию, примерные партии и сможете быстро включить современную Венскую партию в свой дебютный репертуар!
       </p>
 
       <div class="course-features">
            <div class="course__features-about">
-        <h2>💡 Что вы получите</h2>
+        <h2 data-i18n="course2_features_title">💡 Что вы получите</h2>
         <ul>
-          <li data-number="1️⃣"> 8 теоретических видео с комментариями каждого хода и планами игры 📹</li>
-          <li data-number="2️⃣">2 видео с разбором 20+ примерных партий для понимания тонкостей дебюта 🎯 </li>
-          <li data-number="3️⃣">Интерактивные уроки на Lichess для закрепления материала ♟️ </li>
-          <li data-number="4️⃣"> 30-минутный разбор 5 ваших партий с рекомендациями 👨‍🏫</li>
+          <li data-i18n="course2_feature_1" data-number="1️⃣"> 8 теоретических видео с комментариями каждого хода и планами игры 📹</li>
+          <li data-i18n="course2_feature_2" data-number="2️⃣">2 видео с разбором 20+ примерных партий для понимания тонкостей дебюта 🎯 </li>
+          <li data-i18n="course2_feature_3" data-number="3️⃣">Интерактивные уроки на Lichess для закрепления материала ♟️ </li>
+          <li data-i18n="course2_feature_4" data-number="4️⃣"> 30-минутный разбор 5 ваших партий с рекомендациями 👨‍🏫</li>
         </ul>
       </div>
     </div>
         <ul id="course-program-2" class="hidden">
-          <li><span>♟️</span> Редкие продолжения за чёрных (2…d6, 2…Сc5)</li>
-          <li><span>🔄</span> Ключевой ход 4. Фg4! и атака на короля</li>
-          <li><span>🎯</span> Современная Венская партия против 4…d6 и 4…Сb4</li>
-          <li><span>📝</span> Идея чёрных 4…Ка5!? и как на неё реагировать</li>
-          <li><span>📚</span> Примерные партии и тренажёры на Lichess</li>
-          <p class="more">…и ещё больше тем смотрите на сайте 👇</p>
+          <li data-i18n="course2_program_1"><span>♟️</span> Редкие продолжения за чёрных (2…d6, 2…Сc5)</li>
+          <li data-i18n="course2_program_2"><span>🔄</span> Ключевой ход 4. Фg4! и атака на короля</li>
+          <li data-i18n="course2_program_3"><span>🎯</span> Современная Венская партия против 4…d6 и 4…Сb4</li>
+          <li data-i18n="course2_program_4"><span>📝</span> Идея чёрных 4…Ка5!? и как на неё реагировать</li>
+          <li data-i18n="course2_program_5"><span>📚</span> Примерные партии и тренажёры на Lichess</li>
+          <p data-i18n="more_themes" class="more">…и ещё больше тем смотрите на сайте 👇</p>
         </ul>
       </div>
     </div>
 
     <div class="course-buttons">
-      <button id="toggle-program-2">Показать программу ▼</button>
+      <button data-i18n="show_program" id="toggle-program-2">Показать программу ▼</button>
 
       <p class="price">4 500 ₽</p>
       <a href="https://krivenkochess.getcourse.ru/teach/control/stream/view/id/934004010" 
+      data-i18n="buy_course" 
          target="_blank" 
          rel="noopener noreferrer" 
          class="buy__btn">
@@ -881,27 +887,27 @@
     </div>
   </div>
 </div>
-
+</div>
   </div>
 </section>
 
 <section id="books" class="books">
-  <h2>Рабочие тетради</h2>
+  <h2 data-i18n="workbooks_title" >Рабочие тетради</h2>
   <div class="books__list">
     <div class="book">
-      <img src="images/work_book.jpg" alt="Рабочая тетрадь 1">
-      <h3>Рабочая тетрадь. Часть 1</h3>
-      <p>Пособие по шахматам: включает разнообразные задания, выстроенные от простых к сложным, для формирования первых навыков игры и развития когнитивных способностей.</p>
-      <button class="book__view" data-pdf="images/shakhmaty_oznakomitelnyy_fragment.pdf"> Смотреть пример</button>
-      <a href="https://wa.me/79811429286" target="_blank" rel="noopener noreferrer" class="book__order">
+      <img src="images/work_book.jpg" alt="Рабочая тетрадь 1" onclick="showLarge(this.src)">
+      <h3 data-i18n="workbook_1_title">Рабочая тетрадь. Часть 1</h3>
+      <p data-i18n="workbook_1_desc">Пособие по шахматам: включает разнообразные задания, выстроенные от простых к сложным, для формирования первых навыков игры и развития когнитивных способностей.</p>
+      <button data-i18n="workbook_1_view" class="book__view" data-pdf="images/shakhmaty_oznakomitelnyy_fragment.pdf"> Смотреть пример</button>
+      <a href="https://wa.me/79811429286" target="_blank" rel="noopener noreferrer" data-i18n="workbook_1_order" class="book__order">
     💬 Связаться для заказа
       </a>
     </div>
 
     <div class="book">
-      <img src="images/work_book-2.jpg" alt="Рабочая тетрадь 2">
-      <h3>Рабочая тетрадь. Часть 2</h3>
-      <p>Вторая часть в процессе подготовки. Следите за обновлениями!</p>
+      <img src="images/work_book-2.jpg" alt="Рабочая тетрадь 2" onclick="showLarge(this.src)">
+      <h3 data-i18n="workbook_2_title">Рабочая тетрадь. Часть 2</h3>
+      <p data-i18n="workbook_2_desc">Вторая часть в процессе подготовки. Следите за обновлениями!</p>
     </div>
   </div>
 </section>
@@ -979,6 +985,10 @@
     </a>
   
 </footer>
+
+<div id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+  <img id="modal-img" src="" style="max-width:90%;max-height:90%;">
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 

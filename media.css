@@ -1,171 +1,93 @@
-
-@media (max-width: 1120px) {
-  .logo-svg {
-    margin-left: -500px;
+@media (max-width: 1250px) {
+ .header__logo img {
+  width: 200px;
+  height: 200px; 
+  margin-left: -300px;
   }
 }
+
 /* Планшет: до 1024px */
 @media (max-width: 1024px) {
+  header {
+    height: 180px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .header__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    height: 60px;
+  }
+  .header__logo img {
+    max-height: 150px;
+    margin-right: 30px;
+  }
   .header__title {
-    font-size: 36px;
+    font-size: 28px;
+    margin: 0;
   }
-
-  .text__title {
-    font-size: 18px;
-  }
-
   .header__logo-left {
     width: 50px;
     height: 50px;
   }
+  .header__subtitle {
+    display: none; /* эту часть текста убираем, если есть */
+  }
+  .header__buttons {
+    margin-top: 10px;
+  }
+   .burger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    padding: 10px;
+  }
+
+  .nav.show {
+    display: flex;
+  }
+  #bot-icon {
+  position: absolute;
+  right: 0; /* или сколько нужно, чтобы не перекрывал бургер */
+  top: 50px;
+  left: auto; /* чтобы сбросить старое */
+  font-size: 32px;
+  z-index: 1001;
+  }
+  #bot-icon svg {
+   width: 110px; /* подстрой под размер */
+  }
+  
+  #bot-form {
+  right: 10px;
+  bottom: 160px;
+  width: 70%;
+  max-width: 300px;
+  }
+
   .camera-icon {
   top: 30px;
   right: 50px;
   width: 60px;
   height: 60px;
 }
-}
-
-@media (max-width: 960px) {
-   .icon {
-    right: 40px;
-  }
-
-}
-
-@media (max-width: 850px) {
-  .logo-svg {
-    margin-left: -450px;
-    width: 380px;
-    height: 380px;
-  }
-}
-
-/* Телефон: до 768px */
-@media (max-width: 768px) {
-  .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
-    display: none;
-  }
-/* 📱 До 768px — по одному */
-@media (max-width: 768px) {
-  .carousel-track {
-    display: block;
-    overflow: hidden;
-    text-align: center;
-  }
-
-  .carousel-item {
-    display: none !important;
-  }
-
-  .carousel-item.active {
-    display: block !important;
-    margin: 0 auto;
-  }
-
-  .carousel-item img {
-    width: 90%;
-    border-radius: 12px;
-    height: 480px; /* фиксированная высота */
-    object-fit: cover; /* чтобы фото красиво вписывалось */
-    margin: 0 auto;
-  }
-}
-  .header__top {
-    display: flex;
-    flex-direction: column;
-  }
-  .logo-svg {
-    margin-left: -300px;
-    margin-top: -228px;
-  }
-  .header__logo-left {
-    margin-bottom: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .header__title {
-    font-size: 28px;
-  }
-
-  .text__title {
-    font-size: 16px;
-    padding: 0 10px;
-    text-align: center;
-    max-width: 400px;
-  }
-
-  .header__button {
-    font-size: 14px;
-    padding: 10px 20px;
-    display: inline-block;
-    margin-top: 10px;
-  }
-  .nav a {
-    font-size: 16px;
-    text-align: center;
-  }
-    .burger {
-    display: flex;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 90;
-  }
-  .nav {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  position: absolute;
-  top: 40px;
-  right: 0;
-  background: white;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  z-index: 100;
-  border-radius: 10px;
-  padding: 15px 0;
-  }
-
-  .nav.show {
-    display: flex;
-  }
-  .about-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .quality__mark {
-    width: 150px;
-    height: 150px;
-    margin-top: -200px;
-  }
-  .preloader-title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-  }
-
-  .horse {
-    height: 180px;
-  }
-    #bot-icon {
-    left: 5px;
-    bottom: 10px; /* выше, чтобы не мешал футеру */
-    font-size: 40px;
-  }
-    #bot-icon svg {
-      width: 110px; /* подстрой под размер */
-  }
-
-  #bot-form {
-    left: 10px;
-    bottom: 160px;
-    width: 70%;
-    max-width: 300px;
-  }
-    .language-switcher-desktop {
+  .language-switcher-desktop {
     display: none;
   }
 
@@ -188,13 +110,96 @@
     cursor: pointer;
     transition: all 0.3s ease;
   }
-
   .language-switcher-mobile select:hover {
     background-color: #e0f0ff;
+  } 
+  .lesson-heading .icon {
+    width: 80px;
+    height: 80px;
+  }
+   .quality__mark {
+    width: 150px;
+    height: 150px;
   }
 }
+
+@media (max-width: 850px) {
+    .header__buttons {
+      display: flex;
+      flex-direction: column;
+    }
+    .header__logo img {
+        max-height: 120px;
+        margin-right: -65px;
+    }
+    .courses__wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      height: auto; /* !!! */
+    }
+    .courses {
+    display: block; /* или flex + column, если нужно */
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+  }
+   .course-card {
+    flex: none; 
+    max-width: 95%;
+  }
+
+}
+
+/* 📱 До 768px — по одному */
+@media (max-width: 768px) {
+  .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
+    display: none;
+  }
+  .carousel-track {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  .carousel-item {
+    display: none !important;
+  }
+  
+  .carousel-item.active {
+    display: block !important;
+    margin: 0 auto;
+  }
+  
+  .carousel-item img {
+    width: 90%;
+    border-radius: 12px;
+    height: 480px; /* фиксированная высота */
+    object-fit: cover; /* чтобы фото красиво вписывалось */
+    margin: 0 auto;
+  }
+  
+  .about-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .header__logo img {
+    margin-left: -200px; 
+    margin-top: 290px;
+  }
+  .full-text {
+      display: block;
+      width: 239px;
+      font-size: 18px;
+  }
+}
+
 @media (max-width: 720px) {
-   .logo-svg {
+  .logo-svg {
     margin-left: -350px;
     margin-top: -141px;
     width: 250px;
@@ -203,6 +208,7 @@
   .lesson-heading .icon {
     width: 80px;
     height: 80px;
+    right: 20px;
   }
   .camera-icon {
   top: 10px;
@@ -213,10 +219,6 @@
 .preloader-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
-  }
-
-  .horse {
-    height: 180px;
   }
 }
 
@@ -232,6 +234,21 @@
 }
 
 @media (max-width: 550px)  {
+   .header__top {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .header__logo img {
+    display: none; /* убрать из header */
+  }
+
+  .nav__logo img {
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+  }
   .logo-svg {
     margin-left: -250px; 
     margin-top: -189px;
@@ -280,14 +297,6 @@
   .preloader-title {
     font-size: 1.5rem;
   }
-
-  .horse {
-    height: 22vh;
-    max-height: 160px;
-  }
-    #bot-icon svg {
-      width: 90px; 
-  }
   .form-section h2 {
     font-size: 20px;
   }
@@ -331,74 +340,6 @@
     font-size: 1.3rem;
     /* padding: 0 15px; */
   }
-
-  .horse {
-    height: 19vh;
-    max-height: 160px;
-  }
-}
-
-@media (max-width: 380px) {
-  .preloader-title {
-    font-size: 1.3rem !important;
-    padding: 0 20px !important;
-    line-height: 1.2 !important;
-    margin-top: -100;
-  }
-
-  .horse {
-    height: 17vh !important;
-    max-height: 140px !important;
-  }
-   #bot-icon {
-    left: 5px;
-    bottom: 5px; /* выше, чтобы не мешал футеру */
-    font-size: 40px;
-  } 
-    #bot-icon svg {
-      width: 90px; /* подстрой под размер */
-  }
-   #bot-form {
-    left: 10px;
-    bottom: 145px;
-    width: 80%;
-    height: 65%;
-    max-width: 270px;
-  }
-  .form-section h2 {
-    font-size: 20px;
-  }
-  .label {
-    margin-top: -111px;
-  }
-  .work__areas .icon {
-    width: 180px;
-    height: 180px;
-    margin-bottom: -25px;
-    margin-top: -15px;
-  }
-   .section h2 {
-    font-size: 24px;
-  }
-  .zoom, .teams {
-    width: 60px;
-  }
-  .reviews h2 {
-    font-size: 24px;
-  }
-  .work__experience-title {
-    font-size: 24px;
-  }
-  .about-right h2 {
-    font-size: 1.5rem;
-  }
-  .section h2 {
-    font-size: 24px;
-  }
-  .choose__title::after {
-        width: 240px;
-        margin-top: 30px;
-  }
 }
 
 @media (hover: none) {
@@ -407,7 +348,6 @@
     opacity: 0;
   }
 }
-
 /* Планшеты и ПК — от 769px */
 
 /* 💻 От 769px — горизонтальная карусель */

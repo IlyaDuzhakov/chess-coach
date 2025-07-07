@@ -1,0 +1,72 @@
+
+@media (max-width: 380px) {
+  .preloader-title {
+    font-size: 1.3rem !important;
+    padding: 0 20px !important;
+    line-height: 1.2 !important;
+    margin-top: -100;
+  }
+  .header__logo img {
+        margin-left: -42px !important;
+        margin-top: 24px;
+        position: relative;
+    }
+        .header__title {
+          position: absolute;
+         font-size: 16px;
+         top: 76px;
+         left: 48px;
+    }
+        .header__buttons {
+        margin-left: 46px;
+    }
+   .text__title {
+      margin-top: 36px;
+   } 
+    
+  .form-section h2 {
+    font-size: 20px;
+  }
+  .label {
+    margin-top: -111px;
+  }
+  .work__areas .icon {
+    width: 180px;
+    height: 180px;
+    margin-bottom: -25px;
+    margin-top: -15px;
+  }
+   .section h2 {
+    font-size: 24px;
+  }
+  .zoom, .teams {
+    width: 60px;
+  }
+  .reviews h2 {
+    font-size: 24px;
+  }
+  .work__experience-title {
+    font-size: 24px;
+  }
+  .about-right h2 {
+    font-size: 1.5rem;
+  }
+  .section h2 {
+    font-size: 24px;
+  }
+  .choose__title::after {
+        width: 240px;
+        margin-top: 30px;
+  }
+  .book__order {
+    font-size: 0.60rem;
+    width: 64px;
+  }
+  #bot-icon {
+    left: 200px;
+  }
+  .courses {
+    max-width: 93%;
+  }
+}
+

@@ -9,44 +9,15 @@ const FILES_TO_CACHE = [
   '/animations.css',
   '/manifest.json',
   '/offline.html',
-  '/images/offline-bg.webp',
+  '/svg/knight_preloader.svg',
   '/favicon-96.png',
   '/preloader/preloader.css',      
-  '/images/horse.gif',
   '/images/icon-192.png',
   '/images/desert-2.webp',
   '/images/chess-bg.svg',
   '/images/icon-512.png',
   '/svg/faqs-icon.svg'
 ];
-
-// self.addEventListener('install', event => {
-//   event.waitUntil(
-//     caches.open(CACHE_NAME).then(cache => {
-//       return cache.addAll(urlsToCache);
-//     })
-//   );
-// });
-
-// self.addEventListener('activate', event => {
-//   event.waitUntil(
-//     caches.keys().then(keys =>
-//       Promise.all(
-//         keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-//       )
-//     )
-//   );
-// });
-
-// self.addEventListener('fetch', event => {
-//   event.respondWith(
-//     caches.match(event.request).then(response => {
-//       return response || fetch(event.request);
-//     })
-//   );
-// });
-
-
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -75,14 +46,17 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  if (event.request.mode !== 'navigate') {
-    // игнорируем fetch-запросы на изображения, скрипты и т.д.
-    return;
+  if (event.request.mode === 'navigate') {
+    // для страниц
+    event.respondWith(
+      fetch(event.request).catch(() => caches.match('/offline.html'))
+    );
+  } else {
+    // для картинок, стилей и т.д.
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        return response || fetch(event.request);
+      })
+    );
   }
-
-  event.respondWith(
-    fetch(event.request).catch(() => {
-      return caches.match('/offline.html');
-    })
-  );
 });

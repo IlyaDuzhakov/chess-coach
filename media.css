@@ -204,12 +204,21 @@
       width: 239px;
       font-size: 18px;
   }
+  .preloader .background {
+    width: 150px;
+    height: 150px;
+  }
+
+  .preloader .preloader-knight {
+    width: 60px;
+  }
+
+  .preloader .scene p {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 720px) {
-  /* .header__logo img {
-    display: none;
-  } */
   .logo-svg {
     margin-left: -350px;
     margin-top: -141px;
@@ -227,10 +236,6 @@
   width: 40px;
   height: 40px;
 }
-.preloader-title {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -316,9 +321,6 @@
   .short-text {
     display: inline;
   }
-  .preloader-title {
-    font-size: 1.5rem;
-  }
   .form-section h2 {
     font-size: 20px;
   }
@@ -369,9 +371,17 @@
     margin-left: 70px; 
     margin-bottom: 200px;  
   }
-  .preloader-title {
-    font-size: 1.3rem;
-    /* padding: 0 15px; */
+    .preloader .background {
+    width: 120px;
+    height: 120px;
+  }
+
+  .preloader .preloader-knight {
+    width: 50px;
+  }
+
+  .preloader .scene p {
+    font-size: 0.9rem;
   }
 }
 

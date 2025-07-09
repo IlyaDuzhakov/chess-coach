@@ -25,23 +25,36 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
   const nav = document.querySelector('.nav');
+  const bot = document.getElementById('bot-icon'); // ✅ твой бот
+  const form = document.querySelector('.form');   // если нужно скрывать форму тоже
 
   burger.addEventListener('click', () => {
     burger.classList.toggle('open');
     nav.classList.toggle('show');
     document.body.classList.toggle('lock-scroll');
+
+    const isOpen = nav.classList.contains('show');
+
+    if (isOpen) {
+      if (bot) bot.style.visibility = 'hidden';
+      if (form) form.style.visibility = 'hidden';
+    } else {
+      if (bot) bot.style.visibility = '';
+      if (form) form.style.visibility = '';
+    }
   });
 
-  // Закрытие меню при клике на ссылку
   document.querySelectorAll('.nav a').forEach(link => {
     link.addEventListener('click', () => {
       nav.classList.remove('show');
       burger.classList.remove('open');
       document.body.classList.remove('lock-scroll');
+
+      if (bot) bot.style.visibility = '';
+      if (form) form.style.visibility = '';
     });
   });
 });

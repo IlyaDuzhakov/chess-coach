@@ -223,16 +223,17 @@ a:hover {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
+  
 }
 
 .header__button {
   padding: 10px 20px;
   border-radius: 25px;
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   text-decoration: none;
   transition: all 0.3s ease;
-  color: #fff;
+  color: #000;
 }
 
 .btn-primary {

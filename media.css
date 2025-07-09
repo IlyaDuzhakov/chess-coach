@@ -64,8 +64,8 @@
   }
   #bot-icon {
   position: absolute;
-  right: 0; /* или сколько нужно, чтобы не перекрывал бургер */
-  top: 50px;
+  right: 12px;
+  top: 20px;
   left: auto; /* чтобы сбросить старое */
   font-size: 32px;
   z-index: 1001;
@@ -126,7 +126,10 @@
 @media (max-width: 850px) {
     .header__buttons {
       display: flex;
-      flex-direction: column;
+      flex-wrap: nowrap;
+      max-width: 112px;
+      margin-top: 2px;
+       gap: 40px;
     }
     .header__logo img {
         max-height: 120px;
@@ -157,8 +160,10 @@
 /* 📱 До 768px — по одному */
 @media (max-width: 768px) {
   .header__logo img {
-    display: none;
-  }
+      position: fixed;
+      margin-left: -220px;
+      margin-top: -67px;
+    }
   .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
     display: none;
   }
@@ -202,9 +207,9 @@
 }
 
 @media (max-width: 720px) {
-  .header__logo img {
+  /* .header__logo img {
     display: none;
-  }
+  } */
   .logo-svg {
     margin-left: -350px;
     margin-top: -141px;
@@ -230,8 +235,15 @@
 
 @media (max-width: 600px) {
   .header__logo img {
-    display: none;
+    margin-left: -148px;
   }
+  .header__buttons {
+      display: flex;
+      flex-wrap: nowrap;
+      max-width: 112px;
+      margin-top: 2px;
+       gap: 40px;
+    }
   .logo-svg {
     margin-left: -300px; 
     margin-top: -189px;
@@ -240,12 +252,13 @@
   .quality__mark {
     right: 10px;
   }
+   #bot-icon {
+  position: relative;
+  z-index: 1001;
+  }
 }
 
 @media (max-width: 550px)  {
-  .header__logo img {
-    display: none;
-  }
    .header__top {
     justify-content: space-between;
     align-items: center;
@@ -259,9 +272,9 @@
 }
 /* Маленькие экраны: до 480px */
 @media (max-width: 490px) {
-  .header__logo img {
-    display: none;
-  }
+      .header__logo img {
+        margin-left: -124px;
+    }
   html, body {
     overflow-x: hidden;
   }
@@ -279,8 +292,11 @@
     max-width: 152px;
   }
 
+  .header__buttons {
+    gap: 6px;
+  }
   .header__button {
-    max-width: 60%;
+    font-size: 10px;
   }
 
   .nav {
@@ -312,21 +328,23 @@
 }
 
 @media (max-width: 460px) {
-  .header__logo img {
-    display: none;
-  }
+ 
   .form-section h2 {
     font-size: 16px;
   }
   .book__order {
     max-width: 112px;
   }
+    #bot-icon {
+    right: 114px;
+    top: 12px;
+  } 
+  .label {
+    display: none;
+  }
 }
 
 @media (max-width: 420px) {
-  .header__logo img {
-    display: none;
-  }
   .header__title {
     font-size: 22px;
   }

@@ -13,15 +13,23 @@
     }
         .header__title {
           position: absolute;
+          max-width: 140px;
          font-size: 16px;
-         top: 76px;
+         
          left: 48px;
     }
         .header__buttons {
         margin-left: 46px;
+        max-width: 180px;
+    }
+    .header__button {
+      font-size: 12px;
     }
    .text__title {
-      margin-top: 36px;
+      margin-top: 10px;
+      font-weight: 700;
+      max-width: 112px;
+      margin-right: 45px;
    } 
     
   .form-section h2 {
@@ -63,7 +71,7 @@
     width: 64px;
   }
   #bot-icon {
-    left: 200px;
+    left: 190px;
   }
   .courses {
     max-width: 93%;

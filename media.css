@@ -204,18 +204,6 @@
       width: 239px;
       font-size: 18px;
   }
-  .preloader .background {
-    width: 150px;
-    height: 150px;
-  }
-
-  .preloader .preloader-knight {
-    width: 60px;
-  }
-
-  .preloader .scene p {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 720px) {
@@ -370,18 +358,6 @@
   .logo-svg {
     margin-left: 70px; 
     margin-bottom: 200px;  
-  }
-    .preloader .background {
-    width: 120px;
-    height: 120px;
-  }
-
-  .preloader .preloader-knight {
-    width: 50px;
-  }
-
-  .preloader .scene p {
-    font-size: 0.9rem;
   }
 }
 

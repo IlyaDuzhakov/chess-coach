@@ -4,26 +4,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const text = preloader.querySelector('p');
   const hasSeenPreloader = localStorage.getItem('preloaderShown');
 
-  function adaptPreloader() {
+  function centerAndAdapt() {
     const w = window.innerWidth;
 
-    if (w <= 480) {
-      knight.style.maxWidth = '100px';
-      text.style.fontSize = '1rem';
-    } else if (w <= 768) {
+    if (w <= 600) {
       knight.style.maxWidth = '120px';
+      text.style.fontSize = '1rem';
+    } else if (w <= 1024) {
+      knight.style.maxWidth = '160px';
       text.style.fontSize = '1.2rem';
     } else {
       knight.style.maxWidth = '200px';
       text.style.fontSize = '1.5rem';
     }
+
+    preloader.style.display = 'flex';
+    preloader.style.justifyContent = 'center';
+    preloader.style.alignItems = 'center';
   }
 
-  // применяем при загрузке
-  adaptPreloader();
-
-  // и при изменении размера окна
-  window.addEventListener('resize', adaptPreloader);
+  centerAndAdapt();
+  window.addEventListener('resize', centerAndAdapt);
 
   if (hasSeenPreloader) {
     preloader.style.display = 'none';
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         preloader.style.display = 'none';
         localStorage.setItem('preloaderShown', 'true');
-      }, 500); // после fade-out
-    }, 3000); // сколько показывается прелоадер
+      }, 500);
+    }, 3000);
   }
 });

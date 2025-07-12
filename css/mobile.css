@@ -1,11 +1,5 @@
 
 @media (max-width: 400px) {
-  .preloader-title {
-    font-size: 1.3rem !important;
-    padding: 0 20px !important;
-    line-height: 1.2 !important;
-    margin-top: -100;
-  }
   .header__logo img {
         margin-left: -42px;
         margin-top: 24px;

@@ -50,6 +50,9 @@
     <link rel="stylesheet" href="css/desktop.css" media="(max-width: 768px)">
     <link rel="stylesheet" href="css/tablet.css" media="(max-width: 1024px)">
     <link rel="stylesheet" href="css/mobile.css">
+     <link rel="stylesheet" href="popup.css">
+     
+
     <!-- Стандартный фавикон -->
 <link rel="icon" type="image/png" sizes="96x96" href="favicon-96.png">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -61,14 +64,13 @@
 </head>
 <body>
 
-  
- <div class="preloader" id="preloader">
+<div class="preloader" id="preloader">
   <div class="scene">
-    <div class="background"></div>
     <img src="svg/knight_preloader.svg" alt="Chess Guide" class="preloader-knight">
     <p>Загружаем Chess Guide…</p>
   </div>
 </div>
+
 
 
   <header class="header reveal-top" id="home">
@@ -113,7 +115,7 @@
       </div>
          
        <div class="header__buttons">
-  <a data-i18n="btn_sign_up" href="#pricing" class="header__button btn btn-primary">
+  <a data-i18n="btn_sign_up" href="#pricing" class="header__button btn btn-primary open-bot-form">
     <span>Записаться на занятие</span>
   </a>
   <a data-i18n="btn_courses" href="#courses" class="header__button btn btn-secondary">
@@ -751,30 +753,117 @@
 </section>
 
 <section class="lesson-price" id="pricing">
+  <h2 data-i18n="pricing_title" class="price__title">
+    💰  Стоимость и формат занятий
+  </h2>
   <div class="content__prise">
-  <h2 data-i18n="pricing_title">💰 Стоимость и формат занятий</h2>
-
-  <div class="info-item">
-    <span class="icon">⏳</span>
-    <p data-i18n="pricing_duration">Длительность занятий — 30, 45 или 60 минут</p>
-  </div>
-
   <div class="price-card">
     
-    <h3 data-i18n="individual_lessons_title">🎯 Индивидуальные занятия</h3>
-    <p data-i18n="individual_lessons_duration">Длительность — 45 минут</p>
-    <p data-i18n="individual_lessons_price">Стоимость — 25 € <span class="euro">(или в рублях по курсу)</span></p>
+    <div class="price-card__icon-title">
+    <img src="images/target.png" alt="Цель" class="icon-title">
+    <h3 data-i18n="individual_lessons_title">
+        Индивидуальные занятия
+    </h3>
+    </div>
+     
+      <ul class="price-card__list">
+    <li>   <svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> 1 час — <strong>30 €</strong><span class="euro">(или в рублях по курсу)</span></li>
+    <li>
+       <svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> 45 минут — <strong>25 €</strong></li>
+    <li>
+       <svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> 30 минут — <strong>15 €</strong></li>
+  </ul>
+    
+  <p class="note">Занятия подходят для любого уровня — онлайн, с подробным разбором ваших партий и персональным планом тренировок.</p>
+    <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="abonement">
+      <img src="favicon.svg" alt="chess coach">Записаться</button>
   </div>
+      <!-- групповые -->
+<div class="price-card price-card--group">
+ <img src="images/grups.png" alt="Групповые занятия" class="icon-title">
+  <h3> Групповые занятия</h3>
+  <p class="number__peoples">до 4 человек</p>
+  <p>
+    <svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> 60 минут — <strong>10 €/чел</strong></p>
+  <p class="note">Даже если соберутся только 2–3 человека — проведём занятие!</p>
+  <p class="note">В 2,5 раза дешевле, чем индивидуальные, но с такой же внимательностью к каждому.</p>
+  <p class="note">Если вас больше 4 — подберём специальный вариант.</p>
+  <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="group">
+    <img src="favicon.svg" alt="chess coach">Записаться</button>
+</div>
+<div class="price-card price-card--intensive">
+  <img src="images/raket.png" alt="Групповые занятия" class="icon-title__raket">
+  <h3> Интенсивы и мастер‑классы</h3>
+  <p>📅 3–5 дней подряд</p>
+  <p><svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> от <strong>75 €</strong> за весь курс</p>
+  <p class="note">Хотите быстро подтянуть тактику, изучить дебюты или подготовиться к турниру?
+Интенсив поможет! Расписание и темы уточняйте.</p>
+  <p class="note">Темы интенсивов и расписание — уточняйте. Формат: онлайн или оффлайн.</p>
+  <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="intensive">
+    <img src="favicon.svg" alt="chess coach"> Узнать расписание
+  </button>
+</div>
 
-  <div class="lesson-formats">
-    <h3 data-i18n="training_formats_title">📋 Форматы тренировок</h3>
-    <ul>
-      <li data-i18n="training_formats_list">Индивидуальные занятия (онлайн)</li>
-      <li>Групповые занятия (до 6 человек)</li>
-      <li>Интенсивы и мастер‑классы</li>
-    </ul>
-    <p data-i18n="training_formats_note" class="note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
+
+
+    <div class="price-card price-card--abonement">
+  <div class="price-badge">🔥 Выгодно</div>
+  <h3>🎟 Абонементы</h3>
+  <p>8×45 мин — <strong>160 €</strong> <br><small>(вместо 200 €)</small></p>
+  <p>8×60 мин — <strong>200 €</strong> <br><small>(вместо 240 €)</small></p>
+  <p class="note">Оплата вперёд. Возможен платёж двумя частями.</p>
+  <p class="note-small">При абонементе — доступ к дополнительным материалам.</p>
+  <button class="btn btn-primary open-bot-form btn-pink-purple" data-type="abonement">
+    <img src="favicon.svg" alt="chess coach">Записаться</button>
+</div>
+
+<div class="price-card price-card--free">
+  <img src="images/present.png" alt="Групповые занятия" class="icon-title">
+  <h3> Бесплатное пробное занятие</h3>
+  <p><svg class="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10" stroke="#333" stroke-width="2" fill="#fff"/>
+        <line x1="12" y1="12" x2="12" y2="7" stroke="#333" stroke-width="2">
+          <animateTransform attributeName="transform" type="rotate" from="0 12 12" to="360 12 12" dur="6s" repeatCount="indefinite"/>
+        </line>
+        <line x1="12" y1="12" x2="16" y2="12" stroke="#333" stroke-width="2"/>
+      </svg> 30 минут бесплатно</p>
+  <p>Познакомимся, определим уровень и обсудим план тренировок!</p>
+   <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="abonement">
+    <img src="favicon.svg" alt="chess coach">Записаться</button>
+</div>
   </div>
+    <p data-i18n="training_formats_note" class="note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
+  
 
   <div class="lesson-age">
     <h3 data-i18n="student_age_title">🎂 Возраст учеников</h3>
@@ -784,7 +873,7 @@
 
 
 
-  </div>
+</div>
 </section>
 
 <section class="courses" id="courses">
@@ -946,6 +1035,17 @@
     <button type="submit">Отправить</button>
     <p id="form-status"></p>
   </form>
+  <p style="text-align:center; margin-top:10px;">
+  📱 Нет Telegram? <a href="https://wa.me/79998887766" target="_blank" rel="noopener noreferrer">Напишите в WhatsApp</a>
+</p>
+<label style="font-size: 12px; display: block; margin-top: 10px;">
+  <input type="checkbox" id="agree" required>
+  Я согласен(а) на <a href="policy.html" target="_blank">обработку персональных данных</a>.
+</label>
+
+<p style="font-size: 12px; text-align: center; margin-top: 5px;">
+  Нажимая кнопку «Записаться», вы также соглашаетесь с нашей <a href="policy.html" target="_blank">политикой конфиденциальности</a>.
+</p>
 </section>
 </div>
             
@@ -990,6 +1090,18 @@
   <img id="modal-img" src="" style="max-width:90%;max-height:90%;">
 </div>
 
+<!--                             popup               -->
+<div class="popup-overlay" id="bonusPopup">
+  <div class="popup-content">
+    <button class="popup-close" id="popupClose">&times;</button>
+    <h2>🎁 Бесплатное пробное занятие</h2>
+    <p>Запишитесь на бесплатное занятие на 30 минут!</p>
+    <button class="btn btn-primary open-bot-form">Записаться</button>
+  </div>
+</div>
+
+<!--                             popup               -->
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="script.js"></script>
@@ -1014,5 +1126,6 @@
 
   <script src="/preloader.js"></script>
 <script src="telegram-form.js"></script>
+<script src="popup.js"></script>
         </body>
         </html>

@@ -55,7 +55,9 @@ ul, li {
 /* 📝 Маленький текст и примечания */
 .note, .small-text {
   font-family: 'Roboto', sans-serif;
-  color: var(--color-muted);
+  font-weight: 700;
+  color: #000;
+  font-size: 12px;
 }
 
 /* 🔗 Ссылки */
@@ -234,6 +236,12 @@ a:hover {
   text-decoration: none;
   transition: all 0.3s ease;
   color: #000;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em; /* отступ между иконкой и текстом */
 }
 
 .btn-primary {
@@ -1377,110 +1385,246 @@ section p, section li {
 
 /*                    prise                                */
 .lesson-price {
-  max-width: 1000px; /* Ширина секции на больших экранах */
-  width: 90%; /* на мобилках и планшетах — не больше ширины экрана */
-   margin: 20px auto 60px auto;
-  background: linear-gradient(to right, #e0f7fa, #dcedc8);
-  padding: 40px 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  text-align: center;
-  box-sizing: border-box;
-}
-
- .content__prise {
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: left; 
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #fff5e1, #f8dbe1);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
-
-.lesson-price h2 {
-  font-size: 2.4rem;
+.price__title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
   margin-bottom: 30px;
-  color: #113355;
 }
 
-.price-card {
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px auto;
-  max-width: 600px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+/*      иконки для блока с ценами*/
+
+
+.icon-title {
+  width: 40px;
+  height: 40px;
 }
 
-.price-card h3 {
-  color: #00796b;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
+.icon-title__raket {
+  width: 120px;
+  height: 120px;
 }
 
-.price-card p {
-  font-size: 1.3rem;
-  color: #333;
+.icon-title__raket:hover {
+  transform: scale(1.2) rotate(10deg);
+  transition: 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.icon-title:hover {
+  transform: scale(1.2) rotate(10deg);
+  transition: 0.3s ease;
+  filter: brightness(1.2);
+}
+
+.icon-list {
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+}
+
+.icon-clock {
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
+}
+
+.icon-clock {
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.icon-clock:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 0 15px #ff00cc);
+}
+
+.number__peoples {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/**/
+
+
+
+
+
+
+
+.content__prise {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.content__prise h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: #222;
 }
 
 .info-item {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-bottom: 15px;
+  gap: 4px;
+  font-size: 1rem;
+  margin-bottom: 20px;
 }
 
-.info-item .icon {
-  font-size: 1.8rem;
-  margin-right: 15px;
-  flex-shrink: 0;
+
+.price-card {
+  flex: 1 1 280px;
+  max-width: 300px;
+  border-radius: 16px;
+  padding: 20px;
+  margin: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #111; /* или #222 */
+  font-size: 16px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background-size: 200% 200%;
+  background-position: left top;
+
+  color: #111;
+  font-size: 16px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
 }
 
-.info-item p {
-  font-size: 1.2rem;
+.price-card:hover {
+  background-position: right bottom;
+   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* заголовки */
+.price-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #000;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+}
+
+/* список */
+.price-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 15px 0;
+  text-align: left;
+  color: #222;
+}
+
+.price-card ul li {
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+/* примечания */
+.price-card .note {
+  font-size: 14px;
+  margin: 10px 0;
   color: #333;
-  margin: 0;
 }
 
-.euro {
+/* кнопка */
+.price-card button {
+  align-self: center;
+  margin-top: auto;
+}
+
+.price-badge {
+  background: linear-gradient(45deg, #ff6f61, #ff8a65);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* разные карточки */
+.price-card--group {
+  background: linear-gradient(135deg, #fddb92, #d1fdff);
+   background-size: 200% 200%;
+}
+
+.price-card--intensive {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  background-size: 200% 200%;
+}
+
+.price-card--abonement {
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  background-size: 200% 200%;
+}
+
+.price-card--free {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  background-size: 200% 200%;
+}
+
+/* ховер для всех */
+.price-card:hover {
+  background-position: right bottom;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.btn-primary, .fancy-btn {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover, .fancy-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+.lesson-age {
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #444;
+}
+
+.note {
   font-size: 0.9rem;
   color: #666;
 }
 
-.lesson-formats,
-.lesson-age {
-  margin-top: 30px;
+.note-small {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.price-card img {
+  display: flex;
   text-align: center;
+  width: 30px;
+  height: auto;
+  margin: 0 auto 5px;
+  /* display: block; */
 }
-
-.lesson-formats h3,
-.lesson-age h3 {
-  font-size: 1.5rem;
-  color: #00695c;
-  margin-bottom: 10px;
-}
-
-.lesson-formats ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 600px;
-  text-align: left;
-}
-
-.lesson-formats li {
-  margin-bottom: 5px;
-  font-size: 1.2rem;
-  color: #333;
-}
-
-.note {
-  margin-top: 15px;
-  font-size: 1.1rem;
-  color: #444;
-}
-
-.lesson-age p {
-  font-size: 1.2rem;
-  color: #333;
-}
-
 
 .fancy-btn {
   background: linear-gradient(90deg, #4facfe, #00f2fe);
@@ -1498,6 +1642,11 @@ section p, section li {
   transform: translateY(-2px);
   box-shadow: 0 6px 10px rgba(0,0,0,0.3);
   background: linear-gradient(90deg, #00f2fe, #4facfe);
+}
+
+.btn-pink-purple {
+  background: linear-gradient(135deg, #d02a80, #744bcd);
+  color: #fff;
 }
 
 /*                          course                               */
@@ -2053,21 +2202,48 @@ section p, section li {
 }
 
 .preloader .preloader-knight {
-  max-width: 150px; /* на больших экранах */
-  max-height: 150px;
-  width: 30vw;
-  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .preloader p {
-  font-size: 1rem;
   margin-top: 10px;
+  text-align: center;
+  color: #333;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+.preloader {
+  position: fixed;
+  z-index: 9999;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.preloader .scene {
   text-align: center;
 }
 
 .preloader-knight {
+  max-width: 200px;
+  height: auto;
   animation: spin 2s linear infinite;
 }
+
+.preloader p {
+  font-size: 1.5rem;
+  margin-top: 10px;
+  text-align: center;
+}
+
 
 @keyframes spin {
   from { transform: rotate(0deg); }

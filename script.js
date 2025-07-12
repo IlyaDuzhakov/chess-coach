@@ -271,6 +271,21 @@ function initCarousel() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const botForm = document.getElementById('bot-form');
+  const popup = document.getElementById('bonusPopup');
+
+  document.querySelectorAll('.open-bot-form').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      botForm.classList.remove('hidden');
+      if (popup) popup.style.display = 'none'; // закрываем попап
+    });
+  });
+});
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
   const bot = document.getElementById('bot-icon');
   const header = document.querySelector('.header__top');
   const botHome = bot.parentElement; // где он находится по умолчанию (например, внизу сайта)

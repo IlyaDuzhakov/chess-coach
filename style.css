@@ -631,6 +631,7 @@ nav a:hover::after {
    position: relative;
   align-items: flex-start;  /* выравнивание по верху */
   justify-content: flex-start;
+  background: linear-gradient(135deg, #ffb050, #ffd000); 
 }
 
 .work__areas .icon {
@@ -919,6 +920,10 @@ section p, section li {
 .figure--top-right {
   top: 20px;
   right: 20px;
+}
+
+.reveal__choose {
+  background: linear-gradient(135deg, #2BC0E4, #EAECC6);
 }
 
 .reveal {
@@ -1388,7 +1393,7 @@ section p, section li {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #fff5e1, #f8dbe1);
+  background: linear-gradient(135deg, #00c3ff, #ffff1c);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1403,8 +1408,8 @@ section p, section li {
 
 
 .icon-title {
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
 }
 
 .icon-title__raket {
@@ -1452,7 +1457,159 @@ section p, section li {
   font-weight: 700;
 }
 
+.btn .design {
+  width: 20px;
+  height: 20px;
+}
+
+.price-badge span {
+  color: #000;
+  font-weight: 700;
+}
+
+.note__small {
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.details {
+  font-weight: 800;
+  color: #22014d;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
 /**/
+
+
+/*                       intensive*/
+.intensives {
+  text-align: center;
+  padding: 30px;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+.intensives h2 {
+  color: #000;
+}
+
+.intensive-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.intensive-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 300px;
+  max-width: 300px;
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00c3ff, #ffff1c);
+  color: #000000;
+  text-align: left;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  
+}
+
+.intensive-card h3 {
+  margin-top: 0;
+  color: #000;
+}
+.intensive-card details {
+  margin: 10px 0;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: background 0.3s;
+}
+
+.intensive-card details[open] {
+  background: rgba(28, 128, 204, 0.25);
+}
+
+.intensive-card summary {
+  font-weight: 600;
+  list-style: none;
+  outline: none;
+}
+
+.intensive-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.intensive-card ul {
+  margin: 8px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.intensive-card ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+  font-size: 14px;
+}
+
+.intensive-card ul li::before {
+  content: "✔️";
+  flex-shrink: 0;
+  font-size: 14px;
+  margin-top: 1px;
+}
+
+.btn__intensive {
+  display: inline-block;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3fa7d6, #6dd5fa);
+  color: #000000;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+.button-wrapper {
+  margin-top: auto;
+}
+
+.btn__intensive:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #3fa7d6, #38b2ac);
+}
+
+/*                    button rezult                    */
+.btn-disabled {
+  background: #ccc;
+  color: #555;
+  cursor: not-allowed;
+  opacity: 0.7;
+  display: none;
+}
+
+/*                          button rezult             */
+
+
+
+
+
+
+
+
+
+/*                       intensive*/
 
 
 
@@ -1602,9 +1759,17 @@ section p, section li {
 }
 
 .lesson-age {
-  margin-top: 40px;
-  font-size: 1rem;
-  color: #444;
+  text-align: center;
+  margin-top: 2rem;
+}
+.lesson-age h3 {
+   font-size: 1.4rem;
+   margin-bottom: 0.5rem;
+}
+.lesson-age p {
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.5;
 }
 
 .note {
@@ -1612,15 +1777,10 @@ section p, section li {
   color: #666;
 }
 
-.note-small {
-  font-size: 0.8rem;
-  color: #999;
-}
-
 .price-card img {
   display: flex;
   text-align: center;
-  width: 30px;
+  width: 60px;
   height: auto;
   margin: 0 auto 5px;
   /* display: block; */

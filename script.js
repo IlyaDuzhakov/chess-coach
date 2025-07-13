@@ -470,3 +470,85 @@ function showLarge(src) {
   modal.style.display = 'flex';
   modal.onclick = () => modal.style.display = 'none';
 }
+
+// intensives
+document.addEventListener('DOMContentLoaded', () => {
+  //const monthIndex = new Date().getMonth(); // 0 - январь
+  const monthIndex = 0; 
+  const monthNames = [
+    'january', 'february', 'march', 'april', 'may', 'june',
+    'july', 'august', 'september', 'october', 'november', 'december'
+  ];
+  const monthNamesRu = [
+    'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
+  ];
+  const gradients = {
+    winter: 'linear-gradient(135deg, #b2fefa, #0ed2f7)',
+    spring: 'linear-gradient(135deg, #a1ffce, #faffd1)',
+    summer: 'linear-gradient(135deg, #fbd786, #f7797d)',
+    autumn: 'linear-gradient(135deg, #c2e9fb, #a1c4fd)'
+  };
+
+  let gradient = gradients.autumn;
+  if ([11, 0, 1].includes(monthIndex)) gradient = gradients.winter;
+  else if ([2, 3, 4].includes(monthIndex)) gradient = gradients.spring;
+  else if ([5, 6, 7].includes(monthIndex)) gradient = gradients.summer;
+
+  const monthKey = monthNames[monthIndex];
+  const monthName = monthNamesRu[monthIndex];
+  const lang = localStorage.getItem('lang') || 'ru';
+
+  const section = document.getElementById('intensives');
+  const grid = document.getElementById('intensiveGrid');
+  const monthNameEl = document.getElementById('monthName');
+
+  // 🎨 ставим градиент
+  section.style.background = gradient;
+
+  // 🗓️ имя месяца
+  monthNameEl.textContent = lang === 'ru' ? monthName : monthName.charAt(0) + monthName.slice(1).toLowerCase();
+
+  fetch('multilang/intensives.json')
+    .then(res => res.json())
+    .then(intensives => {
+      const data = intensives[monthKey]?.[lang];
+      if (!Array.isArray(data) || data.length === 0) {
+        const noDataMsg = lang === 'ru'
+          ? 'Нет интенсивов на этот месяц'
+          : 'No intensives scheduled for this month';
+        grid.innerHTML = `<p style="text-align:center; padding:20px;">${noDataMsg}</p>`;
+        return;
+      }
+
+      grid.innerHTML = ''; // чистим
+      data.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('intensive-card');
+        card.innerHTML = `
+          <h3>${item.title}</h3>
+          <p>📆 <strong>${lang === 'ru' ? 'Даты' : 'Dates'}:</strong> ${item.dates}</p>
+          <p>⌛ <strong>${lang === 'ru' ? 'Формат' : 'Format'}:</strong> ${item.format}</p>
+          <details>
+            <summary>📋 ${lang === 'ru' ? 'Программа по дням' : 'Program by days'}</summary>
+            <ul>
+              ${item.program.map(day => `<li>${day}</li>`).join('')}
+            </ul>
+          </details>
+          <p>🎯 <strong>${lang === 'ru' ? 'Для кого' : 'For whom'}:</strong> ${item.for}</p>
+          <p>🎁 <strong>${lang === 'ru' ? 'Бонус' : 'Bonus'}:</strong> ${item.bonus.replace('до 10%', 'от 10 до 20%').replace('up to 10%', 'from 10% to 20%')}</p>
+          <p>💶 <strong>${lang === 'ru' ? 'Цена' : 'Price'}:</strong> ${item.price}</p>
+          <div class="button-wrapper">
+            <button class="btn__intensive">${lang === 'ru' ? 'Записаться' : 'Sign up'}</button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      grid.innerHTML = `<p style="text-align:center; padding:20px; color:red;">
+        ${lang === 'ru' ? 'Ошибка загрузки данных' : 'Failed to load data'}
+      </p>`;
+    });
+});

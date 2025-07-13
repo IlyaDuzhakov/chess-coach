@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -379,7 +379,7 @@
   </div>
 </section>
 
-    <section class="reveal choose" id="results">
+    <section class="reveal__choose" id="results">
   <h3 class="choose__title" data-i18n="whyChooseTitle">Почему выбирают меня</h3>
 <div class="svg-wrapper">
   <ul class="features">
@@ -794,7 +794,7 @@
     
   <p class="note">Занятия подходят для любого уровня — онлайн, с подробным разбором ваших партий и персональным планом тренировок.</p>
     <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="abonement">
-      <img src="favicon.svg" alt="chess coach">Записаться</button>
+      <img src="favicon.svg" alt="chess coach" class="design">Записаться</button>
   </div>
       <!-- групповые -->
 <div class="price-card price-card--group">
@@ -813,7 +813,7 @@
   <p class="note">В 2,5 раза дешевле, чем индивидуальные, но с такой же внимательностью к каждому.</p>
   <p class="note">Если вас больше 4 — подберём специальный вариант.</p>
   <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="group">
-    <img src="favicon.svg" alt="chess coach">Записаться</button>
+    <img src="favicon.svg" alt="chess coach" class="design">Записаться</button>
 </div>
 <div class="price-card price-card--intensive">
   <img src="images/raket.png" alt="Групповые занятия" class="icon-title__raket">
@@ -830,21 +830,25 @@
 Интенсив поможет! Расписание и темы уточняйте.</p>
   <p class="note">Темы интенсивов и расписание — уточняйте. Формат: онлайн или оффлайн.</p>
   <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="intensive">
-    <img src="favicon.svg" alt="chess coach"> Узнать расписание
+    <img src="favicon.svg" alt="chess coach" class="design"> Узнать расписание
   </button>
 </div>
 
 
 
     <div class="price-card price-card--abonement">
-  <div class="price-badge">🔥 Выгодно</div>
-  <h3>🎟 Абонементы</h3>
+  <div class="price-badge">🔥 
+    <span>Выгодно</span> 
+  </div>
+  <h3> Абонементы</h3>
+  <img src="svg/abonement.png" alt="абонемент" class="abonement">
   <p>8×45 мин — <strong>160 €</strong> <br><small>(вместо 200 €)</small></p>
   <p>8×60 мин — <strong>200 €</strong> <br><small>(вместо 240 €)</small></p>
+  <p>8×30 мин — <strong>100 €</strong> <br><small>(вместо 120 €)</small></p>
   <p class="note">Оплата вперёд. Возможен платёж двумя частями.</p>
-  <p class="note-small">При абонементе — доступ к дополнительным материалам.</p>
+  <p class="note__small">Перенос возможен при уведомлении минимум за 24 часа. Без предупреждения занятие считается проведённым.</p>
   <button class="btn btn-primary open-bot-form btn-pink-purple" data-type="abonement">
-    <img src="favicon.svg" alt="chess coach">Записаться</button>
+    <img src="favicon.svg" alt="chess coach" class="design">Записаться</button>
 </div>
 
 <div class="price-card price-card--free">
@@ -859,14 +863,17 @@
       </svg> 30 минут бесплатно</p>
   <p>Познакомимся, определим уровень и обсудим план тренировок!</p>
    <button class="btn btn-primary open-bot-form btn-pink-purple " data-type="abonement">
-    <img src="favicon.svg" alt="chess coach">Записаться</button>
+    <img src="favicon.svg" alt="chess coach" class="design">Записаться</button>
 </div>
   </div>
-    <p data-i18n="training_formats_note" class="note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
+  <div class="details">
+    <p data-i18n="training_formats_note">🤝 Все детали можно обсудить лично — найдём удобный вариант именно для вас!</p>
+    </div>
   
 
   <div class="lesson-age">
-    <h3 data-i18n="student_age_title">🎂 Возраст учеников</h3>
+    <img src="svg/cake.gif" alt="возраст ученика" class="icon-title">
+    <h3 data-i18n="student_age_title"> Возраст учеников</h3>
     <p data-i18n="student_age_text">От 5 лет и без ограничений — помогу каждому мыслить стратегически и уверенно принимать решения за шахматной доской!</p>
   </div>
 <button data-i18n="request_button" class="fancy-btn" id="requestBtn">Оставить заявку</button>
@@ -875,6 +882,104 @@
 
 </div>
 </section>
+<!-- 
+<section class="intensives">
+  <h2>🎯 Интенсивы месяца — Январь</h2>
+
+  <div class="intensive-grid">
+    <div class="intensive-card">
+      <div class="card-content">
+      <h3>📘 Стратегические приёмы чемпионов</h3>
+      <p>📆 <strong>Даты:</strong> 5–11 января 2026</p>
+      <p>⌛ <strong>Формат:</strong> 6 дней × 2 часа, теория + практика</p>
+      <details>
+        <summary>📋 Программа по дням</summary>
+        <ul>
+          <li>1 день — запасная проходная</li>
+          <li>2 день — исчезающий ход</li>
+          <li>3 день — барьер</li>
+          <li>4 день — рокада Нимцовича</li>
+          <li>5 день — размены и пешечная структура</li>
+          <li>6 день — позиции для разыгрывания + турнир</li>
+        </ul>
+      </details>
+      <p>🎁 <strong>Бонусы:</strong><br>
+      🏆 Победитель — <strong>40% скидка</strong> на следующий интенсив.<br>
+      🎉 Все участники <strong>от 10% до 20%</strong> на следующий интенсив.
+      </p>
+
+      <p>💶 <strong>Цена:</strong> 300 €</p>
+      </div>
+      <div class="button-wrapper">
+      <button class="btn__intensive">Записаться</button>
+      </div>
+    </div>
+
+    <div class="intensive-card">
+      <div class="card-content">
+      <h3>💥 Тактическое мастерство</h3>
+      <p>📆 <strong>Даты:</strong> 14–17 января 2026</p>
+      <p>⌛ <strong>Формат:</strong> 4 дня × 2 часа, теория + практика</p>
+      <details>
+        <summary>📋 Программа по дням</summary>
+        <ul>
+          <li>1 день — тактические приёмы, часть 1</li>
+          <li>2 день — тактические приёмы, часть 2</li>
+          <li>3 день — как видеть тактику в партии</li>
+          <li>4 день — экзамен: решение задач + турнир</li>
+        </ul>
+      </details>
+      <p>🎁 <strong>Бонусы:</strong><br>
+      🏆 Победитель — <strong>40% скидка</strong> на следующий интенсив.<br>
+      🎉 Все участники <strong>от 10% до 20%</strong> на следующий интенсив.
+      </p>
+
+      <p>💶 <strong>Цена:</strong> 200 €</p>
+      </div>
+      <div class="button-wrapper">
+      <button class="btn__intensive">Записаться</button>
+      </div>
+    </div>
+
+    <div class="intensive-card">
+      <div class="card-content">
+      <h3>♟ Эндшпили от А до Я</h3>
+      <p>📆 <strong>Даты:</strong> 20–25 января 2026</p>
+      <p>⌛ <strong>Формат:</strong> 6 дней × 2 часа, теория + практика</p>
+      <details>
+        <summary>📋 Программа по дням</summary>
+        <ul>
+          <li>1 день — пешечные окончания</li>
+          <li>2 день — легкофигурные окончания</li>
+          <li>3 день — ладейные окончания</li>
+          <li>4 день — ферзевые окончания</li>
+          <li>5 день — чудесное спасение + крепость</li>
+          <li>6 день — цугцванг и подведение итогов</li>
+        </ul>
+      </details>
+      <p>🎁 <strong>Бонусы:</strong><br>
+🏆 Победитель — <strong>40% скидка</strong> на следующий интенсив.<br>
+🎉 Все участники <strong>от 10% до 20%</strong> на следующий интенсив.
+</p>
+
+      <p>💶 <strong>Цена:</strong> 300 €</p>
+      </div>
+       <div class="button-wrapper">
+      <button class="btn__intensive">Записаться</button>
+      </div>
+    </div>
+<button class="btn__intensive btn-disabled" disabled>📄 Итоги месяца — скоро!</button>
+  </div>
+</section>
+ -->
+
+ <section class="intensives" id="intensives">
+  <h2>🎯 Интенсивы месяца — <span id="monthName"></span></h2>
+  <div class="intensive-grid" id="intensiveGrid">
+    <!-- Карточки появятся тут -->
+  </div>
+</section>
+
 
 <section class="courses" id="courses">
   <div class="courses__wrapper">
@@ -1054,7 +1159,7 @@
     <div class="footer__block">
       <h3 data-i18n="contactsTitle">Контакты</h3>
       <p>Email: <a href="mailto:duzhakovip@mail.ru">duzhakovip@mail.ru</a></p>
-      <p data-i18n="contactsPhone">Телефон: <a href="tel:+79811429286">+7 (981) 142-92-86</a></p>
+      <p data-i18n="contactsPhone">Телефон: <a href="tel:+79811429286" rel="noopener">+7 (981) 142-92-86</a></p>
     </div>
     <div class="footer__block">
       <h3 data-i18n="socialTitle">Соцсети</h3>
@@ -1079,10 +1184,16 @@
       </div>
     </div>
   </div>
-  
+
+  <div class="footer__bottom">
     <a class="footer__bottom" href="#home">
-       <p data-i18n="copyright">© 2025 Илья Дужаков — шахматный тренер</p>
+      <p data-i18n="copyright">© 2025 Илья Дужаков — шахматный тренер </p>
+      <p>Иконки - <a href="https://favicon.io/" target="_blank" rel="noopener">favicon.io</a>
+        </p>
     </a>
+  </div>
+  
+       
   
 </footer>
 

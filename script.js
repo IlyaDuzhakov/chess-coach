@@ -155,7 +155,7 @@ document.querySelectorAll('.accordion-header').forEach(header => {
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('telegramForm');
   const status = document.getElementById('form-status');
-
+  
   // intensive
 
   document.querySelectorAll('.btn__intensive').forEach(btn => {
@@ -291,63 +291,111 @@ function initCarousel() {
     loopScroll();
   }
 }
-
 document.addEventListener('DOMContentLoaded', () => {
   const botForm = document.getElementById('bot-form');
   const popup = document.getElementById('bonusPopup');
+  const form = document.getElementById('telegramForm');
+  const status = document.getElementById('form-status');
+  const checkbox = document.getElementById('agree');
+  const intensiveInput = document.getElementById('intensive');
 
+  // кнопки открытия формы
   document.querySelectorAll('.open-bot-form').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       botForm.classList.remove('hidden');
-      if (popup) popup.style.display = 'none'; // закрываем попап
+      if (popup) popup.style.display = 'none';
+
+      const title =
+        btn.closest('.price-card')?.querySelector('h3')?.textContent || 'Неизвестный';
+      intensiveInput.value = title;
+
+      botForm.scrollIntoView({ behavior: 'smooth' });
     });
   });
-});
 
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const bot = document.getElementById('bot-icon');
-  const header = document.querySelector('.header__top');
-  const botHome = bot.parentElement; // где он находится по умолчанию (например, внизу сайта)
-
-function moveBotIcon() {
+  // адаптация bot-icon
   const bot = document.getElementById('bot-icon');
   const headerRight = document.querySelector('.header__right');
 
-  if (window.innerWidth <= 1024) {
-    if (!headerRight.contains(bot)) {
-      headerRight.appendChild(bot);
+  function moveBotIcon() {
+    if (window.innerWidth <= 1024) {
+      if (!headerRight.contains(bot)) {
+        headerRight.appendChild(bot);
+      }
+    } else {
+      document.body.appendChild(bot);
     }
-  } else {
-    document.body.appendChild(bot); // или куда его возвращать
   }
-}
 
-window.addEventListener('resize', moveBotIcon);
-window.addEventListener('DOMContentLoaded', moveBotIcon);
- // при изменении размера
-});
+  let resizeTimeout;
+  moveBotIcon();
 
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(moveBotIcon, 300);
+  });
 
-// Запускаем при загрузке
-document.addEventListener('DOMContentLoaded', initCarousel);
-
-// Повторно запускаем при изменении размера (но с debounce)
-let resizeTimeout;
-window.addEventListener('resize', () => {
-  clearTimeout(resizeTimeout);
-  resizeTimeout = setTimeout(initCarousel, 300);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+  // горизонтальный скролл видео и отзывов
   document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
     el.addEventListener('wheel', (e) => {
       if (e.deltaY === 0) return;
       e.preventDefault();
       el.scrollLeft += e.deltaY;
     });
+  });
+
+  // инициализация карусели
+  if (typeof initCarousel === 'function') {
+    initCarousel();
+  } else {
+    console.warn('⚠️ Функция initCarousel не найдена!');
+  }
+
+  // ВАЛИДАЦИЯ И ОТПРАВКА
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.elements['name'].value.trim();
+    const email = form.elements['email'].value.trim();
+    const phone = form.elements['phone'].value.trim();
+    const comment = form.elements['comment'].value.trim();
+    const intensive = intensiveInput.value;
+
+    if (!checkbox.checked) {
+      status.textContent = '⚠️ Нужно согласиться с политикой.';
+      return;
+    }
+
+    if (!name || !email || !phone) {
+      status.textContent = '⚠️ Заполните все обязательные поля.';
+      return;
+    }
+
+    try {
+      const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, comment, intensive })
+      });
+
+      const result = await response.json();
+
+      if (result.ok) {
+        status.textContent = '✅ Спасибо! С вами свяжутся.';
+        form.reset();
+        checkbox.checked = false;
+      } else {
+        status.textContent = '⚠️ Ошибка при отправке.';
+      }
+    } catch (err) {
+      console.error(err);
+      status.textContent = '🚫 Ошибка сервера.';
+    }
+
+    setTimeout(() => {
+      status.textContent = '';
+    }, 5000);
   });
 });
 

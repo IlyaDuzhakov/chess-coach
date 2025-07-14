@@ -613,7 +613,7 @@ nav a:hover::after {
    position: relative;
   align-items: flex-start;  /* выравнивание по верху */
   justify-content: flex-start;
-  background: linear-gradient(135deg, #3a7bd5, #3a6073); 
+  background: linear-gradient(135deg, #83a4d4, #b6fbff);
 }
 
 .work__areas .icon {
@@ -912,6 +912,7 @@ section p, section li {
   opacity: 0;
   transform: translateY(50px) scale(0.95);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 
 .reveal.visible {
@@ -1811,6 +1812,10 @@ section p, section li {
   z-index: 2;
 }
 
+.courses {
+  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+}
+
 .courses__wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -2052,6 +2057,7 @@ section p, section li {
 .books {
   text-align: center;
   padding: 3rem 2rem;
+  background: linear-gradient(135deg, #00c3ff, #ffff1c);
 }
 
 .books__list {

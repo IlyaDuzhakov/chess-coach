@@ -1793,6 +1793,29 @@ section p, section li {
   color: #fff;
 }
 
+/*   form close  */
+
+.form-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #eee;
+  color: #f50101;
+  font-weight: 800;
+  font-size: 20px;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  transition: background 0.3s ease;
+}
+.form-close:hover {
+  background: #c5c0c0;
+}
 /*                          course                               */
 
 .course-card {

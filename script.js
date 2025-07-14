@@ -291,6 +291,81 @@ function initCarousel() {
     loopScroll();
   }
 }
+
+// валидация
+
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('telegramForm');
+  const status = document.getElementById('form-status');
+  const submitBtn = form.querySelector('button[type="submit"]');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const name = form.elements['name'].value.trim();
+    const email = form.elements['email'].value.trim();
+    const phone = form.elements['phone'].value.trim();
+    const comment = form.elements['comment'].value.trim();
+    const agree = document.getElementById('agree').checked;
+
+    const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]{2,}$/;
+    const phoneRegex = /^[\d\s()+-]{6,}$/;
+
+    if (!agree) {
+      status.textContent = '⚠️ Нужно согласиться с политикой.';
+      status.style.color = 'red';
+      return;
+    }
+
+    if (!nameRegex.test(name)) {
+      status.textContent = '⚠️ Имя должно содержать только буквы и быть не короче 2 символов.';
+      status.style.color = 'red';
+      return;
+    }
+
+    if (!phoneRegex.test(phone)) {
+      status.textContent = '⚠️ Телефон должен содержать только цифры и допустимые символы.';
+      status.style.color = 'red';
+      return;
+    }
+
+    submitBtn.disabled = true;
+    status.textContent = '⏳ Отправка…';
+    status.style.color = 'black';
+
+    try {
+      const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, comment })
+      });
+
+      const result = await response.json();
+
+      if (result.ok) {
+        status.textContent = '✅ Спасибо! С вами свяжутся.';
+        status.style.color = 'green';
+        form.reset();
+      } else {
+        status.textContent = '❌ Ошибка при отправке.';
+        status.style.color = 'red';
+      }
+    } catch (err) {
+      console.error(err);
+      status.textContent = '🚫 Сервер недоступен. Попробуйте позже.';
+      status.style.color = 'red';
+    } finally {
+      submitBtn.disabled = false;
+
+      setTimeout(() => {
+        status.textContent = '';
+      }, 7000);
+    }
+  });
+});
+
+// валидация
+
 document.addEventListener('DOMContentLoaded', () => {
   const botForm = document.getElementById('bot-form');
   const popup = document.getElementById('bonusPopup');
@@ -398,6 +473,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 5000);
   });
 });
+
+// клик на кнопку записаться
+document.addEventListener('click', (e) => {
+  if (e.target.classList.contains('btn__intensive')) {
+    const botForm = document.getElementById('bot-form');
+    const intensiveInput = document.getElementById('intensive');
+
+    // ищем карточку
+    const card = e.target.closest('.intensive-card');
+    const title = card?.querySelector('h3')?.textContent.trim() || 'Интенсив';
+
+    intensiveInput.value = title;
+    botForm.classList.remove('hidden');
+    botForm.scrollIntoView({ behavior: 'smooth' });
+  }
+});
+
+
+// клик на кнопку записаться
 
 /*                    english                */
 
@@ -544,7 +638,7 @@ function showLarge(src) {
 // intensives
 document.addEventListener('DOMContentLoaded', () => {
   // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц  
-  const monthIndex = 7;
+  const monthIndex = 8;
   const monthNames = [
     'january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december'
@@ -639,4 +733,14 @@ document.getElementById('intensiveBtn').addEventListener('click', () => {
   window.location.href = 'intensive_rezults.html';
 });
 
+// formClose
+
+document.addEventListener('DOMContentLoaded', () => {
+  const closeBtn = document.querySelector('.form-close');
+  const botForm = document.getElementById('bot-form');
+
+  closeBtn.addEventListener('click', () => {
+    botForm.classList.add('hidden');
+  });
+});
 

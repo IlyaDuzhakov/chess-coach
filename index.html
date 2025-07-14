@@ -883,12 +883,25 @@
 </div>
 </section>
 
- <section class="intensives" id="intensives">
+ <!-- <section class="intensives" id="intensives">
+  <h2>🎯 Интенсивы месяца — <span id="monthName"></span></h2>
+  <div class="intensive-grid" id="intensiveGrid">
+    <!-- Карточки появятся тут -->
+    <!-- <button class="btn-disabled btn__intensive" id="intensiveBtn" target="_blank" rel="noopener noreferrer">Показать программу </button>
+  </section>
+  </div> --> 
+<section class="intensives" id="intensives">
   <h2>🎯 Интенсивы месяца — <span id="monthName"></span></h2>
   <div class="intensive-grid" id="intensiveGrid">
     <!-- Карточки появятся тут -->
   </div>
-  <button class="btn-disabled btn__intensive" id="intensiveBtn" target="_blank" rel="noopener noreferrer">Показать программу </button>
+
+  <button
+    class="btn-disabled btn__intensive"
+    id="intensiveBtn"
+    type="button">
+    Показать программу
+  </button>
 </section>
 
 
@@ -1042,6 +1055,7 @@
 
 <div id="bot-form" class="hidden">
 <section id="contact-form" class="form-section">
+   <button class="form-close" aria-label="Закрыть форму">&times;</button>
   <h2>Записаться на пробное занятие</h2>
   <form id="telegramForm">
     <input type="text" name="name" placeholder="Ваше имя" required />

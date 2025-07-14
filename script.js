@@ -156,9 +156,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('telegramForm');
   const status = document.getElementById('form-status');
 
+  // intensive
+
+  document.querySelectorAll('.btn__intensive').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const title = btn.closest('.intensive-card').querySelector('h3')?.textContent || 'Неизвестный интенсив';
+    document.getElementById('intensive').value = title;
+    document.getElementById('telegramForm').scrollIntoView({ behavior: 'smooth' });
+
+    //
+    const status = document.getElementById('form-status');
+    //
+  });
+});
+
+// intensive
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    // polisity
+     if (!form.policy.checked) {
+      status.textContent = '❗ Вы должны согласиться с политикой.';
+      return;
+    }
+    // polisity
     const name = form.elements['name'].value;
     const email = form.elements['email'].value;
     const phone = form.elements['phone'].value;
@@ -473,8 +495,8 @@ function showLarge(src) {
 
 // intensives
 document.addEventListener('DOMContentLoaded', () => {
-  //const monthIndex = new Date().getMonth(); // 0 - январь
-  const monthIndex = 0; 
+  // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц  
+  const monthIndex = 7;
   const monthNames = [
     'january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december'
@@ -503,10 +525,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid = document.getElementById('intensiveGrid');
   const monthNameEl = document.getElementById('monthName');
 
-  // 🎨 ставим градиент
   section.style.background = gradient;
-
-  // 🗓️ имя месяца
   monthNameEl.textContent = lang === 'ru' ? monthName : monthName.charAt(0) + monthName.slice(1).toLowerCase();
 
   fetch('multilang/intensives.json')
@@ -521,10 +540,18 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      grid.innerHTML = ''; // чистим
+      grid.innerHTML = '';
       data.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('intensive-card');
+
+        const isPostponed = item.status === 'postponed';
+        const noteText = isPostponed
+          ? (item.note || (lang === 'ru'
+              ? 'Интенсив перенесён. Следите за новостями.'
+              : 'This intensive is postponed. Stay tuned for updates.'))
+          : '';
+
         card.innerHTML = `
           <h3>${item.title}</h3>
           <p>📆 <strong>${lang === 'ru' ? 'Даты' : 'Dates'}:</strong> ${item.dates}</p>
@@ -539,9 +566,16 @@ document.addEventListener('DOMContentLoaded', () => {
           <p>🎁 <strong>${lang === 'ru' ? 'Бонус' : 'Bonus'}:</strong> ${item.bonus.replace('до 10%', 'от 10 до 20%').replace('up to 10%', 'from 10% to 20%')}</p>
           <p>💶 <strong>${lang === 'ru' ? 'Цена' : 'Price'}:</strong> ${item.price}</p>
           <div class="button-wrapper">
-            <button class="btn__intensive">${lang === 'ru' ? 'Записаться' : 'Sign up'}</button>
+            ${
+              isPostponed
+                ? `<div style="color: red; font-weight: bold; margin-top:10px;">
+                     ${noteText}
+                   </div>`
+                : `<button class="btn__intensive">${lang === 'ru' ? 'Записаться' : 'Sign up'}</button>`
+            }
           </div>
         `;
+
         grid.appendChild(card);
       });
     })
@@ -552,3 +586,9 @@ document.addEventListener('DOMContentLoaded', () => {
       </p>`;
     });
 });
+
+document.getElementById('intensiveBtn').addEventListener('click', () => {
+  window.location.href = 'intensive_rezults.html';
+});
+
+

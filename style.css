@@ -387,24 +387,6 @@ a:hover {
 }
 /*        en ru */
 
-/* logo__svg-board {
-  width: 200px;
-  height: auto;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  position: absolute;
-  margin-left: -550px;
-  margin-top: 130px;
-}
-
-logo__svg-chess {
-    margin-left: 30px;
-}
-
-.logo-svg:hover {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
-} */
-
 .logo-caption {
   font-family: 'Playfair Display', serif;
   font-size: 0.75rem;
@@ -631,7 +613,7 @@ nav a:hover::after {
    position: relative;
   align-items: flex-start;  /* выравнивание по верху */
   justify-content: flex-start;
-  background: linear-gradient(135deg, #ffb050, #ffd000); 
+  background: linear-gradient(135deg, #3a7bd5, #3a6073); 
 }
 
 .work__areas .icon {
@@ -1592,10 +1574,11 @@ section p, section li {
 
 /*                    button rezult                    */
 .btn-disabled {
-  background: #ccc;
+  background: #70f42d;
   color: #555;
   cursor: not-allowed;
   opacity: 0.7;
+  margin-top: 20px;
   display: none;
 }
 

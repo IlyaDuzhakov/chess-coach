@@ -167,10 +167,38 @@
   .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
     display: none;
   }
+  @media (max-width: 768px) {
+    .carousel-track {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    gap: 16px; /* расстояние между карточками */
+  }
+
+  .carousel-item {
+    display: none; /* все скрываем, кроме активного */
+    margin: 0 auto;
+  }
+
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    aspect-ratio: 4/3; /* или примерно 1.33 */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px; 
+  }
+}
   .carousel-track {
     display: block;
     overflow: hidden;
     text-align: center;
+    
+  white-space: nowrap;
   }
   
   .carousel-item {
@@ -189,7 +217,7 @@
     object-fit: cover; /* чтобы фото красиво вписывалось */
     margin: 0 auto;
   }
-  
+   
   .about-card {
     display: flex;
     flex-direction: column;

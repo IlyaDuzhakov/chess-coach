@@ -58,62 +58,53 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+const track = document.querySelector('.carousel-track');
+const slides = document.querySelectorAll('.carousel-item');
 
 let currentSlide = 0;
-const slides = document.querySelectorAll('.slide');
+let interval;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
-    slide.classList.remove('active');
-    if (i === index) slide.classList.add('active');
+    slide.style.display = (i === index) ? 'block' : 'none';
   });
 }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
+function startAutoSlide() {
+  interval = setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
 }
 
-// Автопрокрутка каждые 4 секунды
-setInterval(nextSlide, 2000);
+function stopAutoSlide() {
+  clearInterval(interval);
+}
 
-// Начальный показ
-showSlide(currentSlide);
+// адаптация
+function initCarousel() {
+  stopAutoSlide();
 
-// window.addEventListener('load', () => {
-//   if (window.innerWidth > 768) { // Только для десктопов
-//     const track = document.querySelector('.carousel-track');
+  if (window.innerWidth > 768) {
+    // десктоп — показывать все
+    slides.forEach(slide => {
+      slide.style.display = 'block';
+    });
+    track.style.display = 'flex';
+    track.style.overflow = 'hidden';
+  } else {
+    // мобилка/планшет — по одному с авто-сменой
+    track.style.display = 'block';
+    track.style.overflow = 'hidden';
+    showSlide(currentSlide);
+    startAutoSlide();
+  }
+}
 
-//   const items = track.querySelectorAll('.carousel-item');
-//   const speed = 0.5; // скорость прокрутки
-//   }
-//   // Клонируем элементы для бесконечной прокрутки
-//   items.forEach(item => {
-//     const clone = item.cloneNode(true);
-//     track.appendChild(clone);
-//   });
+// следить за ресайзом
+window.addEventListener('resize', initCarousel);
+window.addEventListener('load', initCarousel);
 
-//   let scrollLeft = 0;
-
-//   function loopScroll() {
-//     scrollLeft += speed;
-//     track.scrollLeft = scrollLeft;
-
-//     // Когда прокрутка дошла до середины — сбрасываем
-//     if (scrollLeft >= track.scrollWidth / 2) {
-//       scrollLeft = 0;
-//     }
-
-//     requestAnimationFrame(loopScroll);
-//   }
-
-  // Настройки стилей на всякий случай
-//   track.style.display = 'flex';
-//   track.style.overflow = 'hidden';
-//   track.style.scrollBehavior = 'auto'; // отключить анимации по умолчанию
-
-//   loopScroll();
-// });
 
 const footer = document.querySelector('.footer');
 

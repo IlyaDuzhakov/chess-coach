@@ -1,321 +1,223 @@
-@media (max-width: 1250px) {
- .header__logo img {
-  width: 200px;
-  height: 200px; 
-  margin-left: -300px;
+/* ======================= */
+/* 💻 Desktop ≥1025px */
+/* ======================= */
+@media (min-width: 1025px) {
+  .nav {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
   }
+  .burger { display: none; }
+  .header__buttons { display: flex; }
+  .language-switcher-desktop { display: block; }
+  .language-switcher-mobile { display: none; }
 }
 
-/* Планшет: до 1024px */
+/* ======================= */
+/* 📋 Tablet ≤1024px */
+/* ======================= */
 @media (max-width: 1024px) {
   header {
-    height: 180px;
     position: sticky;
     top: 0;
     z-index: 100;
   }
+   .header__logo {
+    margin-top: -60px;
+    margin-left: 10px;
+    max-width: 40px; /* уменьшаем, если нужно */
+    max-height: 40px;
+  }
+  #bot-icon {
+    display: none;
+  }
   .header__top {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    padding: 0 10px;
+    align-items: center;
     height: 60px;
+    padding: 0 10px;
   }
-  .header__logo img {
-    max-height: 150px;
-    margin-right: 30px;
+
+  .header__buttons,
+  .language-switcher-desktop {
+    display: none;
   }
-  .header__title {
-    font-size: 28px;
-    margin: 0;
-  }
-  .header__logo-left {
-    width: 50px;
-    height: 50px;
-  }
-  .header__subtitle {
-    display: none; /* эту часть текста убираем, если есть */
-  }
-  .header__buttons {
-    margin-top: 10px;
-  }
-   .burger {
+
+  .burger {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
   }
+
   .nav {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 60px;
-    right: 10px;
-    width: 100%;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    padding: 10px;
   }
 
   .nav.show {
     display: flex;
-  }
-  #bot-icon {
-  position: absolute;
-  right: 12px;
-  top: 20px;
-  left: auto; /* чтобы сбросить старое */
-  font-size: 32px;
-  z-index: 1001;
-  }
-  #bot-icon svg {
-   width: 110px; /* подстрой под размер */
-  }
-  
-  #bot-form {
-  right: 10px;
-  bottom: 160px;
-  width: 70%;
-  max-width: 300px;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(255,255,255,0.95);
+    z-index: 1000;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 10px;
   }
 
-  .camera-icon {
-  top: 30px;
-  right: 50px;
-  width: 60px;
-  height: 60px;
-}
-  .language-switcher-desktop {
-    display: none;
+  .nav.show a,
+  .nav.show .header__button {
+    width: 90%;
+    max-width: 300px;
+    text-align: center;
   }
 
   .language-switcher-mobile {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 16px;
+    margin: 10px 0;
   }
-
-  .language-switcher-mobile select {
-    font-size: 16px;
-    padding: 6px 12px;
-    border-radius: 8px;
-    border: 2px solid #004aad;
-    background-color: #f2f9ff;
-    color: #004aad;
-    font-weight: bold;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .language-switcher-mobile select:hover {
-    background-color: #e0f0ff;
-  } 
   .lesson-heading .icon {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
   }
-   .quality__mark {
-    width: 150px;
-    height: 150px;
+    .choose__title::after {
+        width: 240px;
+        margin-top: 30px;
   }
+  .quality__mark {
+    width: 220px;
+    height: 220px;
+    margin-top: -214px;
+  }  
 }
 
-@media (max-width: 850px) {
-    .header__buttons {
-      display: flex;
-      flex-wrap: nowrap;
-      max-width: 112px;
-      margin-top: 2px;
-       gap: 40px;
-    }
-    .header__logo img {
-        max-height: 120px;
-        margin-right: -65px;
-    }
-    .courses__wrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 100%;
-      max-width: 100%;
-      margin: 0 auto;
-      height: auto; /* !!! */
-    }
-    .courses {
-    display: block; /* или flex + column, если нужно */
-    max-width: 100%;
-    width: 100%;
-    margin: 0 auto;
-  }
-   .course-card {
-    flex: none; 
-    max-width: 95%;
-  }
-
-}
-
-/* 📱 До 768px — по одному */
-@media (max-width: 768px) {
-  .header__logo img {
-      position: fixed;
-      margin-left: -220px;
-      margin-top: -67px;
-    }
-  .video-gallery .swiper-pagination { /* Скрываем точки на десктопе */
-    display: none;
-  }
-  @media (max-width: 768px) {
-    .carousel-track {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    gap: 16px; /* расстояние между карточками */
-  }
-
-  .carousel-item {
-    display: none; /* все скрываем, кроме активного */
-    margin: 0 auto;
-  }
-
-  .carousel-item img {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    aspect-ratio: 4/3; /* или примерно 1.33 */
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px; 
-  }
-}
-  .carousel-track {
-    display: block;
-    overflow: hidden;
-    text-align: center;
-    
-  white-space: nowrap;
-  }
-  
-  .carousel-item {
-    display: none !important;
-  }
-  
-  .carousel-item.active {
-    display: block !important;
-    margin: 0 auto;
-  }
-  
-  .carousel-item img {
-    width: 90%;
-    border-radius: 12px;
-    height: 480px; /* фиксированная высота */
-    object-fit: cover; /* чтобы фото красиво вписывалось */
-    margin: 0 auto;
-  }
-   
-  .about-card {
-    display: flex;
+@media (max-width: 1000px) {
+    .intensive-grid {
     flex-direction: column;
     align-items: center;
   }
-  .header__logo img {
-    margin-left: -200px; 
-    margin-top: 290px;
-  }
-  .full-text {
-      display: block;
-      width: 239px;
-      font-size: 18px;
-  }
-}
 
-@media (max-width: 720px) {
-  .logo-svg {
-    margin-left: -350px;
-    margin-top: -141px;
-    width: 250px;
-    height: 250px;
-  }
-  .lesson-heading .icon {
-    width: 80px;
-    height: 80px;
-    right: 20px;
+  .intensive-grid > div {
+    width: 90%;                 /* или min(90%, 500px) */
+    max-width: 500px;
+    margin-bottom: 30px;       /* промежуток между карточками */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
   }
   .camera-icon {
-  top: 10px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
+    right: 70px;
+  }
+  .lesson-heading .icon {
+        width: 80px;
+        height: 80px;
+        right: 60px;
+  } 
+   .about-card {
+    flex-direction: column;
+  }
+  .about-right p {
+    font-size: 1.8rem;
 }
 }
 
-@media (max-width: 600px) {
+/* ======================= */
+/* 📱 Mobile ≤768px */
+/* ======================= */
+@media (max-width: 768px) {
   .header__logo img {
-    margin-left: -148px;
+    max-height: 120px;
   }
-  .header__buttons {
-      display: flex;
-      flex-wrap: nowrap;
-      max-width: 112px;
-      margin-top: 2px;
-       gap: 40px;
-    }
-  .logo-svg {
-    margin-left: -300px; 
-    margin-top: -189px;
-    margin-bottom: 100px;  
+
+  .header__title {
+    font-size: 26px;
+    margin-right: 38px;
   }
-  .quality__mark {
-    right: 10px;
+
+  .tooltip {
+    max-width: 300px;
   }
-   #bot-icon {
-  position: relative;
-  z-index: 1001;
+
+  .carousel-item {
+    display: none;
+    margin: 0 auto;
+  }
+  .carousel-item img {
+      object-fit: cover;
+  }
+
+
+  .carousel-item.active {
+    display: block;
+  }
+  .zoom, .teams {
+    width: 60px;
   }
 }
 
-@media (max-width: 550px)  {
-   .header__top {
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+@media (max-width: 640px) {
+  .header__logo img {
+    max-height: 90px;
   }
-  .logo-svg {
-    margin-left: -250px; 
-    margin-top: -189px;
-    margin-bottom: 130px;  
+   .header__logo {
+    margin-top: -60px;
+    margin-left: -20px; 
   }
-}
-/* Маленькие экраны: до 480px */
-@media (max-width: 490px) {
-      .header__logo img {
-        margin-left: -124px;
-    }
-  html, body {
-    overflow-x: hidden;
+   .header__title {
+    font-size: 24px;
+    margin-right: 10px;
+  }
+  
+  .section h2 {
+    font-size: 24px;
   }
 
-  section {
-    padding-left: 10px;
-    padding-right: 10px;
+  .work__areas .icon {
+    margin: 0 auto;
+    width: 180px;
+    height: 180px;
   }
+  .camera-icon {
+    right: 26px;
+    width: 40px;
+    top: 0px;
+  }
+  .price-card {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 580px) {
+    .about-right p {
+    font-size: 1.3rem;
+}
+}
+
+
+/* ======================= */
+/* 📟 Tiny screens ≤480px */
+/* ======================= */
+@media (max-width: 480px) {
   .header__title {
     font-size: 22px;
+    margin-right: 10px;
   }
-
-  .text__title {
-    font-size: 14px;
-    max-width: 152px;
+  .header__logo img {
+    max-height: 70px;
+  }
+   .header__logo {
+    margin-top: -100px;
+    margin-left: -50px;
+    
   }
 
   .header__buttons {
     gap: 6px;
   }
+
   .header__button {
     font-size: 10px;
   }
@@ -323,97 +225,98 @@
   .nav {
     font-size: 14px;
   }
-  .logo-svg {
-    margin-left: -180px; 
-    margin-bottom: 150px;  
-  }
-   .lesson-heading .icon {
-    width: 60px;
-    height: 60px;
-  }
-  .full-text {
-    display: none;
-  }
-  .short-text {
-    display: inline;
-  }
+   .quality__mark {
+    width: 180px;
+    height: 180px;
+  }  
+}
+
+
+@media (max-width: 400px) {
+   .header__title {
+      position: absolute;
+      left: 40px;
+      font-size: 24px;    
+    }
+    .full-text {
+      font-size: 16px;
+    }
+    .about-right p {
+    font-size: 1rem;
+    }
+    .lesson-heading .icon {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+  } 
+    .header__button {
+      font-size: 12px;
+    }
+   .text__title {
+      margin-top: 10px;
+      font-weight: 700;
+      max-width: 112px;
+      margin-right: 45px;
+   } 
+    
   .form-section h2 {
     font-size: 20px;
   }
-  .footer-top {
-    gap: 70px;
+  .label {
+    margin-top: -111px;
   }
+  .work__areas .icon {
+    width: 180px;
+    height: 180px;
+    margin-bottom: -25px;
+    margin-top: -15px;
+  }
+   .section h2 {
+    font-size: 24px;
+  }
+  .zoom, .teams {
+    width: 40px;
+  }
+  .carousel-track img {
+    height: 100%;
+    width: 100%;
 }
-
-@media (max-width: 460px) {
- 
-  .form-section h2 {
-    font-size: 16px;
+    .quality__mark {
+        width: 165px;
+        height: 165px;
+    }
+    .fancy-btn {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+    .price__title {
+      font-size: 28px;
+    }
+    .intensives h2 {
+      font-size: 22px;
+    }
+  .reviews h2 {
+    font-size: 24px;
+  }
+  .work__experience-title {
+    font-size: 24px;
+  }
+  .about-right h2 {
+    font-size: 1.5rem;
+  }
+  .section h2 {
+    font-size: 24px;
+  }
+  .choose__title::after {
+        width: 240px;
+        margin-top: 30px;
   }
   .book__order {
-    max-width: 112px;
+    font-size: 0.60rem;
+    width: 64px;
   }
-    #bot-icon {
-    right: 114px;
-    top: 12px;
-  } 
-  .label {
-    display: none;
+  .courses {
+    max-width: 93%;
   }
 }
-
-@media (max-width: 420px) {
-  .header__title {
-    font-size: 22px;
-  }
-  
-  .text__title {
-    font-size: 10px;
-    max-width: 200px;
-  } 
-  .quality__mark {
-    right: 0 auto;
-    margin-top: -205px;
-  } 
-
-  .header__button {
-    max-width: 60%;
-  }
-
-  .nav {
-    font-size: 14px;
-  }  
-  .logo-svg {
-    margin-left: 70px; 
-    margin-bottom: 200px;  
-  }
-}
-
-@media (hover: none) {
-  .tooltip:hover .tooltip-text {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-/* Планшеты и ПК — от 769px */
-
-/* 💻 От 769px — горизонтальная карусель */
-@media (min-width: 769px) {
-  .carousel-track {
-    display: flex;
-    gap: 20px;
-    overflow-x: scroll;
-    scroll-behavior: auto;
-  }
-
-  .carousel-item {
-    flex: 0 0 auto;
-    display: block;
-  }
-}
-
-
-
-
-
 

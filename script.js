@@ -381,26 +381,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // адаптация bot-icon
-  const bot = document.getElementById('bot-icon');
-  const headerRight = document.querySelector('.header__right');
+  // const bot = document.getElementById('bot-icon');
+  // const headerRight = document.querySelector('.header__right');
 
-  function moveBotIcon() {
-    if (window.innerWidth <= 1024) {
-      if (!headerRight.contains(bot)) {
-        headerRight.appendChild(bot);
-      }
-    } else {
-      document.body.appendChild(bot);
-    }
-  }
+  // function moveBotIcon() {
+  //   if (window.innerWidth <= 1024) {
+  //     if (!headerRight.contains(bot)) {
+  //       headerRight.appendChild(bot);
+  //     }
+  //   } else {
+  //     document.body.appendChild(bot);
+  //   }
+  // }
 
-  let resizeTimeout;
-  moveBotIcon();
+  // let resizeTimeout;
+  // moveBotIcon();
 
-  window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(moveBotIcon, 300);
-  });
+  // window.addEventListener('resize', () => {
+  //   clearTimeout(resizeTimeout);
+  //   resizeTimeout = setTimeout(moveBotIcon, 300);
+  // });
 
   // горизонтальный скролл видео и отзывов
   document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
@@ -629,7 +629,7 @@ function showLarge(src) {
 // intensives
 document.addEventListener('DOMContentLoaded', () => {
   // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц  
-  const monthIndex = 8;
+  const monthIndex = new Date().getMonth();
   const monthNames = [
     'january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december'

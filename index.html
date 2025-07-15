@@ -73,91 +73,77 @@
 
 
 
-  <header class="header reveal-top" id="home">
-    <div class="header__top">
-      <div class="logo-title">
-        <!-- <div class="logo__wrapper"> -->
-      <a href="#home" class="header__logo"> 
-        <div class="nav__logo">
-        <img src="svg/logo.svg" alt="Chess Guide" width="400" height="400">
-        </div>
-      </a>
+<header class="header reveal-top" id="home">
+  <div class="header__top">
+    <a href="#home" class="header__logo">
+      <img src="svg/logo.svg" alt="Chess Guide" width="400" height="400">
+    </a>
+    <div class="logo-title">
+        <!-- <div class="nav__logo"> -->
+        <!-- </div> -->
       <h1 class="header__title" data-i18n="header__title">Илья Дужаков</h1>
-      </div>
-<!-- </div> -->
-      <!--  multilang-->
-         <div class="header__right">
+    </div>
+
+    <div class="header__right">
+      <!-- Переключатель языков (десктоп) -->
       <div class="language-switcher-desktop">
-  <select id="languageSwitcher">
-    <option value="ru">🇷🇺 Русский</option>
-    <option value="en">🇬🇧 English</option>
-  </select>
+        <select id="languageSwitcher">
+          <option value="ru">🇷🇺 Русский</option>
+          <option value="en">🇬🇧 English</option>
+        </select>
       </div>
-      <!--  multilang-->
-      
+
+      <!-- Бургер -->
       <div class="burger" id="burger">
-  <span></span>
-  <span></span>
-  <span></span>
-    </div>
-    </div>
-    </div> 
-       
-        
-        <div class="tooltip">
-         <a href="https://ratings.fide.com/profile/4192516" target="_blank" rel="noopener noreferrer" class="fide"> 
-           <span class="full-text" data-i18n="full-text">Международный мастер по шахматам, тренер с 13+ летним опытом</span>
-          </a><!-- защищаем переход по ссылке от внешнего воздействия-->
-          <span class="tooltip-text">Профиль на сайте FIDE</span>
-        <p class="text__title">
-          <span class="short-text">Международный мастер по шахматам</span>
-        </p>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
-         
-       <div class="header__buttons">
-  <a data-i18n="btn_sign_up" href="#pricing" class="header__button btn btn-primary open-bot-form">
-    <span>Записаться на занятие</span>
-  </a>
-  <a data-i18n="btn_courses" href="#courses" class="header__button btn btn-secondary">
-    <span>Курсы</span>
-  </a>
-  <a data-i18n="btn_workbooks" href="#books" class="header__button btn btn-tertiary">
-    <span>Рабочие тетради</span>
-  </a>
-</div>
+    </div>
+  </div>
 
-        <nav class="nav">
-          <li class="language-switcher-mobile">
-  <select id="languageSwitcherMobile">
-    <option value="ru">🇷🇺 Русский</option>
-    <option value="en">🇬🇧 English</option>
-  </select>
-  </li>
-          <a href="#about">
-            <span data-i18n="nav_about">Обо мне</span>
-          </a>
-          <a href="#youtube">
-            <span>YouTube</span>
-          </a>
-          <a href="#work">
-            <span data-i18n="nav_work">Основные направления работы</span>
-          </a>
-          <a href="#champions">
-            <span data-i18n="nav_champions">Чемпионы</span>
-          </a>
-          <a href="#format">
-            <span data-i18n="nav_format">Как проходят занятия</span>
-          </a>
-          <a href="#feedback">
-            <span data-i18n="nav_feedback">Отзывы учеников</span>
-          </a>
-          <a href="#contact">
-            <span data-i18n="nav_contact">Контакты</span>
-          </a>
+  <!-- Подзаголовок -->
+  <div class="tooltip">
+    <a href="https://ratings.fide.com/profile/4192516" target="_blank" rel="noopener noreferrer" class="fide">
+      <span class="full-text" data-i18n="full-text">
+        Международный мастер по шахматам, тренер с 13+ летним опытом
+      </span>
+    </a>
+    <span class="tooltip-text">Профиль на сайте FIDE</span>
+  </div>
 
-</nav>
+  <!-- Кнопки на десктопе -->
+  <div class="header__buttons">
+    <a data-i18n="btn_sign_up" href="#pricing" class="header__button btn btn-primary open-bot-form">
+      <span>Записаться на занятие</span>
+    </a>
+    <a data-i18n="btn_courses" href="#courses" class="header__button btn btn-secondary">
+      <span>Курсы</span>
+    </a>
+    <a data-i18n="btn_workbooks" href="#books" class="header__button btn btn-tertiary">
+      <span>Рабочие тетради</span>
+    </a>
+  </div>
 
-    </header>
+  <!-- Навигация (мобильная, скрыта на десктопе) -->
+  <nav class="nav">
+    <div class="language-switcher-mobile">
+      <select id="languageSwitcherMobile">
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+    </div>
+
+    <a href="#about"><span data-i18n="nav_about">Обо мне</span></a>
+    <a href="#youtube"><span>YouTube</span></a>
+    <a href="#work"><span data-i18n="nav_work">Основные направления работы</span></a>
+    <a href="#champions"><span data-i18n="nav_champions">Чемпионы</span></a>
+    <a href="#format"><span data-i18n="nav_format">Как проходят занятия</span></a>
+    <a href="#feedback"><span data-i18n="nav_feedback">Отзывы учеников</span></a>
+    <a href="#contact"><span data-i18n="nav_contact">Контакты</span></a>
+  </nav>
+</header>
+
 
     <!---------------------------------------------------------- MAIN ----------------------->
 
@@ -166,7 +152,7 @@
 <section class="about reveal" id="about">
   <div class="about-card">
     <div class="about-left">
-      <img src="images/my_photo.webp" width="470" height="470" loading="lazy" alt="Илья Дужаков Тренер">
+      <img src="images/my_photo.webp" loading="lazy" alt="Илья Дужаков Тренер">
     </div>
     <div class="about-right">
       <h2 data-i18n="aboutTitle">Обо мне</h2>
@@ -425,7 +411,7 @@
                     </div>
                     <p class="work__experience-text" data-i18n="howText1">
                       Преподаю шахматы онлайн для взрослых и детей от 5 лет.
-                   Уровень — от новичков до кандидатов в мастера спорта (КМС).
+                   Уровень — от новичков до кандидатов в мастера спорта (КМС) и выше.
                   🎯 Каждому ученику составляю персональную программу обучения — в зависимости от уровня и целей. Мы проходим все этапы: от тактики и стратегии до дебютной подготовки и анализа партий.🧩.</p>
                   <div class="icon-love">
                   </div>

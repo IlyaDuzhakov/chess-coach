@@ -770,7 +770,195 @@
         "status": "active"
       }
     ]
-  }
+  },
+  "april": {
+  "ru": [
+    {
+      "title": "♟️ Дебютный репертуар за белых: Венская партия и Атака Гран-При",
+      "dates": "2–4 апреля",
+      "format": "3 дня × 2 часа, теория + практика + турнир",
+      "for": "от 1800 ЭЛО",
+      "program": [
+        "📌 День 1 — теория + игра на Lichess",
+        "📌 День 2 — теория + игра на Lichess",
+        "📌 День 3 — разбор тематических партий, ответы на вопросы + финальный турнир на Lichess"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    },
+    {
+      "title": "📖 Теория и практика середины игры: стратегии и пешечные структуры",
+      "dates": "13–17 апреля",
+      "format": "5 дней × 2 часа, теория + практика + турнир",
+      "for": "от 1800 ЭЛО",
+      "program": [
+        "📌 День 1 — разбор стратегических приёмов + задачи на стратегию",
+        "📌 День 2 — стратегические приёмы + позиции для разыгрывания",
+        "📌 День 3 — типовые пешечные структуры + практика",
+        "📌 День 4 — редкие пешечные структуры + специальные позиции",
+        "📌 День 5 — как научиться мыслить стратегически + финальный турнир на Lichess"
+      ],
+      "bonus": "",
+      "price": "180 €",
+      "status": "active"
+    },
+    {
+      "title": "🧩 Схемное мышление: планы, креатив и нестандартные решения",
+      "dates": "21–24 апреля",
+      "format": "4 дня × 2 часа, теория + практика + турнир",
+      "for": "от 1800 ЭЛО",
+      "program": [
+        "📌 День 1 — планы в открытых позициях + игра по заданию",
+        "📌 День 2 — длинные планы + игра по заданию",
+        "📌 День 3 — поиск нестандартных решений + позиции для решения",
+        "📌 День 4 — разыгрывание специальных позиций, анализ сыгранных партий + финальный турнир на Lichess"
+      ],
+      "bonus": "",
+      "price": "150 €",
+      "status": "active"
+    }
+  ],
+  "en": [
+    {
+      "title": "♟️ White Opening Repertoire: Vienna Game & Grand Prix Attack",
+      "dates": "April 2–4",
+      "format": "3 days × 2 hours, theory + practice + tournament",
+      "for": "from 1800 ELO",
+      "program": [
+        "📌 Day 1 — theory + games on Lichess",
+        "📌 Day 2 — theory + games on Lichess",
+        "📌 Day 3 — thematic games analysis, Q&A + final tournament on Lichess"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    },
+    {
+      "title": "📖 Middlegame Theory & Practice: Strategy & Pawn Structures",
+      "dates": "April 13–17",
+      "format": "5 days × 2 hours, theory + practice + tournament",
+      "for": "from 1800 ELO",
+      "program": [
+        "📌 Day 1 — strategic patterns + strategy exercises",
+        "📌 Day 2 — strategic patterns + practice positions",
+        "📌 Day 3 — typical pawn structures + practice",
+        "📌 Day 4 — rare pawn structures + special positions",
+        "📌 Day 5 — how to think strategically + final tournament on Lichess"
+      ],
+      "bonus": "",
+      "price": "180 €",
+      "status": "active"
+    },
+    {
+      "title": "🧩 Schematic Thinking: Plans, Creativity & Unconventional Ideas",
+      "dates": "April 21–24",
+      "format": "4 days × 2 hours, theory + practice + tournament",
+      "for": "from 1800 ELO",
+      "program": [
+        "📌 Day 1 — planning in open positions + task-based games",
+        "📌 Day 2 — long-term planning + task-based games",
+        "📌 Day 3 — finding unconventional solutions + solving positions",
+        "📌 Day 4 — special positions practice, analysis of games + final tournament on Lichess"
+      ],
+      "bonus": "",
+      "price": "150 €",
+      "status": "active"
+    }
+  ]
+},
+"may": {
+  "ru": [
+    {
+      "title": "🔥 Жертвуй и побеждай!",
+      "dates": "6–8 мая",
+      "format": "3 дня × 2 часа, теория + практика + турнир",
+      "for": "все уровни",
+      "program": [
+        "📌 День 1 — разбор красивых шахматных партий + конкурс решения задач",
+        "📌 День 2 — разбор красивых шахматных партий + конкурс решения задач",
+        "📌 День 3 — позиции для разыгрывания, анализ сыгранных партий + финальный турнир"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    },
+    {
+      "title": "♟️ Всё, что нужно знать об эндшпиле (до 2000 ЭЛО)",
+      "dates": "19–22 мая",
+      "format": "4 дня × 2 часа, теория + практика + турнир",
+      "for": "до 2000 ЭЛО",
+      "program": [
+        "📌 День 1 — пешечные окончания + этюды и задачи",
+        "📌 День 2 — легкофигурные окончания + задачи",
+        "📌 День 3 — ладейные окончания + примеры",
+        "📌 День 4 — ферзевые окончания + финальный турнир на Lichess"
+      ],
+      "bonus": "",
+      "price": "150 €",
+      "status": "active"
+    },
+    {
+      "title": "🪄 Искусство побеждать: время, психология, трюки",
+      "dates": "27–29 мая",
+      "format": "3 дня × 2 часа, теория + практика + турнир",
+      "for": "все уровни",
+      "program": [
+        "📌 День 1 — время как фактор успеха + игра «время или материал»",
+        "📌 День 2 — как победить соперника ещё до партии + игра по заданию",
+        "📌 День 3 — хитрости шахматистов во время игры + финальный турнир"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    }
+  ],
+  "en": [
+    {
+      "title": "🔥 Sacrifice & Win!",
+      "dates": "May 6–8",
+      "format": "3 days × 2 hours, theory + practice + tournament",
+      "for": "all levels",
+      "program": [
+        "📌 Day 1 — analysis of beautiful games + tactics solving contest",
+        "📌 Day 2 — analysis of beautiful games + tactics solving contest",
+        "📌 Day 3 — practice positions, game analysis + final tournament"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    },
+    {
+      "title": "♟️ Everything You Need to Know About the Endgame (up to 2000 ELO)",
+      "dates": "May 19–22",
+      "format": "4 days × 2 hours, theory + practice + tournament",
+      "for": "up to 2000 ELO",
+      "program": [
+        "📌 Day 1 — pawn endgames + studies & exercises",
+        "📌 Day 2 — minor piece endgames + exercises",
+        "📌 Day 3 — rook endgames + examples",
+        "📌 Day 4 — queen endgames + final tournament on Lichess"
+      ],
+      "bonus": "",
+      "price": "150 €",
+      "status": "active"
+    },
+    {
+      "title": "🪄 The Art of Winning: Time, Psychology & Tricks",
+      "dates": "May 27–29",
+      "format": "3 days × 2 hours, theory + practice + tournament",
+      "for": "all levels",
+      "program": [
+        "📌 Day 1 — time as a key to success + game: time vs material",
+        "📌 Day 2 — how to beat your opponent before the game + task-based play",
+        "📌 Day 3 — tricks chess players use during the game + final tournament"
+      ],
+      "bonus": "",
+      "price": "90 €",
+      "status": "active"
+    }
+  ]
+}
 }
 
 

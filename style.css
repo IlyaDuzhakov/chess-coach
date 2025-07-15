@@ -125,22 +125,25 @@ a:hover {
 }
 
 .logo-title {
-  display: flex;
+   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;
   justify-content: center;
-  text-align: center;
-  /* max-width: 90%; */
+  gap: 20px;
+  flex-wrap: wrap; /* если нужно, чтобы на маленьких экранах переносились */
   margin: 0 auto;
+  text-align: center;
+}
+
+.header__logo {
+  display: block;
+  margin-left: 20px; 
+  max-width: 40px;
+  max-height: 40px;
 }
 
 .header__logo img {
-  width: 200px;
-  height: 200px;
-  margin-left: -550px;
-  margin-top: -30px;
-  padding: 20px;
+   max-width: 80px; /*разумная ширина */ 
+  height: auto;
 }
 
 .header__logo img {
@@ -224,8 +227,8 @@ a:hover {
   gap: 12px;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
-  
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .header__button {
@@ -282,11 +285,11 @@ a:hover {
   width: 30px;
   height: 30px;
   cursor: pointer;
-   max-width: 40px;
-  overflow: hidden;
   align-items: center;
-  position: relative; /* или fixed, если ты хочешь, чтобы он был "прибит" к углу */
-  z-index: 150; /* выше, чем у .nav.show */
+  position: fixed; /* если нужен фикс */
+  top: 20px;
+  right: 20px;
+  z-index: 150;
 }
 
 .burger span {
@@ -301,24 +304,23 @@ a:hover {
 
 /* Состояние "крестик" */
 .burger.open span:nth-child(1) {
-  transform: rotate(45deg) translateY(15px);
+  transform: rotate(45deg) translateY(8px);
 }
 .burger.open span:nth-child(2) {
   opacity: 0;
 }
 .burger.open span:nth-child(3) {
-  transform: rotate(-45deg) translateY(-12px);
+  transform: rotate(-45deg) translateY(-8px);
 }
 
 .nav {
   display: flex;
   justify-content: center;
-  align-items: center;
-  max-width: 800px;
-  width: 100%;
   gap: 40px;
-  font-size: 1.5rem;
-  font-weight: 600;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 800px; 
+  margin: 0 auto;
 }
 
 .nav a {
@@ -329,6 +331,7 @@ a:hover {
   padding: 6px 10px;
   border-radius: 6px;
   transition: all 0.3s ease;
+  /* overflow: hidden; */
 }
 
 .nav a:hover {
@@ -370,6 +373,45 @@ a:hover {
   color: #4c8fff;
 }
 
+/* прикольный эффект в виде линии подчеркивания*/
+
+.nav a {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--color-text);
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: var(--color-accent);
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+
+
+
+/* прикольный эффект в виде линии подчеркивания*/
+
+
 /*        en ru */
 
 .language-switcher-desktop {
@@ -396,45 +438,6 @@ a:hover {
   margin-top: 0.25rem;
 }
 
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  margin-top: 1.8rem;
-}
-
-nav a {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  text-decoration: none;
-  color: var(--color-text);
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: var(--color-accent);
-}
-
-nav a::after {
-  background-color: var(--color-accent);
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 2px;
-  bottom: -4px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s ease;
-}
-
-nav a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
 .about {
   display: flex;
   justify-content: center;
@@ -444,25 +447,25 @@ nav a:hover::after {
 
 .about-card {
   display: flex;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  width: 100%;
-  overflow: hidden;
-  flex-direction: row;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: #f0f8ff;
+  border-radius: 12px;
 }
 
-.about-left {
-  flex: 1;
-  max-width: 50%;
+.about-left,
+.about-right {
+  flex: 1 1 300px;
 }
 
 .about-left img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
   object-fit: cover;
-  display: block;
+  border-radius: 8px;
 }
 
 .about-right {
@@ -656,11 +659,7 @@ nav a:hover::after {
 /* === ГАЛЕРЕЯ "НАШИ ЧЕМПИОНЫ" === */
 .carousel-gallery {
   padding: 40px 20px;
-  background: #ffffff;
-  border-top: 2px solid #ffffff;
-  border-bottom: 2px solid #ffffff;
-  max-width: 100%;
-  margin: 0 auto 60px;
+  background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   overflow-x: hidden;
@@ -681,6 +680,7 @@ nav a:hover::after {
   overflow-x: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
+   padding-bottom: 10px;
 }
 .carousel-track::-webkit-scrollbar {
   display: none; /* если не хочешь видеть скроллбар */
@@ -692,12 +692,11 @@ nav a:hover::after {
 }
 
 .carousel-item img {
-  height: 320px;
-  width: auto;
-  border-radius: 12px;
+  display: block;
+  width: 100%;
+  height: auto;
   object-fit: cover;
-  cursor: pointer;
-  /* transition: transform 0.3s ease; */
+  border-radius: 12px;
 }
 
 .video-block iframe {

@@ -380,28 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // адаптация bot-icon
-  // const bot = document.getElementById('bot-icon');
-  // const headerRight = document.querySelector('.header__right');
-
-  // function moveBotIcon() {
-  //   if (window.innerWidth <= 1024) {
-  //     if (!headerRight.contains(bot)) {
-  //       headerRight.appendChild(bot);
-  //     }
-  //   } else {
-  //     document.body.appendChild(bot);
-  //   }
-  // }
-
-  // let resizeTimeout;
-  // moveBotIcon();
-
-  // window.addEventListener('resize', () => {
-  //   clearTimeout(resizeTimeout);
-  //   resizeTimeout = setTimeout(moveBotIcon, 300);
-  // });
-
   // горизонтальный скролл видео и отзывов
   document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
     el.addEventListener('wheel', (e) => {
@@ -422,42 +400,50 @@ document.addEventListener('DOMContentLoaded', () => {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    const name = form.elements['name'].value.trim();
-    const email = form.elements['email'].value.trim();
-    const phone = form.elements['phone'].value.trim();
-    const comment = form.elements['comment'].value.trim();
+    const nameInput = form.elements['name'];
+    const emailInput = form.elements['email'];
+    const phoneInput = form.elements['phone'];
+    const commentInput = form.elements['comment'];
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+    const phone = phoneInput.value.trim();
+    const comment = commentInput.value.trim();
     const intensive = intensiveInput.value;
 
+    const fields = [nameInput, emailInput, phoneInput];
+    fields.forEach(f => f.classList.remove('error')); // сброс ошибок
+
+    let errors = [];
+
     if (!checkbox.checked) {
-      status.textContent = '⚠️ Нужно согласиться с политикой.';
+      errors.push('⚠️ Нужно согласиться с политикой.');
+    }
+
+    if (!name || !/^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/.test(name)) {
+      errors.push('⚠️ Имя некорректно.');
+      nameInput.classList.add('error');
+    }
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.push('⚠️ E-mail некорректный.');
+      emailInput.classList.add('error');
+    }
+
+    const digitsOnly = phone.replace(/\D/g, '');
+    if (!phone || digitsOnly.length < 6) {
+      errors.push('⚠️ Телефон некорректный.');
+      phoneInput.classList.add('error');
+    }
+
+    if (errors.length) {
+      status.innerHTML = errors.join('<br>');
       return;
     }
 
-    if (!name || !email || !phone) {
-      status.textContent = '⚠️ Заполните все обязательные поля.';
-      return;
-    }
-      // Валидация имени: только буквы (рус/англ) + пробелы, ≥2 символа
-  if (!/^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/.test(name)) {
-    status.textContent = '⚠️ В имени только буквы, не меньше 2.';
-    return;
-  }
-    // Валидация email: простая проверка
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    status.textContent = '⚠️ Неверный e-mail.';
-    return;
-  }
-
-  // Валидация телефона: минимум 6 цифр
-  const digitsOnly = phone.replace(/\D/g, '');
-  if (digitsOnly.length < 6) {
-    status.textContent = '⚠️ Телефон слишком короткий.';
-    return;
-  }
-
-  const submitBtn = form.querySelector('button[type="submit"]');
-  submitBtn.disabled = true;
-  status.textContent = '⏳ Отправка... подождите.';
+    const submitBtn = form.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    status.textContent = '⏳ Отправка... подождите.';
 
     try {
       const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
@@ -479,8 +465,8 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error(err);
       status.textContent = '🚫 Ошибка сервера.';
     }
- // Вернуть кнопку в норму
-  submitBtn.disabled = false;
+
+    submitBtn.disabled = false;
 
     setTimeout(() => {
       status.textContent = '';

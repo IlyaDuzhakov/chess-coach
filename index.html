@@ -93,12 +93,7 @@
         </select>
       </div>
 
-      <!-- Бургер -->
-      <div class="burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+     
     </div>
   </div>
 
@@ -127,22 +122,68 @@
 
   <!-- Навигация (мобильная, скрыта на десктопе) -->
   <nav class="nav">
-    <div class="language-switcher-mobile">
-      <select id="languageSwitcherMobile">
-        <option value="ru">🇷🇺 Русский</option>
-        <option value="en">🇬🇧 English</option>
-      </select>
-    </div>
-
     <a href="#about"><span data-i18n="nav_about">Обо мне</span></a>
     <a href="#youtube"><span>YouTube</span></a>
     <a href="#work"><span data-i18n="nav_work">Основные направления работы</span></a>
     <a href="#champions"><span data-i18n="nav_champions">Чемпионы</span></a>
     <a href="#format"><span data-i18n="nav_format">Как проходят занятия</span></a>
     <a href="#feedback"><span data-i18n="nav_feedback">Отзывы учеников</span></a>
+    <a href="#pricing"><span data-i18n="nav_pricing">Стоимость и формат занятий</span></a>
     <a href="#contact"><span data-i18n="nav_contact">Контакты</span></a>
   </nav>
 </header>
+
+<!--   бургер                  -->
+
+<div class="overlay" id="overlay"></div>
+
+<div class="side-menu" id="sideMenu">
+  <div class="side-menu__header">
+    <h2>Меню</h2>
+    <button class="close-btn" id="closeBtn">&times;</button>
+  </div>
+  <div class="language-switcher-mobile">
+      <select id="languageSwitcherMobile"> 
+        <option value="ru">🇷🇺 Русский</option>
+        <option value="en">🇬🇧 English</option>
+      </select>
+    </div>
+
+  <nav class="side-menu__nav">
+    <a href="#about"><span data-i18n="nav_about">Обо мне</span></a>
+    <a href="#youtube">YouTube</a>
+    <a href="#work"><span data-i18n="nav_work">Основные направления работы</span></a>
+    <a href="#champions"><span data-i18n="nav_champions">Чемпионы</span></a>
+    <a href="#format"><span data-i18n="nav_format">Как проходят занятия</span></a>
+    <a href="#pricing"><span data-i18n="nav_pricing">  Стоимость и формат занятий</span></a>
+    <a href="#courses"><span data-i18n="btn_courses">Курсы</span></a>
+    <a href="#books"><span data-i18n="btn_workbooks">Рабочие тетради</span></a>
+    <a href="#feedback"><span data-i18n="nav_feedback">Отзывы учеников</span></a>
+    <a href="#contact"><span data-i18n="nav_contact">Контакты</span></a>
+    <a href="#pricing" class="btn-mobile-signup"><span data-i18n="btn_sign_up">Записаться на занятие</span></a>
+  </nav>
+
+  <div class="side-menu__footer">
+    <div class="socials-olympic">
+      <a href="https://www.youtube.com/@Ilya_Duzhakov" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><img src="svg/youtube-svgrepo-com.svg" alt="YouTube"></a>
+      <a href="https://t.me/CHESS_GUIDE64" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><img src="svg/telegram-svgrepo-com.svg" alt="Telegram"></a>
+      <a href="https://www.instagram.com/ilyaduzhakov" target="_blank" rel="noopener noreferrer"aria-label="Instagram"><img src="svg/instagram-svgrepo-com.svg" alt="Instagram"></a>
+      <a href="https://wa.me/79811429286" target="_blank" rel="noopener noreferrer"><img src="svg/whatsapp-svgrepo-com.svg" alt="Instagram"></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--   бургер                  -->
+
+ <!-- Бургер -->
+      <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
 
 
     <!---------------------------------------------------------- MAIN ----------------------->
@@ -925,17 +966,18 @@
 
     <div class="price-card price-card--abonement">
   <div class="price-badge">🔥 
-    <span>Выгодно</span> 
+    <span>Экономьте до 25%</span> 
   </div>
-  <h3> Абонементы</h3>
+  <h3>Выгодные абонементы</h3>
   <img src="svg/abonement.png" alt="абонемент" class="abonement">
-  <p>8×45 мин — <strong>160 €</strong> <br><small>(вместо 200 €)</small></p>
-  <p>8×60 мин — <strong>200 €</strong> <br><small>(вместо 240 €)</small></p>
-  <p>8×30 мин — <strong>100 €</strong> <br><small>(вместо 120 €)</small></p>
+  <p>8×45 мин — <strong>160 €</strong> <br><small>(вместо 200 €)</small></p>
+  <p>8×60 мин — <strong>200 €</strong> <br><small>(вместо 240 €)</small></p>
+  <p>8×30 мин — <strong>100 €</strong> <br><small>(вместо 120 €)</small></p>
   <p class="note">Оплата вперёд. Возможен платёж двумя частями.</p>
-  <p class="note__small">Перенос возможен при уведомлении минимум за 24 часа. Без предупреждения занятие считается проведённым.</p>
-  <button class="btn btn-primary open-bot-form btn-pink-purple" data-type="abonement">
-    <img src="favicon.svg" alt="chess coach" class="design">Записаться</button>
+  <p class="note">Все подробности и другие форматы — в полной таблице.</p>
+  <a href="docs/pricing-guide.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-pink-purple">
+    Прайс‑лист</a> 
+    
 </div>
 
 <div class="price-card price-card--free">
@@ -970,13 +1012,6 @@
 </div>
 </section>
 
- <!-- <section class="intensives" id="intensives">
-  <h2>🎯 Интенсивы месяца — <span id="monthName"></span></h2>
-  <div class="intensive-grid" id="intensiveGrid">
-    <!-- Карточки появятся тут -->
-    <!-- <button class="btn-disabled btn__intensive" id="intensiveBtn" target="_blank" rel="noopener noreferrer">Показать программу </button>
-  </section>
-  </div> --> 
 <section class="intensives" id="intensives">
   <h2>🎯 Интенсивы месяца — <span id="monthName"></span></h2>
   <div class="intensive-grid" id="intensiveGrid">
@@ -1173,27 +1208,33 @@
 <footer class="reveal-bottom footer" id="contact">
   <div class="footer__top">
     <div class="footer__block">
-      <h3 data-i18n="contactsTitle">Контакты</h3>
-      <p>Email: <a href="mailto:duzhakovip@mail.ru">duzhakovip@mail.ru</a></p>
-      <p data-i18n="contactsPhone">Телефон: <a href="tel:+79811429286" rel="noopener">+7 (981) 142-92-86</a></p>
-    </div>
+  <h3 data-i18n="contactsTitle">Контакты</h3>
+  <p>Email: <a href="mailto:duzhakovip@mail.ru">duzhakovip@mail.ru</a></p>
+  <p data-i18n="contactsPhone">
+  Телефон: 
+  <a href="tel:+79811429286" class="phone" rel="noopener">
+    +7&nbsp;(981)&nbsp;142‑92‑86
+  </a>
+</p>
+</div>
+
     <div class="footer__block">
       <h3 data-i18n="socialTitle">Соцсети</h3>
       <div class="footer__icons">
   <a href="https://www.youtube.com/@Ilya_Duzhakov" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-    <img src="svg/youtube-svgrepo-com.svg" alt="" class="youtube" loading="lazy">
+    <img src="svg/youtube-svgrepo-com.svg" alt="Youtube" class="youtube" loading="lazy">
   </a>
   <a href="https://t.me/CHESS_GUIDE64" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
-    <img src="svg/telegram-svgrepo-com.svg" alt="" class="telegram" loading="lazy">
+    <img src="svg/telegram-svgrepo-com.svg" alt="Telegram" class="telegram" loading="lazy">
   </a>
   <a href="https://www.instagram.com/ilyaduzhakov/" class="icon-link" target="_blank" rel="noopener noreferrer"aria-label="Instagram">
-    <img src="svg/instagram-svgrepo-com.svg" alt="" class="instagram" loading="lazy">
+    <img src="svg/instagram-svgrepo-com.svg" alt="Instagram" class="instagram" loading="lazy">
   </a>
   <a href="https://www.facebook.com/duzhakovip" class="icon-link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-    <img src="svg/facebook-svgrepo-com.svg" alt="" class="facebook" loading="lazy">
+    <img src="svg/facebook-svgrepo-com.svg" alt="facebook" class="facebook" loading="lazy">
   </a>
   <a href="https://wa.me/79811429286" target="_blank" rel="noopener noreferrer">
-    <img src="svg/whatsapp-svgrepo-com.svg" alt="" class="whatsapp" loading="lazy">
+    <img src="svg/whatsapp-svgrepo-com.svg" alt="WhatsApp" class="whatsapp" loading="lazy">
   </a>
 </div>
 

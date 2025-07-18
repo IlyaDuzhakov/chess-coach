@@ -17,39 +17,29 @@
 /* 📋 Tablet ≤1024px */
 /* ======================= */
 @media (max-width: 1024px) {
-  header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-   .header__logo {
-    margin-top: -60px;
-    margin-left: 10px;
-    max-width: 40px; /* уменьшаем, если нужно */
-    max-height: 40px;
-  }
-  #bot-icon {
+    .header__buttons,
+  .header__title,
+  .tooltip {
     display: none;
   }
-  .header__top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0 10px;
+   .header {
+    display: none;
+  }
+  .header__logo img {
+    display: none;
+  }
+  .burger {
+    z-index: 2;
+  }
+
+  #bot-icon {
+    display: none;
   }
 
   .header__buttons,
   .language-switcher-desktop {
     display: none;
   }
-
-  .burger {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
   .nav {
     display: none;
   }
@@ -73,6 +63,7 @@
     width: 90%;
     max-width: 300px;
     text-align: center;
+    background: rgba(0,0,0,0.5);
   }
 
   .language-switcher-mobile {

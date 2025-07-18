@@ -26,12 +26,14 @@ html, body {
   background-attachment: fixed; /*Фон остаётся на месте при прокрутке (параллакс)*/
   background-repeat: repeat;
   font-family: 'Inter', sans-serif;
-  overflow-x: hidden; /*Предотвращает горизонтальный скролл*/
+  /* overflow-x: hidden; Предотвращает горизонтальный скролл */
   color: var(--color-text);
   padding: 0;
   margin: 0;
   width: 100%;
   height: 100%;
+  overflow-x: auto; 
+  overflow-y: auto;
 }
 
 body.lock-scroll {
@@ -276,7 +278,6 @@ a:hover {
   text-decoration: none;
 }
 
-
 /* По умолчанию бургер скрыт */
 .burger {
   display: none;
@@ -290,17 +291,17 @@ a:hover {
   top: 20px;
   right: 20px;
   z-index: 150;
-}
+} 
 
 .burger span {
   display: block;
   height: 3px;
   width: 100%;
   background-color: #333;
-  /* border-radius: 3px; */
+   border-radius: 3px; 
   transition: all 0.3s ease-in-out;
    transform-origin: center;
-}
+}  
 
 /* Состояние "крестик" */
 .burger.open span:nth-child(1) {
@@ -311,7 +312,7 @@ a:hover {
 }
 .burger.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
-}
+}  
 
 .nav {
   display: flex;
@@ -319,7 +320,7 @@ a:hover {
   gap: 40px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 800px; 
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -1571,21 +1572,7 @@ section p, section li {
 
 /*                          button rezult             */
 
-
-
-
-
-
-
-
-
 /*                       intensive*/
-
-
-
-
-
-
 
 .content__prise {
   display: flex;
@@ -1776,7 +1763,9 @@ section p, section li {
 
 .btn-pink-purple {
   background: linear-gradient(135deg, #d02a80, #744bcd);
-  color: #fff;
+  color: #060606;
+  font-weight: 700;
+  margin: 0 auto;
 }
 
 /*   form close  */
@@ -2059,6 +2048,176 @@ section p, section li {
 
 /*                          course                               */
 
+/*                       бургер                      */
+
+/* затемнение */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+/* боковое меню */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  width: 300px;
+  height: 100%;
+  background: #c2efff url('/svg/chess-bg.svg') center/cover; /* шахматный фон */
+  background-size: 40px 40px;
+  z-index: 2000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+.side-menu.show {
+  right: 0;
+}
+
+.side-menu__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+   position: relative;
+}
+
+.close-btn {
+  /* position: absolute; */
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 28px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 1002;
+  color: #fa0303;
+  user-select: none;
+  line-height: 1;
+  z-index: 5000;
+  
+}
+
+.close-btn:hover {
+  background: rgba(118, 243, 145, 0.5);
+  border-radius: 50%;
+  z-index: 5000;
+}
+
+.side-menu__nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 15px;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.side-menu__nav a {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.side-menu__footer {
+  text-align: center;
+}
+.socials-olympic {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+  
+}
+
+.socials-olympic img {
+  width: 40px;
+  height: 40px;
+}
+
+.socials-olympic img:hover {
+   transform: scale(1.2);
+}
+
+.side-menu {
+  z-index: 1001;
+}
+
+.btn-mobile-signup {
+  display: inline-block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #f5844c;
+  color: #1d0143;
+  text-decoration: none;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.btn-mobile-signup:hover {
+  text-decoration: none;
+  transform: scale(1.1);
+}
+
+.burger {
+  width: 40px;
+  height: 40px;
+  background: rgb(255, 255, 255); /* или градиент */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: fixed;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s ease;
+   z-index: 1000;
+}
+
+.burger:hover {
+  background: #9bf598;
+}
+
+.burger span {
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease;
+}
+
+.burger span:nth-child(1) {
+  transform: translateY(-6px);
+}
+.burger span:nth-child(2) {
+  transform: translateY(0);
+}
+.burger span:nth-child(3) {
+  transform: translateY(6px);
+}
+
+/*                       бургер                      */
+
 /* ---------------------------- bot -----------------------------*/
 
 /*                          book reader                          */
@@ -2203,6 +2362,22 @@ section p, section li {
   text-decoration: none;
   font-weight: bold;
 }
+
+/*                          phone                     */
+.phone {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.phone:hover {
+  color: #007bff; /* или любой твой акцентный */
+  text-decoration: underline;
+}
+
+
+/*                          phone                    */
 
 
 /*                          book reader                         */
@@ -2408,6 +2583,12 @@ section p, section li {
   to   { transform: rotate(360deg); }
 }
 
+/*                        подсветка ошибкок в форме             */
+
+.error {
+  border: 1px solid red !important;
+  background-color: #ffe6e6;
+}
 
 
 

@@ -25,39 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const burger = document.getElementById('burger');
-  const nav = document.querySelector('.nav');
-  const bot = document.getElementById('bot-icon'); // ✅ твой бот
-  const form = document.querySelector('.form');   // если нужно скрывать форму тоже
 
-  burger.addEventListener('click', () => {
-    burger.classList.toggle('open');
-    nav.classList.toggle('show');
-    document.body.classList.toggle('lock-scroll');
-
-    const isOpen = nav.classList.contains('show');
-
-    if (isOpen) {
-      if (bot) bot.style.visibility = 'hidden';
-      if (form) form.style.visibility = 'hidden';
-    } else {
-      if (bot) bot.style.visibility = '';
-      if (form) form.style.visibility = '';
-    }
-  });
-
-  document.querySelectorAll('.nav a').forEach(link => {
-    link.addEventListener('click', () => {
-      nav.classList.remove('show');
-      burger.classList.remove('open');
-      document.body.classList.remove('lock-scroll');
-
-      if (bot) bot.style.visibility = '';
-      if (form) form.style.visibility = '';
-    });
-  });
-});
 const track = document.querySelector('.carousel-track');
 const slides = document.querySelectorAll('.carousel-item');
 
@@ -494,96 +462,92 @@ document.addEventListener('click', (e) => {
 // клик на кнопку записаться
 
 /*                    english                */
-
-document.addEventListener('DOMContentLoaded', () => {
-  const switcher = document.getElementById('languageSwitcher');
-  const elements = document.querySelectorAll('[data-i18n]');
-  const defaultLang = localStorage.getItem('lang') || 'ru';
-
-  function loadLanguage(lang) {
-    fetch('./multilang/translations.json')
-      .then(res => res.json())
-      .then(data => {
-        elements.forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          if (data[lang] && data[lang][key]) {
-            el.innerHTML = data[lang][key];
-          }
-        });
-
-        // 👉 Дополнительно, если есть блок FAQ
-        if (data[lang].faq) {
-          const faqContainer = document.getElementById('faq');
-          if (faqContainer) {
-            faqContainer.innerHTML = ''; // очистить
-            data[lang].faq.forEach(item => {
-              const faqItem = document.createElement('div');
-              faqItem.className = 'accordion-item';
-              faqItem.innerHTML = `
-                <button class="accordion-header">
-                  <span>${item.question}</span>
-                  <svg class="icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
-                </button>
-                <div class="accordion-content">
-                  ${item.answers.map(ans => `<p>${ans}</p>`).join('')}
-                </div>
-              `;
-              faqContainer.appendChild(faqItem);
-            });
-          }
-        }
-      });
-  }
-
-  switcher.value = defaultLang;
-  loadLanguage(defaultLang);
-
-  switcher.addEventListener('change', () => {
-    const selectedLang = switcher.value;
-    localStorage.setItem('lang', selectedLang);
-    loadLanguage(selectedLang);
-  });
-});
-
-const switcher = document.getElementById('languageSwitcher');
-const mobileSwitcher = document.getElementById('languageSwitcherMobile');
-
+// Функция переключения языка
 function loadLanguage(lang) {
   fetch('./multilang/translations.json')
     .then(res => res.json())
     .then(data => {
-      // твоя логика замены текста
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (data[lang] && data[lang][key]) {
+          el.innerHTML = data[lang][key];
+        }
+      });
+
+      const faqContainer = document.getElementById('faq');
+      if (faqContainer && data[lang].faq) {
+        faqContainer.innerHTML = '';
+        data[lang].faq.forEach(item => {
+          const faqItem = document.createElement('div');
+          faqItem.className = 'accordion-item';
+          faqItem.innerHTML = `
+            <button class="accordion-header">
+              <span>${item.question}</span>
+              <svg class="icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+            </button>
+            <div class="accordion-content">
+              ${item.answers.map(ans => `<p>${ans}</p>`).join('')}
+            </div>
+          `;
+          faqContainer.appendChild(faqItem);
+        });
+      }
+
+      const switcherDesktop = document.getElementById('languageSwitcher');
+      const switcherMobile = document.getElementById('languageSwitcherMobile');
+
+      if (switcherDesktop) switcherDesktop.value = lang;
+      if (switcherMobile) switcherMobile.value = lang;
+
+      localStorage.setItem('lang', lang);
+    })
+    .catch(err => console.error('Ошибка загрузки перевода:', err));
+}
+
+// Вешаем слушатели после загрузки DOM
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('burger');
+  const overlay = document.getElementById('overlay');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('closeBtn');
+
+  const switcherDesktop = document.getElementById('languageSwitcher');
+  const switcherMobile = document.getElementById('languageSwitcherMobile');
+
+  const defaultLang = localStorage.getItem('lang') || 'ru';
+  loadLanguage(defaultLang);
+
+  const handleLangChange = (e) => {
+    const lang = e.target.value;
+    console.log(`Переключение на: ${lang}`);
+    loadLanguage(lang);
+  };
+
+  if (switcherDesktop) switcherDesktop.addEventListener('change', handleLangChange);
+  if (switcherMobile) switcherMobile.addEventListener('change', handleLangChange);
+
+  const closeMenu = () => {
+    sideMenu.classList.remove('show');
+    overlay.classList.remove('show');
+    burger.classList.remove('active');
+  };
+
+  if (burger) {
+    burger.addEventListener('click', () => {
+      sideMenu.classList.add('show');
+      overlay.classList.add('show');
+      burger.classList.add('active');
     });
-}
+  }
 
-const selectedLang = localStorage.getItem('lang') || 'ru';
-if (switcher) switcher.value = selectedLang;
-if (mobileSwitcher) mobileSwitcher.value = selectedLang;
+  if (overlay) overlay.addEventListener('click', closeMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
 
-if (switcher) {
-  switcher.addEventListener('change', () => {
-    localStorage.setItem('lang', switcher.value);
-    location.reload();
+  document.querySelectorAll('.side-menu__nav a').forEach(link => {
+    link.addEventListener('click', closeMenu);
   });
-}
-
-if (mobileSwitcher) {
-  mobileSwitcher.addEventListener('change', () => {
-    localStorage.setItem('lang', mobileSwitcher.value);
-    location.reload();
-  });
-}
-
-loadLanguage(selectedLang);
-
-const courses = document.querySelectorAll('.courses-slider .course');
-let current = 0;
-
-setInterval(() => {
-  courses[current].classList.remove('active');
-  current = (current + 1) % courses.length;
-  courses[current].classList.add('active');
-}, 12000);
+});
 
 
 document.querySelectorAll('[id^="toggle-program"]').forEach(button => {
@@ -744,3 +708,111 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+// бургер
+
+document.querySelectorAll('.side-menu__nav a').forEach(link => {
+  link.addEventListener('click', () => {
+    sideMenu.classList.remove('show');
+    overlay.classList.remove('show');
+    burger.classList.remove('active');
+  });
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const burger = document.getElementById('burger');
+  const overlay = document.getElementById('overlay');
+  const sideMenu = document.getElementById('sideMenu');
+  const closeBtn = document.getElementById('closeBtn');
+
+  const closeMenu = () => {
+    sideMenu.classList.remove('show');
+    overlay.classList.remove('show');
+    burger.classList.remove('active');
+  };
+
+  burger.addEventListener('click', () => {
+    sideMenu.classList.add('show');
+    overlay.classList.add('show');
+    burger.classList.add('active');
+  });
+  // 👉 подгружаем язык прямо здесь
+  const currentLang = localStorage.getItem('lang') || 'ru';
+  loadLanguage(currentLang);
+
+  overlay.addEventListener('click', closeMenu);
+  closeBtn.addEventListener('click', closeMenu);
+
+  // document.querySelectorAll('.side-menu__nav a').forEach(link => {
+  //   link.addEventListener('click', closeMenu);
+  // });
+});
+
+// pricing.json
+document.addEventListener('DOMContentLoaded', () => {
+  function renderPricing(lang = 'ru') {
+    fetch('./multilang/pricing.json')
+      .then(res => res.json())
+      .then(data => {
+        const section = document.querySelector('.content__prise');
+        if (!section) return;
+
+        section.innerHTML = '';
+
+        data[lang].forEach(item => {
+          const card = document.createElement('div');
+          card.className = `price-card price-card--${item.type}`;
+
+          let html = `
+            ${item.badge ? `<div class="price-badge">${item.badge}</div>` : ''}
+            ${item.icon ? `<img src="${item.icon}" alt="${item.title}" class="icon-title">` : ''}
+            <h3>${item.title}</h3>
+          `;
+
+          if (item.people) {
+            html += `<p class="number__peoples">${item.people}</p>`;
+          }
+
+          item.options.forEach(opt => {
+            html += `<p>⌛ ${opt.duration} — <strong>${opt.price || ''}</strong> 
+              ${opt.old ? `<br><small>(вместо ${opt.old})</small>` : ''} 
+              ${opt.note || ''}</p>`;
+          });
+
+          if (item.notes) {
+            item.notes.forEach(note => {
+              html += `<p class="note">${note}</p>`;
+            });
+          }
+
+          if (item.link) {
+            html += `<a href="${item.link}" target="_blank" class="btn btn-primary btn-pink-purple">${item.link_text}</a>`;
+          } else if (item.button) {
+            html += `<button class="btn btn-primary open-bot-form btn-pink-purple">${item.button}</button>`;
+          }
+
+          card.innerHTML = html;
+          section.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error('Ошибка загрузки pricing.json:', err);
+      });
+  }
+
+  // 👉 Вызовем её сразу при загрузке
+  const currentLang = localStorage.getItem('lang') || 'ru';
+  renderPricing(currentLang);
+
+  // и ещё можно привязать к смене языка, если нужно:
+  const switcher = document.getElementById('languageSwitcher');
+  const switcherMobile = document.getElementById('languageSwitcherMobile');
+
+  [switcher, switcherMobile].forEach(sw => {
+    if (!sw) return;
+    sw.addEventListener('change', () => {
+      const lang = sw.value;
+      renderPricing(lang);
+    });
+  });
+});

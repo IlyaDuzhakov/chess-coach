@@ -155,12 +155,13 @@
 
     "contactsTitle": "Контакты",
 "contactsEmail": "Email: duzhakovip@mail.ru",
-"contactsPhone": "Телефон: +7 (981) 142-92-86",
+"contactsPhone": "Телефон: <a href='tel:+79811429286' class='phone'>+7&nbsp;(981)&nbsp;142‑92‑86</a>",
+
 
 "socialTitle": "Соцсети",
 
-"copyright": "© 2025 Илья Дужаков — шахматный тренер"
-
+"copyright": "© 2025 Илья Дужаков — шахматный тренер",
+"icons-title": "Иконки - <a href=\"https://favicon.io/\" target=\"_blank\" rel=\"noopener\">favicon.io</a>"
   },
 
   "en": {
@@ -320,9 +321,9 @@
 
     "contactsTitle": "Contacts",
 "contactsEmail": "Email: duzhakovip@mail.ru",
-"contactsPhone": "Phone: +7 (981) 142-92-86",
+"contactsPhone": "Phone: <a href='tel:+79811429286' class='phone'>+7&nbsp;(981)&nbsp;142‑92‑86</a>",
 "socialTitle": "Socials",
-"copyright": "© 2025 Ilya Duzhakov — chess coach"
-
+"copyright": "© 2025 Ilya Duzhakov — chess coach",
+"icons-title": "Icons - <a href=\"https://favicon.io/\" target=\"_blank\" rel=\"noopener\">favicon.io</a>"
   }
 }

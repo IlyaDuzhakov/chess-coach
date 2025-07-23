@@ -177,24 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Кнопка оставить заявку
-document.addEventListener('DOMContentLoaded', () => {
-  const btn = document.getElementById('requestBtn');
-  const form = document.getElementById('bot-form');
-
-  btn.addEventListener('click', () => {
-    form.classList.toggle('hidden');
-  });
-});
-
-
-const botIcon = document.getElementById('bot-icon');
-const botForm = document.getElementById('bot-form');
-
-botIcon.addEventListener('click', () => {
-  botForm.classList.toggle('hidden');
-});
-
 function initCarousel() {
   const isMobile = window.innerWidth <= 768;
   const track = document.querySelector('.carousel-track');
@@ -252,12 +234,40 @@ function initCarousel() {
 }
 
 // валидация
-
 document.addEventListener('DOMContentLoaded', () => {
+  const botForm = document.getElementById('bot-form');
   const form = document.getElementById('telegramForm');
+  const intensiveInput = document.getElementById('intensive');
   const status = document.getElementById('form-status');
   const submitBtn = form.querySelector('button[type="submit"]');
+  const popup = document.getElementById('bonusPopup');
+  const checkbox = document.getElementById('agree');
 
+  if (!botForm || !form) {
+    console.warn('❗ bot-form или telegramForm не найден.');
+    return;
+  }
+
+  // кнопки «Записаться»
+  document.querySelectorAll('.open-bot-form').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+
+      console.log('✅ Нажата кнопка «Записаться»');
+
+      botForm.classList.remove('hidden');
+      if (popup) popup.style.display = 'none';
+
+      const card = btn.closest('.price-card');
+      const title = card?.querySelector('h3')?.textContent.trim() || 'Неизвестный';
+
+      if (intensiveInput) intensiveInput.value = title;
+
+      botForm.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // отправка формы
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -265,12 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = form.elements['email'].value.trim();
     const phone = form.elements['phone'].value.trim();
     const comment = form.elements['comment'].value.trim();
-    const agree = document.getElementById('agree').checked;
 
     const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]{2,}$/;
     const phoneRegex = /^[\d\s()+-]{6,}$/;
 
-    if (!agree) {
+    if (!checkbox.checked) {
       status.textContent = '⚠️ Нужно согласиться с политикой.';
       status.style.color = 'red';
       return;
@@ -283,7 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!phoneRegex.test(phone)) {
-      status.textContent = '⚠️ Телефон должен содержать только цифры и допустимые символы.';
+      status.textContent = '⚠️ Телефон должен быть корректным.';
       status.style.color = 'red';
       return;
     }
@@ -321,32 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 7000);
     }
   });
-});
 
-// валидация
-
-document.addEventListener('DOMContentLoaded', () => {
-  const botForm = document.getElementById('bot-form');
-  const popup = document.getElementById('bonusPopup');
-  const form = document.getElementById('telegramForm');
-  const status = document.getElementById('form-status');
-  const checkbox = document.getElementById('agree');
-  const intensiveInput = document.getElementById('intensive');
-
-  // кнопки открытия формы
-  document.querySelectorAll('.open-bot-form').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      botForm.classList.remove('hidden');
-      if (popup) popup.style.display = 'none';
-
-      const title =
-        btn.closest('.price-card')?.querySelector('h3')?.textContent || 'Неизвестный';
-      intensiveInput.value = title;
-
-      botForm.scrollIntoView({ behavior: 'smooth' });
-    });
-  });
 
   // горизонтальный скролл видео и отзывов
   document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
@@ -444,21 +428,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // клик на кнопку записаться
 document.addEventListener('click', (e) => {
-  if (e.target.classList.contains('btn__intensive')) {
-    const botForm = document.getElementById('bot-form');
-    const intensiveInput = document.getElementById('intensive');
+  const form = document.querySelector('#bot-form');
 
-    // ищем карточку
-    const card = e.target.closest('.intensive-card');
-    const title = card?.querySelector('h3')?.textContent.trim() || 'Интенсив';
+  // кнопка "Записаться"
+  const openBtn = e.target.closest('.open-bot-form, #bot-icon');
+  if (openBtn) {
+    console.log('✅ Кнопка нажата или клик на коня!');
+    form.classList.remove('hidden');
+    form.classList.add('show');
+    return;
+  }
 
-    intensiveInput.value = title;
-    botForm.classList.remove('hidden');
-    botForm.scrollIntoView({ behavior: 'smooth' });
+  // кнопка закрытия
+  const closeBtn = e.target.closest('.form-close');
+  if (closeBtn) {
+    console.log('❌ Форма закрыта по кнопке!');
+    form.classList.add('hidden');
+    form.classList.remove('show');
+    return;
+  }
+      // Кнопка «Оставить заявку»
+  const requestBtn = document.getElementById("requestBtn");
+  if (requestBtn) {
+    requestBtn.addEventListener("click", () => {
+      showForm();
+    });
+  }
+
+
+  // клик вне контента формы
+  if (
+    form.classList.contains('show') &&
+    !e.target.closest('.content') &&
+    form.contains(e.target)
+  ) {
+    console.log('🌙 Клик вне формы, закрываем!');
+    form.classList.add('hidden');
+    form.classList.remove('show');
   }
 });
-
-
 // клик на кнопку записаться
 
 /*                    english                */
@@ -520,7 +528,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const handleLangChange = (e) => {
     const lang = e.target.value;
-    console.log(`Переключение на: ${lang}`);
+    //console.log(`Переключение на: ${lang}`);
     loadLanguage(lang);
   };
 
@@ -695,17 +703,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('intensiveBtn').addEventListener('click', () => {
   window.location.href = 'intensive_rezults.html';
-});
-
-// formClose
-
-document.addEventListener('DOMContentLoaded', () => {
-  const closeBtn = document.querySelector('.form-close');
-  const botForm = document.getElementById('bot-form');
-
-  closeBtn.addEventListener('click', () => {
-    botForm.classList.add('hidden');
-  });
 });
 
 // бургер

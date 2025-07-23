@@ -147,6 +147,10 @@
   .zoom, .teams {
     width: 60px;
   }
+  #bot-form {
+    max-width: 90%;
+    padding: 15px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -220,6 +224,15 @@
     width: 180px;
     height: 180px;
   }  
+   #bot-form {
+    max-width: 95%;
+    padding: 10px;
+  }
+  #bot-form input,
+  #bot-form textarea,
+  #bot-form button {
+    font-size: 14px;
+  }
 }
 
 

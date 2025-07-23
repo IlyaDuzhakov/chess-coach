@@ -1356,6 +1356,68 @@ section p, section li {
   text-decoration: none;
 }
 
+/*                        swiper*/
+/* Увеличиваем размер кружочков */
+.swiper-pagination .swiper-pagination-bullet {
+  width: 20px;  /* Увеличьте значение по своему усмотрению */
+  height: 20px; /* Увеличьте значение по своему усмотрению */
+  margin: 0 8px; /* Размещение между кружочками */
+  border-radius: 50%;
+  background-color: rgb(79, 2, 211); /* Можно изменить на нужный вам цвет */
+  transition: background-color 0.3s ease;
+}
+/* Контейнер Swiper */
+.mySwiper {
+  width: 100%;
+  height: auto; /* Убедитесь, что слайдер занимает всю ширину и нужную высоту */
+  overflow: hidden; /* Обрезает слайды, выходящие за пределы */
+}
+
+/* Обертка для слайдов */
+.swiper-wrapper {
+  display: flex;  /* Это гарантирует горизонтальное расположение слайдов */
+  flex-wrap: nowrap; /* Слайды не будут переноситься на новую строку */
+}
+
+/* Каждый слайд */
+.swiper-slide {
+  flex-shrink: 0;  /* Слайды не сжимаются */
+  width: 100%;     /* Можно задать фиксированную ширину, если нужно */
+  padding: 10px;   /* Отступы между слайдами */
+}
+
+/* Стили для картинок внутри слайдов */
+.review-card img {
+    width: 70%;
+    height: 250px;
+    border-radius: 60%;
+}
+
+/* Для пагинации и стрелок */
+.swiper-pagination {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  color: #333;
+  font-size: 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+/* Для контейнера с отзывами */
+.reviews {
+  width: 100%;
+  margin: 0 auto;
+}
+
+/*                        swiper*/
+
 /*                    prise                                */
 .lesson-price {
   max-width: 1200px;

@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   new Swiper(".mySwiper", {
     loop: true,
+    direction: 'horizontal',  // Убедитесь, что направление горизонтальное
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",

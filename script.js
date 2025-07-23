@@ -233,9 +233,7 @@ function initCarousel() {
     loopScroll();
   }
 }
-
-// валидация
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function () {
   const botForm = document.getElementById('bot-form');
   const form = document.getElementById('telegramForm');
   const intensiveInput = document.getElementById('intensive');
@@ -243,18 +241,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const submitBtn = form.querySelector('button[type="submit"]');
   const popup = document.getElementById('bonusPopup');
   const checkbox = document.getElementById('agree');
-
+  
+  // Проверка на существование элементов
   if (!botForm || !form) {
     console.warn('❗ bot-form или telegramForm не найден.');
     return;
   }
 
-  // кнопки «Записаться»
+  // Открытие формы при нажатии кнопки "Записаться"
   document.querySelectorAll('.open-bot-form').forEach(btn => {
     btn.addEventListener('click', e => {
       e.preventDefault();
-
-      console.log('✅ Нажата кнопка «Записаться»');
 
       botForm.classList.remove('hidden');
       if (popup) popup.style.display = 'none';
@@ -268,7 +265,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // отправка формы
+  // Отправка формы и валидация
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -280,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameRegex = /^[A-Za-zА-Яа-яЁё\s-]{2,}$/;
     const phoneRegex = /^[\d\s()+-]{6,}$/;
 
+    // Валидация
     if (!checkbox.checked) {
       status.textContent = '⚠️ Нужно согласиться с политикой.';
       status.style.color = 'red';
@@ -315,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         status.textContent = '✅ Спасибо! С вами свяжутся.';
         status.style.color = 'green';
         form.reset();
+        showPopup(); // Показываем попап при успешной отправке
       } else {
         status.textContent = '❌ Ошибка при отправке.';
         status.style.color = 'red';
@@ -325,107 +324,75 @@ document.addEventListener('DOMContentLoaded', () => {
       status.style.color = 'red';
     } finally {
       submitBtn.disabled = false;
-
       setTimeout(() => {
         status.textContent = '';
       }, 7000);
     }
   });
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.querySelector('#bonusPopup'); // Фон попапа
+  const closeBtn = document.getElementById('popupClose'); // Кнопка закрытия попапа
+  const openBtn = document.querySelector('.open-popup'); // Кнопка для открытия попапа (рекламного)
 
-
-  // горизонтальный скролл видео и отзывов
-  document.querySelectorAll('.video-scroll, .review-scroll').forEach(el => {
-    el.addEventListener('wheel', (e) => {
-      if (e.deltaY === 0) return;
-      e.preventDefault();
-      el.scrollLeft += e.deltaY;
-    });
-  });
-
-  // инициализация карусели
-  if (typeof initCarousel === 'function') {
-    initCarousel();
-  } else {
-    console.warn('⚠️ Функция initCarousel не найдена!');
+  // Функция для открытия попапа
+  function showPopup() {
+    popup.classList.add('active'); // Показываем попап
   }
 
-  // ВАЛИДАЦИЯ И ОТПРАВКА
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  // Функция для закрытия попапа
+  function closePopup() {
+    popup.classList.remove('active'); // Скрываем попап
+  }
 
-    const nameInput = form.elements['name'];
-    const emailInput = form.elements['email'];
-    const phoneInput = form.elements['phone'];
-    const commentInput = form.elements['comment'];
+  // Открытие попапа при клике на кнопку "Записаться" (или на любую другую кнопку)
+  if (openBtn) {
+    openBtn.addEventListener('click', function () {
+      showPopup(); // Открыть попап
+    });
+  }
 
-    const name = nameInput.value.trim();
-    const email = emailInput.value.trim();
-    const phone = phoneInput.value.trim();
-    const comment = commentInput.value.trim();
-    const intensive = intensiveInput.value;
+  // Закрытие попапа при клике на кнопку "Закрыть"
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function () {
+      closePopup(); // Закрыть попап
+    });
+  }
 
-    const fields = [nameInput, emailInput, phoneInput];
-    fields.forEach(f => f.classList.remove('error')); // сброс ошибок
-
-    let errors = [];
-
-    if (!checkbox.checked) {
-      errors.push('⚠️ Нужно согласиться с политикой.');
-    }
-
-    if (!name || !/^[a-zA-Zа-яА-ЯёЁ\s]{2,}$/.test(name)) {
-      errors.push('⚠️ Имя некорректно.');
-      nameInput.classList.add('error');
-    }
-
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.push('⚠️ E-mail некорректный.');
-      emailInput.classList.add('error');
-    }
-
-    const digitsOnly = phone.replace(/\D/g, '');
-    if (!phone || digitsOnly.length < 6) {
-      errors.push('⚠️ Телефон некорректный.');
-      phoneInput.classList.add('error');
-    }
-
-    if (errors.length) {
-      status.innerHTML = errors.join('<br>');
-      return;
-    }
-
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    status.textContent = '⏳ Отправка... подождите.';
-
-    try {
-      const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, phone, comment, intensive })
-      });
-
-      const result = await response.json();
-
-      if (result.ok) {
-        status.textContent = '✅ Спасибо! С вами свяжутся.';
-        form.reset();
-        checkbox.checked = false;
-      } else {
-        status.textContent = '⚠️ Ошибка при отправке.';
+  // Закрытие попапа при клике на фон (клик вне попапа)
+  if (popup) {
+    popup.addEventListener('click', function (e) {
+      if (e.target === popup) { // Закрыть, если клик по фону
+        closePopup(); // Закрыть попап
       }
-    } catch (err) {
-      console.error(err);
-      status.textContent = '🚫 Ошибка сервера.';
-    }
+    });
+  }
 
-    submitBtn.disabled = false;
-
+  // Таймеры для показа попапа
+  setTimeout(() => {
+    showPopup(); // Показываем попап через 10 секунд
     setTimeout(() => {
-      status.textContent = '';
-    }, 5000);
-  });
+      closePopup(); // Закрываем попап через 10 секунд
+    }, 10000); // Закрытие попапа через 10 секунд
+  }, 10000); // 10 секунд
+
+  setTimeout(() => {
+    showPopup(); // Показываем попап через 30 секунд
+    setTimeout(() => {
+      closePopup(); // Закрываем попап через 30 секунд
+    }, 30000); // Закрытие попапа через 30 секунд
+  }, 30000); // 30 секунд
+
+  setTimeout(() => {
+    showPopup(); // Показываем попап через 10 минут
+    setTimeout(() => {
+      closePopup(); // Закрываем попап через 10 минут
+    }, 600000); // Закрытие попапа через 10 минут
+  }, 600000); // 10 минут
 });
+
+
+});
+
 
 // клик на кнопку записаться
 document.addEventListener('click', (e) => {
@@ -434,7 +401,7 @@ document.addEventListener('click', (e) => {
   // кнопка "Записаться"
   const openBtn = e.target.closest('.open-bot-form, #bot-icon');
   if (openBtn) {
-    console.log('✅ Кнопка нажата или клик на коня!');
+    // console.log('✅ Кнопка нажата или клик на коня!');
     form.classList.remove('hidden');
     form.classList.add('show');
     return;
@@ -443,7 +410,7 @@ document.addEventListener('click', (e) => {
   // кнопка закрытия
   const closeBtn = e.target.closest('.form-close');
   if (closeBtn) {
-    console.log('❌ Форма закрыта по кнопке!');
+    // console.log('❌ Форма закрыта по кнопке!');
     form.classList.add('hidden');
     form.classList.remove('show');
     return;
@@ -454,18 +421,6 @@ document.addEventListener('click', (e) => {
     requestBtn.addEventListener("click", () => {
       showForm();
     });
-  }
-
-
-  // клик вне контента формы
-  if (
-    form.classList.contains('show') &&
-    !e.target.closest('.content') &&
-    form.contains(e.target)
-  ) {
-    console.log('🌙 Клик вне формы, закрываем!');
-    form.classList.add('hidden');
-    form.classList.remove('show');
   }
 });
 // клик на кнопку записаться
@@ -512,6 +467,43 @@ function loadLanguage(lang) {
       localStorage.setItem('lang', lang);
     })
     .catch(err => console.error('Ошибка загрузки перевода:', err));
+}
+// клик на кнопку записаться
+document.addEventListener('DOMContentLoaded', () => {
+  // Добавление обработчика на кнопку "Оставить заявку"
+  const requestBtn = document.getElementById("requestBtn");
+  if (requestBtn) {
+    requestBtn.addEventListener("click", () => {
+      showForm();
+    });
+  }
+
+  // Обработчик клика на кнопки "Записаться" и "Закрыть"
+  document.addEventListener('click', (e) => {
+    const form = document.querySelector('#bot-form');
+    
+    // кнопка "Записаться"
+    const openBtn = e.target.closest('.open-bot-form, #bot-icon');
+    if (openBtn) {
+      form.classList.remove('hidden');
+      form.classList.add('show');
+      return;
+    }
+
+    // кнопка закрытия
+    const closeBtn = e.target.closest('.form-close');
+    if (closeBtn) {
+      form.classList.add('hidden');
+      form.classList.remove('show');
+      return;
+    }
+  });
+});
+
+function showForm() {
+  const form = document.querySelector('#bot-form');
+  form.classList.remove('hidden');
+  form.classList.add('show');
 }
 
 // Вешаем слушатели после загрузки DOM

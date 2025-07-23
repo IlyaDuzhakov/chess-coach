@@ -113,6 +113,10 @@
   .about-right p {
     font-size: 1.8rem;
 }
+.quality__mark {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* ======================= */
@@ -150,6 +154,22 @@
   #bot-form {
     max-width: 90%;
     padding: 15px;
+  }
+  .review-card {
+    padding: 0.8rem;
+  }
+
+  .review-card h3 {
+    font-size: 1rem;
+  }
+
+  .review-card p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
+
+  .swiper {
+    padding-bottom: 1.5rem;
   }
 }
 

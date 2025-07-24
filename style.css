@@ -617,7 +617,22 @@ a:hover {
    position: relative;
   align-items: flex-start;  /* выравнивание по верху */
   justify-content: flex-start;
-  background: linear-gradient(135deg, #83a4d4, #b6fbff);
+  	background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .work__areas .icon {
@@ -892,15 +907,22 @@ section p, section li {
 }
 
 .reveal__choose {
-  background: linear-gradient(135deg, #2BC0E4, #EAECC6);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(50px) scale(0.95);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
+
 
 .reveal.visible {
   opacity: 1;
@@ -1423,7 +1445,7 @@ section p, section li {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #00c3ff, #ffff1c);
+  background: linear-gradient(135deg, #03c4ff, #5165c7);
   border-radius: 16px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1670,7 +1692,8 @@ section p, section li {
   justify-content: space-between;
   color: #111; /* или #222 */
   font-size: 16px;
-  background: linear-gradient(135deg, #4facfe, #00f2fe);
+  
+background: linear-gradient(90deg, #e70000,#ff8c00,#ffef00,#00bc93,#0044ff);background: -webkit-linear-gradient(90deg, #fe4e4e,#ff8c00,#ffef00,#00bc93,#0044ff);
   background-size: 200% 200%;
   background-position: left top;
 
@@ -1721,18 +1744,19 @@ section p, section li {
 }
 
 .price-badge {
-  background: linear-gradient(45deg, #ff6f61, #ff8a65);
-  color: #fff;
+  background: linear-gradient(45deg, #ff1500, #872000);
+  color: #fbea01;
   padding: 4px 10px;
   border-radius: 6px;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   display: inline-block;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 /* разные карточки */
-.price-card--group {
-  background: linear-gradient(135deg, #fddb92, #d1fdff);
+/* .price-card--group {
+  background: -webkit-linear-gradient(90deg, #d1f4b6,#66dfbc,#00c2da,#009df2,#476ade);background: linear-gradient(90deg, #d1f4b6,#66dfbc,#00c2da,#009df2,#476ade);
    background-size: 200% 200%;
 }
 
@@ -1749,7 +1773,7 @@ section p, section li {
 .price-card--free {
   background: linear-gradient(135deg, #f6d365, #fda085);
   background-size: 200% 200%;
-}
+} */
 
 /* ховер для всех */
 .price-card:hover {
@@ -1759,7 +1783,7 @@ section p, section li {
 
 .btn-primary, .fancy-btn {
   background: linear-gradient(90deg, #4facfe, #00f2fe);
-  color: #fff;
+  color: #010101;
   border: none;
   border-radius: 30px;
   padding: 10px 20px;
@@ -1805,8 +1829,9 @@ section p, section li {
 
 .fancy-btn {
   background: linear-gradient(90deg, #4facfe, #00f2fe);
-  color: #fff;
+  color: #000000;
   border: none;
+  font-weight: 700;
   border-radius: 30px;
   padding: 12px 25px;
   font-size: 1.1rem;
@@ -1822,7 +1847,7 @@ section p, section li {
 }
 
 .btn-pink-purple {
-  background: linear-gradient(135deg, #d02a80, #744bcd);
+  background: linear-gradient(135deg, #2aa9d0, #27ff56);
   color: #060606;
   font-weight: 700;
   margin: 0 auto;
@@ -1871,8 +1896,16 @@ section p, section li {
 }
 
 .courses {
-  background: linear-gradient(135deg, #e0c3fc, #8ec5fc);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
+
+/* .courses:hover {
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  background: -webkit-linear-gradient(90deg, #750e98,#5668c5,#37c4dc,#38f1b6,#fcf938);background: linear-gradient(90deg, #ca53f2,#6c82ee,#5bd3e9,#56f0bf,#fffc55);
+} */
 
 .courses__wrapper {
   display: flex;
@@ -2285,7 +2318,10 @@ section p, section li {
 .books {
   text-align: center;
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, #00c3ff, #ffff1c);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 .books__list {

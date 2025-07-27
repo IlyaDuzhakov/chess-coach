@@ -806,3 +806,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+// убираем lazy loading
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (window.matchMedia('(max-width: 768px)').matches) {
+    document.querySelectorAll('#champions img[loading="lazy"]')
+      .forEach(img => {
+        img.setAttribute('loading', 'eager');
+        img.setAttribute('fetchpriority', 'high');
+      });
+  }
+});

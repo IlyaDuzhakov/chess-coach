@@ -57,7 +57,7 @@
         "Все подробности и другие форматы — в полной таблице."
       ],
       "link": "docs/pricing-guide.pdf",
-      "link_text": "Прайс‑лист"
+      "link_text": "📎 Скачать полный прайс‑лист (PDF)"
     },
     {
       "type": "trial",
@@ -130,7 +130,7 @@
         "All details and other formats — in the full table."
       ],
       "link": "docs/pricing-guide.pdf",
-      "link_text": "Price list"
+      "link_text": "📎 Download full price list (PDF)"
     },
     {
       "type": "trial",

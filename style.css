@@ -9,9 +9,9 @@
   --color-heart-hover: #b91c1c; /* насыщенный красный при наведении */
 }
 
-/* * {
+* {
   outline: 1px solid rgba(255,0,0,0.3);  // для устранения горизонтального скролла проверка
-} */
+}
 * {
   box-sizing: border-box;
 }
@@ -32,7 +32,7 @@ html, body {
   margin: 0;
   width: 100%;
   height: 100%;
-  overflow-x: auto; 
+  overflow-x: hidden;
   overflow-y: auto;
 }
 
@@ -82,7 +82,9 @@ a:hover {
 
 /* === Header === */
 .header {
-  background: linear-gradient(135deg, #c6f0e3, #a2d5f2);
+  background: linear-gradient(-45deg, #ed193b, #a98055, #f286e2, #681d7a);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
   color: var(--color-primary);
   border-bottom: 3px solid var(--color-accent);
   backdrop-filter: blur(8px);
@@ -97,6 +99,18 @@ a:hover {
   z-index: 100;
   
   /* margin: 0 auto; */
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .header__title {
@@ -545,6 +559,8 @@ a:hover {
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
 
+
+
 /* 💎 Блок "Почему выбирают меня" */
 .why-choose {
   background-color: #e0f2fe;
@@ -794,7 +810,7 @@ section p, section li {
   flex: 0 0 auto;
   width: 300px;
   border-radius: 16px;
-  background: rgb(92, 245, 156);
+  background: rgb(245, 226, 10);
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   scroll-snap-align: start;
 }
@@ -1273,7 +1289,9 @@ section p, section li {
 /* footer */
 
 .footer {
-  background: linear-gradient(to right, #43aed2, #a4dce9);
+  background: linear-gradient(180deg, #ee4787, #98749b, #ddf810, #8f4ff4);
+	background-size: 400% 400%;
+	animation: gradient__footer 20s ease infinite;
   color: #e0f2fe;
   padding: 40px 20px;
   font-size: 16px;
@@ -1281,6 +1299,19 @@ section p, section li {
    transform: translateY(60px) scale(0.95);
   transition: transform 0.8s ease, opacity 0.8s ease;
 }
+
+@keyframes gradient__footer {
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
+}
+
 
 .footer.visible {
    opacity: 1;

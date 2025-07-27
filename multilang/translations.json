@@ -21,9 +21,10 @@
     "btn_workbooks": "Рабочие тетради",
 
     "lessonExamplesTitle": "Примеры занятий с учениками",
-    "analysisGames": "Анализ партий",
-    "studyTheory": "Изучение теории",
+    "analysisGames": "Анализ партии ученика",
+    "studyTheory": "Изучаем дебют",
     "errorWork": "Работа над ошибками",
+    "groupGame": "Игра с учениками",
 
     "whyChooseTitle": "Почему выбирают меня",
     "reason1": "Ученики побеждают на турнирах и занимают призовые места",
@@ -186,9 +187,10 @@
     "btn_workbooks": "Workbooks",
 
     "lessonExamplesTitle": "Lesson examples with students",
-    "analysisGames": "Game analysis",
-    "studyTheory": "Studying theory",
+    "analysisGames": "Student Game Analysis",
+    "studyTheory": "Studying the Opening",
     "errorWork": "Working on mistakes",
+    "groupGame": "Game with Students",
 
 
     "whyChooseTitle": "Why they choose me",

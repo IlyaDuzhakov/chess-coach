@@ -145,7 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const email = form.elements['email'].value;
     const phone = form.elements['phone'].value;
     const comment = form.elements['comment'].value;
-
+//
+    const status = document.getElementById('form-status');
+//
     try {
       const response = await fetch('https://telegram-form-server-rfki.onrender.com/send-message', {
         method: 'POST',

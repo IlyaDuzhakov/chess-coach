@@ -2727,11 +2727,11 @@ section p, section li {
   background-color: #ffe6e6;
 }
 
-#bottomNav {
+.bottom-nav {
   display: none;
 }
 
-#mobileHeader {
+.mobile-header {
   display: none;
 }
 

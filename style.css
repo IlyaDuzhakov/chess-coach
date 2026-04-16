@@ -2727,6 +2727,14 @@ section p, section li {
   background-color: #ffe6e6;
 }
 
+#bottomNav {
+  display: none;
+}
+
+#mobileHeader {
+  display: none;
+}
+
 
 
 

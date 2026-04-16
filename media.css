@@ -171,6 +171,16 @@
   .swiper {
     padding-bottom: 1.5rem;
   }
+    #bottomNav {
+  display: flex;
+}
+#mobileHeader {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
 }
 
 @media (max-width: 640px) {
@@ -530,5 +540,11 @@
   .courses {
     max-width: 93%;
   }
+
+#mobileHeader {
+  display: flex;
+  width: 100%;
+}
+
 }
 

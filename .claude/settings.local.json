@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:cloudcdn-mar-62.cdn.yandex.net)",
+      "WebFetch(domain:yandex.ru)",
+      "WebFetch(domain:yastatic.net)"
+    ]
+  }
+}

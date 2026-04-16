@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="2026-04-16 12:00">
+  <shop>
+    <name>Илья Дужаков</name>
+    <company>Илья Дужаков — шахматный тренер</company>
+    <url>https://ilyaduzhakov.ru/</url>
+    <email>duzhakovip@mail.ru</email>
+    <picture>https://ilyaduzhakov.ru/svg/logo.svg</picture>
+    <description>Международный мастер ФИДЕ, шахматный тренер с опытом 13+ лет. Индивидуальные и групповые занятия онлайн и офлайн для детей и взрослых. Подготовка к турнирам, интенсивы, абонементы.</description>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <sets>
+      <set id="s1">
+        <name>Индивидуальные занятия</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+      </set>
+      <set id="s2">
+        <name>Групповые занятия</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+      </set>
+      <set id="s3">
+        <name>Интенсивы и мастер-классы</name>
+        <url>https://ilyaduzhakov.ru/#intensives</url>
+      </set>
+      <set id="s4">
+        <name>Абонементы</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+      </set>
+    </sets>
+    <offers>
+
+      <!-- ==================== ИНДИВИДУАЛЬНЫЕ ЗАНЯТИЯ ==================== -->
+      <!-- 1 EUR = 100 RUB -->
+
+      <offer id="ind-60">
+        <name>Индивидуальное занятие по шахматам — 1 час</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s1</set-ids>
+        <price>3000</price>
+        <currencyId>RUR</currencyId>
+        <description>Индивидуальное онлайн-занятие с международным мастером ФИДЕ Ильёй Дужаковым. Подходит для любого уровня — от начинающих до разрядников. Разбор ваших партий, персональный план тренировок, работа над ошибками.</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Дебюты" hours="20" order="1"><![CDATA[Разбор дебютного репертуара, изучение основных принципов и типовых идей. Составление персонального репертуара под стиль игры.]]></param>
+        <param name="План" unit="Миттельшпиль и тактика" hours="25" order="2"><![CDATA[Тактические мотивы, комбинации, позиционная игра. Разбор партий мастеров и собственных ошибок.]]></param>
+        <param name="План" unit="Эндшпиль" hours="15" order="3"><![CDATA[Базовые и сложные окончания, практические позиции. Техника реализации преимущества.]]></param>
+      </offer>
+
+      <offer id="ind-45">
+        <name>Индивидуальное занятие по шахматам — 45 минут</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s1</set-ids>
+        <price>2500</price>
+        <currencyId>RUR</currencyId>
+        <description>Индивидуальное онлайн-занятие 45 минут с тренером МФМ. Оптимальный формат для регулярных тренировок. Разбор партий, изучение дебютов и тактики. Для детей и взрослых любого уровня.</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Дебюты" hours="15" order="1"><![CDATA[Изучение дебютных принципов и составление репертуара.]]></param>
+        <param name="План" unit="Тактика и комбинации" hours="20" order="2"><![CDATA[Тактические упражнения, разбор ошибок, анализ собственных партий.]]></param>
+        <param name="План" unit="Эндшпиль" hours="10" order="3"><![CDATA[Основные виды окончаний и техника игры в них.]]></param>
+      </offer>
+
+      <offer id="ind-30">
+        <name>Индивидуальное занятие по шахматам — 30 минут</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s1</set-ids>
+        <price>1500</price>
+        <currencyId>RUR</currencyId>
+        <description>Экспресс-занятие по шахматам 30 минут. Идеально для детей младшего возраста и целевого разбора конкретной темы: дебют, тактика, окончание. Онлайн с тренером МФМ.</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Разбор темы" hours="8" order="1"><![CDATA[Разбор конкретной темы или позиции из партии ученика.]]></param>
+        <param name="План" unit="Практика" hours="8" order="2"><![CDATA[Закрепление пройденного на практических позициях.]]></param>
+        <param name="План" unit="Домашнее задание" hours="4" order="3"><![CDATA[Задание для самостоятельной работы до следующего занятия.]]></param>
+      </offer>
+
+      <!-- ==================== ГРУППОВЫЕ ЗАНЯТИЯ ==================== -->
+
+      <offer id="group-60">
+        <name>Групповые занятия по шахматам — до 4 человек</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s2</set-ids>
+        <price>1000</price>
+        <currencyId>RUR</currencyId>
+        <description>Групповые онлайн-занятия по шахматам с тренером МФМ. До 4 человек, 60 минут. В 2,5 раза дешевле индивидуального при том же уровне внимания к каждому ученику. Если соберутся 2–3 человека — занятие всё равно состоится!</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">В группе с преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">true</param>
+        <param name="План" unit="Дебюты" hours="15" order="1"><![CDATA[Изучение дебютных принципов, типовые идеи, разбор партий.]]></param>
+        <param name="План" unit="Тактика" hours="20" order="2"><![CDATA[Тактические задачи, турнир внутри группы, разбор ошибок.]]></param>
+        <param name="План" unit="Эндшпиль и практика" hours="10" order="3"><![CDATA[Базовые окончания, анализ партий, обратная связь.]]></param>
+      </offer>
+
+      <!-- ==================== ИНТЕНСИВЫ ==================== -->
+
+      <offer id="intensive-attack">
+        <name>Интенсив: Атака в шахматной партии — 5 дней</name>
+        <url>https://ilyaduzhakov.ru/#intensives</url>
+        <categoryId>806</categoryId>
+        <set-ids>s3</set-ids>
+        <price>15000</price>
+        <currencyId>RUR</currencyId>
+        <description>5-дневный онлайн-интенсив по атакующей игре в шахматах. 5 дней × 2 часа. Теория + практика + турниры. Для игроков до 2000 ЭЛО. Изучите атаку на короля в центре, разрушение пешечного прикрытия, уничтожение защитников. Бонус: победитель финального турнира получает скидку до 40% на следующий интенсив.</description>
+        <param name="Продолжительность" unit="день">5</param>
+        <param name="Формат обучения">В группе с преподавателем</param>
+        <param name="Уровень">Опытные</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">true</param>
+        <param name="План" unit="Атака на короля" hours="6" order="1"><![CDATA[День 1: атака на короля в центре + турнир. День 2: разрушение пешечного прикрытия + турнир.]]></param>
+        <param name="План" unit="Уничтожение защитников" hours="4" order="2"><![CDATA[День 3: уничтожение защитников короля + турнир. День 4: создание слабостей в лагере соперника + турнир.]]></param>
+        <param name="План" unit="Финальный турнир" hours="2" order="3"><![CDATA[День 5: разыгрывание позиций + финальный турнир с призами.]]></param>
+      </offer>
+
+      <offer id="intensive-program">
+        <name>Интенсив: Индивидуальная программа тренировок — 3 дня</name>
+        <url>https://ilyaduzhakov.ru/#intensives</url>
+        <categoryId>806</categoryId>
+        <set-ids>s3</set-ids>
+        <price>7500</price>
+        <currencyId>RUR</currencyId>
+        <description>3-дневный интенсив для игроков любого уровня. 3 дня × 2 часа. Глубокий разбор вашей игры: миттельшпиль, эндшпиль, дебютный репертуар. По итогу — подробный отчёт с портретом шахматиста и персональной программой тренировок.</description>
+        <param name="Продолжительность" unit="день">3</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">true</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Миттельшпиль" hours="2" order="1"><![CDATA[День 1: разбор миттельшпиля, анализ типичных позиций и ошибок.]]></param>
+        <param name="План" unit="Эндшпиль" hours="2" order="2"><![CDATA[День 2: разбор эндшпиля, практические окончания.]]></param>
+        <param name="План" unit="Дебютный репертуар" hours="2" order="3"><![CDATA[День 3: составление дебютного репертуара, турнир + итоговый отчёт.]]></param>
+      </offer>
+
+      <offer id="intensive-openings">
+        <name>Интенсив: Дебютный репертуар для атакующих — 6 дней</name>
+        <url>https://ilyaduzhakov.ru/#intensives</url>
+        <categoryId>806</categoryId>
+        <set-ids>s3</set-ids>
+        <price>18000</price>
+        <currencyId>RUR</currencyId>
+        <description>6-дневный интенсив по дебютному репертуару для игроков от 2000 ЭЛО. 6 дней × 2 часа. Полный репертуар белыми и чёрными, турниры по изученным дебютам, разбор партий. Для тех, кто хочет уверенно чувствовать себя уже с первых ходов.</description>
+        <param name="Продолжительность" unit="день">6</param>
+        <param name="Формат обучения">В группе с преподавателем</param>
+        <param name="Уровень">Опытные</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">true</param>
+        <param name="План" unit="Репертуар белыми" hours="4" order="1"><![CDATA[День 1: боковые дебюты белыми. День 2: основные дебюты белыми.]]></param>
+        <param name="План" unit="Репертуар чёрными" hours="4" order="2"><![CDATA[День 3: репертуар чёрными против 1.e4. День 4: репертуар чёрными против 1.d4/c4/Nf3.]]></param>
+        <param name="План" unit="Турниры и разбор" hours="4" order="3"><![CDATA[День 5: турнир по изученным дебютам. День 6: финальный турнир + разбор партий.]]></param>
+      </offer>
+
+      <!-- ==================== АБОНЕМЕНТЫ ==================== -->
+
+      <offer id="abo-45">
+        <name>Абонемент: 8 занятий по 45 минут</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s4</set-ids>
+        <price>16000</price>
+        <oldprice>20000</oldprice>
+        <currencyId>RUR</currencyId>
+        <description>Абонемент на 8 индивидуальных занятий по шахматам по 45 минут. Экономия 20% по сравнению с оплатой по одному. Оплата вперёд. Возможна оплата двумя частями.</description>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Дебюты — 2 занятия" hours="1.5" order="1"><![CDATA[Занятия 1–2: изучение дебютного репертуара под стиль игры ученика.]]></param>
+        <param name="План" unit="Тактика — 4 занятия" hours="3" order="2"><![CDATA[Занятия 3–6: тактические мотивы, комбинации, разбор партий, домашние задания.]]></param>
+        <param name="План" unit="Эндшпиль — 2 занятия" hours="1.5" order="3"><![CDATA[Занятия 7–8: эндшпильная техника и итоговый анализ прогресса.]]></param>
+      </offer>
+
+      <offer id="abo-60">
+        <name>Абонемент: 8 занятий по 60 минут</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s4</set-ids>
+        <price>20000</price>
+        <oldprice>24000</oldprice>
+        <currencyId>RUR</currencyId>
+        <description>Абонемент на 8 индивидуальных занятий по шахматам по 60 минут. Экономия до 17% по сравнению с оплатой по одному. Оплата вперёд. Возможна оплата двумя частями.</description>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Дебюты — 2 занятия" hours="2" order="1"><![CDATA[Занятия 1–2: полноценный разбор дебютного репертуара.]]></param>
+        <param name="План" unit="Тактика и позиция — 4 занятия" hours="4" order="2"><![CDATA[Занятия 3–6: тактика, позиционная игра, разбор собственных партий.]]></param>
+        <param name="План" unit="Эндшпиль — 2 занятия" hours="2" order="3"><![CDATA[Занятия 7–8: эндшпильная техника, итоговый разбор прогресса.]]></param>
+      </offer>
+
+      <offer id="abo-30">
+        <name>Абонемент: 8 занятий по 30 минут</name>
+        <url>https://ilyaduzhakov.ru/#pricing</url>
+        <categoryId>806</categoryId>
+        <set-ids>s4</set-ids>
+        <price>10000</price>
+        <oldprice>12000</oldprice>
+        <currencyId>RUR</currencyId>
+        <description>Абонемент на 8 экспресс-занятий по шахматам по 30 минут. Идеально для детей и регулярного поддерживающего обучения. Экономия до 17%. Оплата вперёд, возможна оплата двумя частями.</description>
+        <param name="Продолжительность" unit="месяц">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">true</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="План" unit="Дебюты — 2 занятия" hours="1" order="1"><![CDATA[Занятия 1–2: основные принципы дебюта и типовые ошибки.]]></param>
+        <param name="План" unit="Тактика — 4 занятия" hours="2" order="2"><![CDATA[Занятия 3–6: тактические задачи и разбор ошибок из партий.]]></param>
+        <param name="План" unit="Эндшпиль — 2 занятия" hours="1" order="3"><![CDATA[Занятия 7–8: базовые окончания и подведение итогов.]]></param>
+      </offer>
+
+      <!-- ==================== БЕСПЛАТНОЕ ПРОБНОЕ ЗАНЯТИЕ ==================== -->
+
+      <offer id="trial">
+        <name>Бесплатное пробное занятие по шахматам — 30 минут</name>
+        <url>https://ilyaduzhakov.ru/#form</url>
+        <categoryId>806</categoryId>
+        <set-ids>s1</set-ids>
+        <price>0</price>
+        <currencyId>RUR</currencyId>
+        <description>Бесплатное пробное занятие 30 минут с международным мастером Ильёй Дужаковым. Познакомимся, определим ваш уровень и обсудим план тренировок. Без обязательств. Для детей и взрослых.</description>
+        <param name="Продолжительность" unit="час">1</param>
+        <param name="Формат обучения">С преподавателем</param>
+        <param name="Уровень">Начинающие</param>
+        <param name="Тип">Курс</param>
+        <param name="Вебинары">true</param>
+        <param name="Домашние задания">false</param>
+        <param name="Видеоуроки">false</param>
+        <param name="Текстовые уроки">false</param>
+        <param name="Тренажёры">false</param>
+        <param name="Сообщество">false</param>
+        <param name="Бесплатный пробный период">true</param>
+        <param name="План" unit="Знакомство" hours="0.25" order="1"><![CDATA[Знакомство с тренером, определение цели занятий.]]></param>
+        <param name="План" unit="Диагностика уровня" hours="0.25" order="2"><![CDATA[Короткая партия и разбор типичных ошибок.]]></param>
+        <param name="План" unit="План тренировок" hours="0.25" order="3"><![CDATA[Составление индивидуального плана занятий и обсуждение формата.]]></param>
+      </offer>
+
+    </offers>
+  </shop>
+</yml_catalog>

@@ -256,6 +256,194 @@
 }
 
 
+/* ======================= */
+/* 📱 Mobile header        */
+/* ======================= */
+.mobile-header {
+  display: none;
+}
+
+/* ======================= */
+/* 📌 Sticky CTA (mobile)  */
+/* ======================= */
+.sticky-cta {
+  display: none;
+}
+
+/* ======================= */
+/* 🧭 Bottom nav (mobile)  */
+/* ======================= */
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+
+  /* ── Мобильная шапка ── */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 56px;
+    padding: 0 12px 0 8px;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(31, 45, 120, 0.08);
+    box-shadow: 0 2px 12px rgba(31, 45, 120, 0.08);
+    z-index: 950;
+  }
+
+  /* Бургер внутри шапки */
+  .mobile-header__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .mobile-header__burger span {
+    display: block;
+    height: 2px;
+    width: 22px;
+    background: #1f2d78;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+  .mobile-header__burger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .mobile-header__burger.active span:nth-child(2) { opacity: 0; }
+  .mobile-header__burger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* Лого + имя */
+  .mobile-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    flex: 1;
+    justify-content: center;
+  }
+  .mobile-header__logo img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }
+  .mobile-header__logo span {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: #1f2d78;
+    white-space: nowrap;
+  }
+
+  /* Кнопка "Пробный урок" */
+  .mobile-header__trial {
+    flex-shrink: 0;
+    background: linear-gradient(135deg, #f64f59, #c471ed);
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 7px 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(246, 79, 89, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .mobile-header__trial:active {
+    transform: scale(0.96);
+  }
+
+  /* Отступ сверху чтобы шапка не перекрывала контент */
+  body { padding-top: 56px; }
+
+  /* Скрываем старый бургер — он теперь в mobile-header */
+  .burger { display: none !important; }
+
+  /* ── Нижняя навигация ── */
+  .bottom-nav {
+    display: flex;
+    align-items: stretch;
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(31, 45, 120, 0.1);
+    box-shadow: 0 -4px 16px rgba(31, 45, 120, 0.08);
+    z-index: 950;
+  }
+
+  .bottom-nav__item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    text-decoration: none;
+    color: #888;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 6px 4px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .bottom-nav__item svg {
+    width: 22px;
+    height: 22px;
+    transition: stroke 0.2s ease;
+  }
+  .bottom-nav__item:hover,
+  .bottom-nav__item.active {
+    color: #1f2d78;
+  }
+  .bottom-nav__item:hover svg,
+  .bottom-nav__item.active svg {
+    stroke: #1f2d78;
+  }
+
+  /* Кнопка "Записаться" — акцентная */
+  .bottom-nav__item--cta {
+    color: #fff;
+    background: linear-gradient(135deg, #f64f59, #c471ed);
+    border-radius: 0;
+  }
+  .bottom-nav__item--cta svg {
+    stroke: #fff;
+  }
+  .bottom-nav__item--cta:hover,
+  .bottom-nav__item--cta.active {
+    color: #fff;
+    filter: brightness(1.1);
+  }
+  .bottom-nav__item--cta:hover svg,
+  .bottom-nav__item--cta.active svg {
+    stroke: #fff;
+  }
+
+  /* Отступ снизу чтобы bottom-nav не перекрывал контент */
+  body { padding-bottom: 60px; }
+
+  /* Sticky CTA скрыт — заменён нижним меню */
+  .sticky-cta { display: none !important; }
+}
+
 @media (max-width: 400px) {
    .header__title {
       position: absolute;

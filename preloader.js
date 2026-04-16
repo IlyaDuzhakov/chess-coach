@@ -38,6 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
         preloader.style.display = 'none';
         localStorage.setItem('preloaderShown', 'true');
       }, 500);
-    }, 3000);
+    }, 800);
   }
 });

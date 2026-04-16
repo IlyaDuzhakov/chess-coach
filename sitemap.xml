@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://ilyaduzhakov.github.io/chess-coach/</loc>
-    <lastmod>2025-06-19</lastmod>
+    <loc>https://ilyaduzhakov.ru/</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>1.0</priority>
+    <changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://ilyaduzhakov.ru/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilyaduzhakov.ru/?lang=en"/>
   </url>
 
   <url>
-    <loc>https://ilyaduzhakov.github.io/chess-coach/#champions</loc>
-    <lastmod>2025-06-19</lastmod>
+    <loc>https://ilyaduzhakov.ru/intensive_rezults.html</loc>
+    <lastmod>2026-04-16</lastmod>
     <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <url>
-    <loc>https://ilyaduzhakov.github.io/chess-coach/#lessons</loc>
-    <lastmod>2025-06-19</lastmod>
-    <priority>0.8</priority>
+    <loc>https://ilyaduzhakov.ru/policy.html</loc>
+    <lastmod>2026-04-16</lastmod>
+    <priority>0.3</priority>
+    <changefreq>yearly</changefreq>
   </url>
 
 </urlset>

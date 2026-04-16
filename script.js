@@ -105,11 +105,13 @@ const revealObserver = new IntersectionObserver(entries => {
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-document.querySelectorAll('.accordion-header').forEach(header => {
-  header.addEventListener('click', () => {
-    const item = header.parentElement;
-    item.classList.toggle('active');
-  });
+document.addEventListener('click', (e) => {
+  const header = e.target.closest('.accordion-header');
+  if (!header) return;
+  const item = header.parentElement;
+  const isActive = item.classList.contains('active');
+  document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+  if (!isActive) item.classList.add('active');
 });
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -370,27 +372,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Таймеры для показа попапа
-  setTimeout(() => {
-    showPopup(); // Показываем попап через 10 секунд
-    setTimeout(() => {
-      closePopup(); // Закрываем попап через 10 секунд
-    }, 10000); // Закрытие попапа через 10 секунд
-  }, 10000); // 10 секунд
-
-  setTimeout(() => {
-    showPopup(); // Показываем попап через 30 секунд
-    setTimeout(() => {
-      closePopup(); // Закрываем попап через 30 секунд
-    }, 30000); // Закрытие попапа через 30 секунд
-  }, 30000); // 30 секунд
-
-  setTimeout(() => {
-    showPopup(); // Показываем попап через 10 минут
-    setTimeout(() => {
-      closePopup(); // Закрываем попап через 10 минут
-    }, 600000); // Закрытие попапа через 10 минут
-  }, 600000); // 10 минут
+  // Таймеры управляются через popup.js (с cooldown через localStorage)
 });
 
 
@@ -604,8 +586,69 @@ function showLarge(src) {
 }
 
 // intensives
+// Sticky CTA — появляется после скролла 300px
+window.addEventListener('scroll', () => {
+  const cta = document.getElementById('stickyCTA');
+  if (cta) {
+    cta.classList.toggle('visible', window.scrollY > 300);
+  }
+}, { passive: true });
+
+// Бургер в мобильной шапке — открывает то же боковое меню
 document.addEventListener('DOMContentLoaded', () => {
-  // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц  
+  const mobileBurger = document.getElementById('mobileBurger');
+  const sideMenuEl = document.getElementById('sideMenu');
+  const overlayEl = document.getElementById('overlay');
+
+  if (mobileBurger && sideMenuEl) {
+    mobileBurger.addEventListener('click', () => {
+      const isOpen = sideMenuEl.classList.contains('show');
+      sideMenuEl.classList.toggle('show', !isOpen);
+      overlayEl.classList.toggle('show', !isOpen);
+      mobileBurger.classList.toggle('active', !isOpen);
+    });
+
+    // Закрываем при клике на overlay или ссылку в меню
+    overlayEl?.addEventListener('click', () => {
+      sideMenuEl.classList.remove('show');
+      overlayEl.classList.remove('show');
+      mobileBurger.classList.remove('active');
+    });
+    document.querySelectorAll('.side-menu__nav a').forEach(link => {
+      link.addEventListener('click', () => mobileBurger.classList.remove('active'));
+    });
+  }
+});
+
+// Bottom nav — подсветка активного пункта при скролле
+(function () {
+  const sections = [
+    { id: 'home',     nav: 'home' },
+    { id: 'about',    nav: 'about' },
+    { id: 'pricing',  nav: 'pricing' },
+    { id: 'feedback', nav: 'feedback' },
+  ];
+
+  function updateBottomNav() {
+    const scrollY = window.scrollY + 80;
+    let current = 'home';
+    sections.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el && el.offsetTop <= scrollY) current = id;
+    });
+    document.querySelectorAll('.bottom-nav__item[data-section]').forEach(item => {
+      const sec = item.dataset.section;
+      const isCta = item.classList.contains('bottom-nav__item--cta');
+      if (!isCta) item.classList.toggle('active', sec === current);
+    });
+  }
+
+  window.addEventListener('scroll', updateBottomNav, { passive: true });
+  window.addEventListener('load', updateBottomNav);
+})();
+
+document.addEventListener('DOMContentLoaded', () => {
+  // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц
   const monthIndex = new Date().getMonth();
   const monthNames = [
     'january', 'february', 'march', 'april', 'may', 'june',
@@ -638,7 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
   section.style.background = gradient;
   monthNameEl.textContent = lang === 'ru' ? monthName : monthName.charAt(0) + monthName.slice(1).toLowerCase();
 
-  fetch('multilang/intensives.json')
+  const loadIntensives = () => fetch('multilang/intensives.json')
     .then(res => res.json())
     .then(intensives => {
       const data = intensives[monthKey]?.[lang];
@@ -695,6 +738,18 @@ document.addEventListener('DOMContentLoaded', () => {
         ${lang === 'ru' ? 'Ошибка загрузки данных' : 'Failed to load data'}
       </p>`;
     });
+
+  // Запускаем загрузку только когда секция появляется в viewport
+  const intensivesSection = document.getElementById('intensives');
+  if (intensivesSection) {
+    const intensivesObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        loadIntensives();
+        intensivesObserver.disconnect();
+      }
+    }, { rootMargin: '200px' });
+    intensivesObserver.observe(intensivesSection);
+  }
 });
 
 document.getElementById('intensiveBtn').addEventListener('click', () => {

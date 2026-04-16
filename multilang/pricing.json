@@ -2,6 +2,7 @@
   "ru": [
     {
       "type": "individual",
+      "badge": "⭐ Популярный выбор",
       "title": "Индивидуальные занятия",
       "icon": "images/target.png",
       "options": [
@@ -75,6 +76,7 @@
   "en": [
     {
       "type": "individual",
+      "badge": "⭐ Popular choice",
       "title": "Individual lessons",
       "icon": "images/target.png",
       "options": [

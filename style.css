@@ -20,16 +20,21 @@
   box-sizing: border-box;
 }
 /* 🎨 Градиентный фон */
-html, body {
+html,
+body {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(180deg, #f5f8fc 0%, #e6f0fa 100%); /*	Градиент сверху вниз */
+  background: linear-gradient(
+    180deg,
+    #f5f8fc 0%,
+    #e6f0fa 100%
+  ); /*	Градиент сверху вниз */
   background-color: #f5f8fc; /*Резерв на случай, если градиент не прогрузится*/
   background-image: url("./svg/chess-bg.svg");
   background-size: 80px 80px;
   background-attachment: scroll;
   background-repeat: repeat;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   /* overflow-x: hidden; Предотвращает горизонтальный скролл */
   color: var(--color-text);
   padding: 0;
@@ -50,17 +55,21 @@ main {
 }
 
 /* 🖋 Заголовки */
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif;
+h1,
+h2,
+h3 {
+  font-family: "Playfair Display", serif;
   color: var(--color-primary);
 }
-ul, li {
+ul,
+li {
   list-style: none;
 }
 
 /* 📝 Маленький текст и примечания */
-.note, .small-text {
-  font-family: 'Roboto', sans-serif;
+.note,
+.small-text {
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   color: #000;
   font-size: 12px;
@@ -99,24 +108,24 @@ a:hover {
   padding: 2.5rem 3rem;
   top: 0;
   z-index: 100;
-  
+
   /* margin: 0 auto; */
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .header__title {
-  font-family: 'Raleway', serif;
+  font-family: "Raleway", serif;
   font-weight: 700;
   color: var(--color-primary);
   animation: fadeDown 1s ease-in-out;
@@ -139,11 +148,11 @@ a:hover {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-   position: relative;
+  position: relative;
 }
 
 .logo-title {
-   display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -154,13 +163,13 @@ a:hover {
 
 .header__logo {
   display: block;
-  margin-left: 20px; 
+  margin-left: 20px;
   max-width: 40px;
   max-height: 40px;
 }
 
 .header__logo img {
-   max-width: 80px; /*разумная ширина */ 
+  max-width: 80px; /*разумная ширина */
   height: auto;
 }
 
@@ -169,7 +178,8 @@ a:hover {
 }
 
 @keyframes glow {
-  0%, 100% {
+  0%,
+  100% {
     filter: drop-shadow(0 0 4px rgba(201, 162, 39, 0.4));
   }
   50% {
@@ -188,7 +198,6 @@ a:hover {
 .fide:hover {
   color: #52009e;
   text-decoration: none;
-  
 }
 
 .tooltip {
@@ -198,6 +207,17 @@ a:hover {
   text-align: center;
   max-width: 500px;
   animation: fadeDown 1.2s ease-in-out;
+}
+
+.mobile-header__logo {
+  display: flex;
+  align-items: center;
+}
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .tooltip .tooltip-text {
@@ -214,7 +234,9 @@ a:hover {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   font-size: 12px;
   pointer-events: none;
 }
@@ -305,17 +327,17 @@ a:hover {
   top: 20px;
   right: 20px;
   z-index: 150;
-} 
+}
 
 .burger span {
   display: block;
   height: 3px;
   width: 100%;
   background-color: #333;
-   border-radius: 3px; 
+  border-radius: 3px;
   transition: all 0.3s ease-in-out;
-   transform-origin: center;
-}  
+  transform-origin: center;
+}
 
 /* Состояние "крестик" */
 .burger.open span:nth-child(1) {
@@ -326,7 +348,7 @@ a:hover {
 }
 .burger.open span:nth-child(3) {
   transform: rotate(-45deg) translateY(-8px);
-}  
+}
 
 .nav {
   display: flex;
@@ -334,7 +356,7 @@ a:hover {
   gap: 40px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px; 
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -355,8 +377,8 @@ a:hover {
 }
 
 .nav.show {
-  background: rgba(255, 255, 255, 1); /*прозрачный белый*/ 
-  background-image: url('/svg/chess-bg.svg');
+  background: rgba(255, 255, 255, 1); /*прозрачный белый*/
+  background-image: url("/svg/chess-bg.svg");
   background-size: 80px 80px;
   background-repeat: repeat;
   position: fixed;
@@ -372,7 +394,7 @@ a:hover {
   gap: 1rem;
   padding: 20px;
   transition: all 0.3s ease;
-  
+
   /* height: calc(100vh - 80px); */
 }
 
@@ -391,7 +413,7 @@ a:hover {
 /* прикольный эффект в виде линии подчеркивания*/
 
 .nav a {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1rem;
   text-decoration: none;
   color: var(--color-text);
@@ -404,7 +426,7 @@ a:hover {
 }
 
 .nav a::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 0;
   bottom: -4px;
@@ -421,11 +443,7 @@ a:hover {
   transform-origin: left;
 }
 
-
-
-
 /* прикольный эффект в виде линии подчеркивания*/
-
 
 /*        en ru */
 
@@ -445,7 +463,7 @@ a:hover {
 /*        en ru */
 
 .logo-caption {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 0.75rem;
   color: var(--color-primary);
   font-weight: bold;
@@ -506,7 +524,7 @@ a:hover {
 }
 
 .champion-gif {
- text-align: center;
+  text-align: center;
   margin-bottom: 0; /* или 5px */
   padding-bottom: 0;
 }
@@ -544,24 +562,24 @@ a:hover {
   width: 150px;
   height: 150px;
   position: absolute;
-   margin-left: 320px;
-   top: 10px; 
-   transition: transform 0.3s ease;
+  margin-left: 320px;
+  top: 10px;
+  transition: transform 0.3s ease;
 }
 
 /* Анимация руки с ферзём */
 .icon {
   width: 100px;
   height: auto;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .icon:hover {
   transform: rotate(-6deg) scale(1.1) translateY(-5px);
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
-
-
 
 /* 💎 Блок "Почему выбирают меня" */
 .why-choose {
@@ -578,7 +596,7 @@ a:hover {
 }
 
 .choose__title {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.8rem;
   margin-bottom: 1.2rem;
   color: var(--color-primary);
@@ -592,10 +610,12 @@ a:hover {
   width: 300px;
   height: 120px;
   margin: 0.5rem auto 0;
-  background-image: url('images/stars.png'); /* Укажи путь к своей звезде */
+  background-image: url("images/stars.png"); /* Укажи путь к своей звезде */
   background-size: contain;
   background-repeat: no-repeat;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .choose__title:hover::after {
@@ -609,7 +629,7 @@ a:hover {
   margin: 0;
   display: flex;
   flex-direction: column;
-    gap: 1.5rem;
+  gap: 1.5rem;
   font-size: 1.2rem;
 }
 
@@ -621,7 +641,7 @@ a:hover {
 }
 
 .choose li::before {
-  content: '✔️';
+  content: "✔️";
   font-size: 1.2rem;
   transform: translateY(1px);
 }
@@ -631,24 +651,24 @@ a:hover {
   justify-content: center;
   gap: 16px;
   margin-bottom: 20px;
-   padding-left: -40px;
+  padding-left: -40px;
   flex-wrap: wrap; /* чтобы на мобилке не ломалось */
-   position: relative;
-  align-items: flex-start;  /* выравнивание по верху */
+  position: relative;
+  align-items: flex-start; /* выравнивание по верху */
   justify-content: flex-start;
   background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .work__areas .icon {
@@ -656,7 +676,9 @@ a:hover {
   height: auto;
   margin-top: 50px;
   margin-left: 65px;
-   transition: transform 0.4s ease, filter 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .icon-left:hover {
@@ -685,7 +707,7 @@ a:hover {
   width: 500px;
   height: 280px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* === ГАЛЕРЕЯ "НАШИ ЧЕМПИОНЫ" === */
@@ -693,7 +715,7 @@ a:hover {
   padding: 40px 20px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
   overflow-x: hidden;
   margin-bottom: 30px;
 }
@@ -712,7 +734,7 @@ a:hover {
   overflow-x: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
-   padding-bottom: 10px;
+  padding-bottom: 10px;
 }
 .carousel-track::-webkit-scrollbar {
   display: none; /* если не хочешь видеть скроллбар */
@@ -755,7 +777,8 @@ section h2 {
   color: #1e3a8a;
 }
 
-section p, section li {
+section p,
+section li {
   font-size: 18px;
   line-height: 1.6;
 }
@@ -828,7 +851,7 @@ section p, section li {
 }
 
 .features li::before {
-  content: '✔';
+  content: "✔";
   position: absolute;
   left: 0;
   top: 0;
@@ -887,8 +910,8 @@ section p, section li {
   font-size: 16px;
 }
 
-.video-slide:hover p{
-   transform: scale(1.2);
+.video-slide:hover p {
+  transform: scale(1.2);
 }
 
 .video-scroll {
@@ -930,9 +953,10 @@ section p, section li {
 .reveal {
   opacity: 0;
   transform: translateY(50px) scale(0.95);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
-
 
 .reveal.visible {
   opacity: 1;
@@ -942,7 +966,9 @@ section p, section li {
 .reveal-top {
   opacity: 0;
   transform: translateY(-40px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
 }
 
 .reveal-top.visible {
@@ -954,7 +980,10 @@ section p, section li {
   opacity: 0;
   transform: translateY(40px);
   filter: blur(4px);
-  transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
+  transition:
+    opacity 1.2s ease,
+    transform 1.2s ease,
+    filter 1.2s ease;
 }
 
 .reveal-bottom.visible {
@@ -974,7 +1003,9 @@ section p, section li {
   right: 10px;
   position: absolute;
   cursor: pointer;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .quality__mark:hover {
@@ -994,7 +1025,9 @@ section p, section li {
 
 .icon__heart svg {
   fill: var(--color-heart);
-  transition: fill 0.3s ease, transform 0.3s ease;
+  transition:
+    fill 0.3s ease,
+    transform 0.3s ease;
 }
 
 .icon__heart:hover svg {
@@ -1002,10 +1035,13 @@ section p, section li {
   transform: scale(1.2);
 }
 
-.zoom, .teams {
+.zoom,
+.teams {
   width: 80px;
   height: auto; /* сохраняет пропорции */
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
   animation: pulse 3s infinite ease-in-out;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -1055,7 +1091,10 @@ section p, section li {
   width: 32px;
   height: 32px;
   fill: #e2e8f0;
-  transition: transform 0.3s ease, fill 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    fill 0.3s ease,
+    filter 0.3s ease;
   filter: grayscale(0.2) brightness(0.95);
 }
 
@@ -1097,7 +1136,7 @@ section p, section li {
 }
 
 .review-list::-webkit-scrollbar {
-  display: none; /* Chrome, Safari  убираем внизу при прокрутке линию*/ 
+  display: none; /* Chrome, Safari  убираем внизу при прокрутке линию*/
 }
 
 .review-card {
@@ -1117,7 +1156,7 @@ section p, section li {
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .review-card img {
@@ -1149,9 +1188,9 @@ section p, section li {
 }
 /* Затемнение + эффект "..." */
 .review-text::after {
-  background: linear-gradient(to bottom, rgba(255,255,255,0), #f9f9f9);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #f9f9f9);
   position: absolute;
-  content: '';
+  content: "";
   bottom: 0;
   left: 0;
   width: 100%;
@@ -1273,7 +1312,10 @@ section p, section li {
   text-decoration: none;
   border-radius: 8px;
   font-size: 1rem;
-  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.2s;
 }
 
 .bot-button:hover {
@@ -1292,26 +1334,27 @@ section p, section li {
   color: #e2e8f0;
   padding: 40px 20px;
   font-size: 16px;
-   opacity: 0;
-   transform: translateY(60px) scale(0.95);
-  transition: transform 0.8s ease, opacity 0.8s ease;
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition:
+    transform 0.8s ease,
+    opacity 0.8s ease;
 }
 
 @keyframes gradient__footer {
-	0% {
-		background-position: 50% 0%;
-	}
-	50% {
-		background-position: 50% 100%;
-	}
-	100% {
-		background-position: 50% 0%;
-	}
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
-
 .footer.visible {
-   opacity: 1;
+  opacity: 1;
   transform: translateY(0) scale(1);
 }
 
@@ -1351,7 +1394,9 @@ section p, section li {
 .footer__icons img {
   width: 32px;
   height: 32px;
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .footer__bottom {
@@ -1381,7 +1426,9 @@ section p, section li {
 }
 
 .footer__icons a {
-  transition: transform 0.3s ease, filter 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
 }
 
 .footer__icons a:hover {
@@ -1414,7 +1461,9 @@ section p, section li {
   border-radius: 50%;
   background-color: var(--color-primary);
   opacity: 0.3;
-  transition: background-color 0.3s ease, opacity 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .swiper-pagination .swiper-pagination-bullet-active {
@@ -1430,22 +1479,22 @@ section p, section li {
 
 /* Обертка для слайдов */
 .swiper-wrapper {
-  display: flex;  /* Это гарантирует горизонтальное расположение слайдов */
+  display: flex; /* Это гарантирует горизонтальное расположение слайдов */
   flex-wrap: nowrap; /* Слайды не будут переноситься на новую строку */
 }
 
 /* Каждый слайд */
 .swiper-slide {
-  flex-shrink: 0;  /* Слайды не сжимаются */
-  width: 100%;     /* Можно задать фиксированную ширину, если нужно */
-  padding: 10px;   /* Отступы между слайдами */
+  flex-shrink: 0; /* Слайды не сжимаются */
+  width: 100%; /* Можно задать фиксированную ширину, если нужно */
+  padding: 10px; /* Отступы между слайдами */
 }
 
 /* Стили для картинок внутри слайдов */
 .review-card img {
-    width: 70%;
-    height: 250px;
-    border-radius: 60%;
+  width: 70%;
+  height: 250px;
+  border-radius: 60%;
 }
 
 /* Для пагинации и стрелок */
@@ -1457,7 +1506,8 @@ section p, section li {
   text-align: center;
 }
 
-.swiper-button-next, .swiper-button-prev {
+.swiper-button-next,
+.swiper-button-prev {
   color: #333;
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1490,7 +1540,6 @@ section p, section li {
 }
 
 /*      иконки для блока с ценами*/
-
 
 .icon-title {
   width: 60px;
@@ -1529,7 +1578,9 @@ section p, section li {
 }
 
 .icon-clock {
-  transition: transform 0.3s, filter 0.3s;
+  transition:
+    transform 0.3s,
+    filter 0.3s;
 }
 
 .icon-clock:hover {
@@ -1565,7 +1616,6 @@ section p, section li {
   text-align: center;
 }
 /**/
-
 
 /*                       intensive*/
 .intensives {
@@ -1609,7 +1659,7 @@ section p, section li {
   border-radius: 6px;
   padding: 8px 12px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background 0.3s;
 }
 
@@ -1660,7 +1710,9 @@ section p, section li {
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 .card-content {
@@ -1713,7 +1765,6 @@ section p, section li {
   margin-bottom: 20px;
 }
 
-
 .price-card {
   flex: 1 1 280px;
   max-width: 300px;
@@ -1730,7 +1781,9 @@ section p, section li {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-top: 3px solid var(--color-primary);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .price-card:hover {
@@ -1743,7 +1796,7 @@ section p, section li {
   font-size: 22px;
   font-weight: 700;
   color: #000;
-  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
 }
 
 /* список */
@@ -1807,7 +1860,8 @@ section p, section li {
 
 /* ховер для всех — дублирующее правило удалено, см. выше */
 
-.btn-primary, .fancy-btn {
+.btn-primary,
+.fancy-btn {
   background: var(--color-primary);
   color: #fff;
   border: none;
@@ -1819,7 +1873,8 @@ section p, section li {
   transition: all 0.3s ease;
 }
 
-.btn-primary:hover, .fancy-btn:hover {
+.btn-primary:hover,
+.fancy-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 14px rgba(31, 45, 120, 0.25);
   background: var(--color-accent);
@@ -1831,8 +1886,8 @@ section p, section li {
   margin-top: 2rem;
 }
 .lesson-age h3 {
-   font-size: 1.4rem;
-   margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 .lesson-age p {
   max-width: 400px;
@@ -1898,7 +1953,7 @@ section p, section li {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 0 3px rgba(0,0,0,0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   transition: background 0.3s ease;
 }
 .form-close:hover {
@@ -1908,7 +1963,6 @@ section p, section li {
 
 .course-card {
   position: relative;
-
 }
 
 .badge {
@@ -1945,7 +1999,7 @@ section p, section li {
 .course-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   flex: 1 1 300px;
   max-width: 500px;
@@ -1983,7 +2037,7 @@ section p, section li {
 }
 
 .course-buttons button {
-    padding: 12px 20px;
+  padding: 12px 20px;
   font-size: 16px;
   max-width: 220px;
   width: 100%;
@@ -2015,7 +2069,7 @@ section p, section li {
   background: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .course-description h2 {
@@ -2173,13 +2227,17 @@ section p, section li {
 /* затемнение */
 .overlay {
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   z-index: 1000;
 }
 
@@ -2211,7 +2269,7 @@ section p, section li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-   position: relative;
+  position: relative;
 }
 
 .close-btn {
@@ -2233,7 +2291,6 @@ section p, section li {
   user-select: none;
   line-height: 1;
   z-index: 5000;
-  
 }
 
 .close-btn:hover {
@@ -2265,7 +2322,6 @@ section p, section li {
   justify-content: center;
   gap: 15px;
   margin-bottom: 30px;
-  
 }
 
 .socials-olympic img {
@@ -2274,7 +2330,7 @@ section p, section li {
 }
 
 .socials-olympic img:hover {
-   transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .side-menu {
@@ -2291,7 +2347,9 @@ section p, section li {
   border-radius: 8px;
   text-align: center;
   font-weight: 700;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .btn-mobile-signup:hover {
@@ -2311,9 +2369,9 @@ section p, section li {
   align-items: center;
   cursor: pointer;
   position: fixed;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
-   z-index: 1000;
+  z-index: 1000;
 }
 
 .burger:hover {
@@ -2362,7 +2420,7 @@ section p, section li {
   max-width: 900px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   text-align: left;
 }
@@ -2397,7 +2455,10 @@ section p, section li {
 }
 
 .book {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
   border: 1px solid transparent;
   border-radius: 8px;
   position: relative;
@@ -2500,7 +2561,6 @@ section p, section li {
 }
 /*                          phone                    */
 
-
 /*                          book reader                         */
 
 .form-section {
@@ -2527,8 +2587,10 @@ section p, section li {
   border-radius: 8px;
   border: 1px solid #d1d5db;
   font-size: 16px;
-  font-family: 'Inter', sans-serif;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  font-family: "Inter", sans-serif;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
   outline: none;
 }
 
@@ -2548,7 +2610,9 @@ section p, section li {
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s;
 }
 
 #telegramForm button:hover {
@@ -2586,7 +2650,9 @@ section p, section li {
   width: 130px; /* подстрой под размер */
   animation: hop 4s ease-in-out infinite;
   transform-origin: center;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .hidden {
@@ -2599,7 +2665,7 @@ section p, section li {
   padding: 20px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -2618,7 +2684,9 @@ section p, section li {
   font-weight: 700;
   opacity: 0;
   transform: translateY(5px);
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 
 #bot-icon:hover .label {
@@ -2649,17 +2717,29 @@ section p, section li {
 }
 
 @keyframes hop {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-6px); }
-  50%  { transform: translateY(0); }
-  70%  { transform: translateY(-3px); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-6px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  70% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 .preloader {
   position: fixed;
   z-index: 9999;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
   display: flex;
   justify-content: center;
@@ -2689,8 +2769,10 @@ section p, section li {
 .preloader {
   position: fixed;
   z-index: 9999;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: white;
   display: flex;
   justify-content: center;
@@ -2714,10 +2796,13 @@ section p, section li {
   text-align: center;
 }
 
-
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /*                        подсветка ошибкок в форме             */
@@ -2735,6 +2820,3 @@ section p, section li {
   display: none;
 }
  */
-
-
-

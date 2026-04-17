@@ -193,10 +193,10 @@
   
 
 <!-- Мобильная шапка -->
-<div class="mobile-header" id="mobileHeader">
-  <button class="mobile-header__burger" id="mobileBurger" aria-label="Открыть меню">
+<!-- <div class="mobile-header" id="mobileHeader">
+  <div class="mobile-header__burger" id="mobileBurger" aria-label="Открыть меню">
     <span></span><span></span><span></span>
-  </button>
+  </div>
   <a href="#home" class="mobile-header__logo">
     <img src="svg/logo.svg" alt="Chess Guide" width="36" height="36">
     <span>Илья Дужаков</span>
@@ -204,7 +204,27 @@
   <button class="mobile-header__trial open-bot-form" aria-label="Записаться на пробное занятие">
     Пробный урок
   </button>
+</div> -->
+
+<div class="mobile-header" id="mobileHeader">
+  <!-- Бургер слева -->
+  <div class="mobile-header__burger" id="mobileBurger" aria-label="Открыть меню">
+    <span></span><span></span><span></span>
+  </div>
+
+  <!-- Центр: логотип + имя -->
+  <a href="#home" class="mobile-header__center">
+    <img src="svg/logo.svg" alt="Chess Guide" width="32" height="32">
+    <span>Илья Дужаков</span>
+  </a>
+
+  <!-- Справа: кнопка -->
+  <button class="mobile-header__trial open-bot-form" aria-label="Записаться на пробное занятие">
+    Пробный урок
+  </button>
 </div>
+
+
 
 <div class="preloader" id="preloader">
   <div class="scene">
@@ -1429,7 +1449,7 @@
 
 <!-- Нижняя навигация (mobile only) -->
 <nav class="bottom-nav" id="bottomNav">
-  <a href="#home" class="bottom-nav__item" data-section="home">
+  <a href="#about" class="bottom-nav__item" data-section="home">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M5 10v10h5v-5h4v5h5V10"/></svg>
     <span>Главная</span>
   </a>
@@ -1452,7 +1472,7 @@
 </nav> 
 
 <script>
-  const burger = document.getElementById('burger');
+  const burger = document.getElementById('mobileBurger');
   const sideMenu = document.getElementById('sideMenu');
   const overlay = document.getElementById('overlay');
   const closeBtn = document.getElementById('closeBtn');

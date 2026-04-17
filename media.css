@@ -14,7 +14,7 @@
 } */
 
 @media (min-width: 1025px) {
-  .burger,
+  .mobile-header__burger,
   .mobile-header,
   .bottom-nav {
     display: none !important;
@@ -53,7 +53,7 @@
   .header__logo img {
     display: none;
   }
-  .burger {
+  .mobile-header__burger {
     z-index: 2;
   }
 
@@ -111,7 +111,7 @@
   }  
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1020px) {
     .intensive-grid {
     flex-direction: column;
     align-items: center;
@@ -142,6 +142,22 @@
     width: 180px;
     height: 180px;
   }
+  .mobile-header {
+    display: flex;
+    justify-content: center;
+  }
+    .mobile-header__logo {
+  display: flex;
+  align-items: center;
+  /* margin-left: 50px; */
+}
+
+
+.bottom-nav__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 }
 
 /* ======================= */
@@ -250,6 +266,8 @@
   #bot-form button {
     font-size: 14px;
   }
+
+
 }
 
 
@@ -465,7 +483,7 @@
     z-index: 1000;
   }
   /* Бургер-меню */
-  .burger {
+  .mobile-header__burger {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -477,20 +495,20 @@
     border: none;
     z-index: 1101;
   }
-  .burger span {
+  .mobile-header__burger span {
     width: 22px;
     height: 2px;
     background: #1f2d78;
     border-radius: 2px;
     transition: all 0.3s ease;
   }
-  .burger.active span:nth-child(1) {
+  .mobile-header__burger.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
-  .burger.active span:nth-child(2) {
+  .mobile-header__burger.active span:nth-child(2) {
     opacity: 0;
   }
-  .burger.active span:nth-child(3) {
+  .mobile-header__burger.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
   /* Боковое меню */
@@ -639,11 +657,11 @@
 
 
 @media (max-width: 480px) {
-  .burger {
+  .mobile-header__burger {
     width: 32px;
     height: 32px;
   }
-  .burger span {
+  .mobile-header__burger span {
     width: 18px;
   }
   .side-menu {
@@ -655,6 +673,13 @@
   body {
     padding-top: 52px;
     padding-bottom: 56px;
+  }
+  .mobile-header__center span {
+    font-size: 14px;
+  }
+  .mobile-header__trial {
+    padding: 5px 10px;
+    font-size: 11px;
   }
 }
 

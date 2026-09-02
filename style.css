@@ -1,16 +1,12 @@
 /* 🌈 Цветовые переменные */
 :root {
   --color-primary: #1f2d78;
-  --color-primary-dark: #0d1940;
-  --color-accent: #c9a227;
-  --color-accent-hover: #a87d1a;
-  --color-text: #1a1a2e;
-  --color-muted: #6b7280;
-  --color-bg: #f8f9fa;
-  --color-surface: #ffffff;
-  --color-border: rgba(31, 45, 120, 0.12);
-  --color-heart: #dc2626;
-  --color-heart-hover: #b91c1c;
+  --color-accent: #3b4ce0;
+  --color-text: #222222;
+  --color-muted: #666666;
+  --color-bg: #ffffff;
+   --color-heart: #dc2626; /* начальный красный */
+  --color-heart-hover: #b91c1c; /* насыщенный красный при наведении */
 }
 
 /* * {
@@ -20,21 +16,16 @@
   box-sizing: border-box;
 }
 /* 🎨 Градиентный фон */
-html,
-body {
+html, body {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    180deg,
-    #f5f8fc 0%,
-    #bfe7fc 100%
-  ); /*	Градиент сверху вниз */
+  background: linear-gradient(180deg, #f5f8fc 0%, #e6f0fa 100%); /*	Градиент сверху вниз */
   background-color: #f5f8fc; /*Резерв на случай, если градиент не прогрузится*/
   background-image: url("./svg/chess-bg.svg");
-  background-size: 80px 80px;
-  background-attachment: scroll;
+  background-size: 40px 40px;  /*Размер фона (мелкая сетка)*/
+  background-attachment: fixed; /*Фон остаётся на месте при прокрутке (параллакс)*/
   background-repeat: repeat;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   /* overflow-x: hidden; Предотвращает горизонтальный скролл */
   color: var(--color-text);
   padding: 0;
@@ -55,27 +46,23 @@ main {
 }
 
 /* 🖋 Заголовки */
-h1,
-h2,
-h3 {
-  font-family: "Playfair Display", serif;
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
   color: var(--color-primary);
 }
-ul,
-li {
+ul, li {
   list-style: none;
 }
 
-/* Маленький текст и примечания */
-.note,
-.small-text {
-  font-family: "Roboto", sans-serif;
+/* 📝 Маленький текст и примечания */
+.note, .small-text {
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
   color: #000;
   font-size: 12px;
 }
 
-
+/* 🔗 Ссылки */
 a {
   color: var(--color-accent);
   text-decoration: none;
@@ -95,11 +82,13 @@ a:hover {
 
 /* === Header === */
 .header {
-  background: var(--color-surface);
+  background: linear-gradient(-45deg, #ed193b, #a98055, #f286e2, #681d7a);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
   color: var(--color-primary);
   border-bottom: 3px solid var(--color-accent);
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(31, 45, 120, 0.08); /* добавляет тень к элементу */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* добавляет тень к элементу */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,22 +97,24 @@ a:hover {
   padding: 2.5rem 3rem;
   top: 0;
   z-index: 100;
+  
+  /* margin: 0 auto; */
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .header__title {
-  font-family: "Raleway", serif;
+  font-family: 'Raleway', serif;
   font-weight: 700;
   color: var(--color-primary);
   animation: fadeDown 1s ease-in-out;
@@ -146,11 +137,11 @@ a:hover {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  position: relative;
+   position: relative;
 }
 
 .logo-title {
-  display: flex;
+   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -161,27 +152,35 @@ a:hover {
 
 .header__logo {
   display: block;
-  margin-left: 20px;
+  margin-left: 20px; 
   max-width: 40px;
   max-height: 40px;
 }
 
 .header__logo img {
-  max-width: 80px; /*разумная ширина */
+   max-width: 80px; /*разумная ширина */ 
   height: auto;
 }
 
 .header__logo img {
-  animation: glow 4s ease-in-out infinite;
+  animation: glow 10s infinite linear;
 }
 
 @keyframes glow {
-  0%,
-  100% {
-    filter: drop-shadow(0 0 4px rgba(201, 162, 39, 0.4));
+  0% {
+    filter: drop-shadow(0 0 5px #ff0000);
+  }
+  25% {
+    filter: drop-shadow(0 0 5px #00ff00);
   }
   50% {
-    filter: drop-shadow(0 0 8px rgba(201, 162, 39, 0.8));
+    filter: drop-shadow(0 0 5px #0000ff);
+  }
+  75% {
+    filter: drop-shadow(0 0 5px #ffff00);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px #ff0000);
   }
 }
 
@@ -196,6 +195,7 @@ a:hover {
 .fide:hover {
   color: #52009e;
   text-decoration: none;
+  
 }
 
 .tooltip {
@@ -206,7 +206,6 @@ a:hover {
   max-width: 500px;
   animation: fadeDown 1.2s ease-in-out;
 }
-
 
 .tooltip .tooltip-text {
   visibility: hidden;
@@ -222,9 +221,7 @@ a:hover {
   top: -30px;
   left: 50%;
   transform: translateX(-50%);
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   font-size: 12px;
   pointer-events: none;
 }
@@ -267,178 +264,69 @@ a:hover {
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(45deg, #4caf50, #81c784);
 }
 
 .btn-primary:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: linear-gradient(45deg, #388e3c, #66bb6a);
   text-decoration: none;
 }
 
 .btn-secondary {
-  background: transparent;
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  background: linear-gradient(45deg, #2196f3, #64b5f6);
   text-decoration: none;
 }
 
 .btn-secondary:hover {
-  background: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(45deg, #1976d2, #42a5f5);
   text-decoration: none;
 }
 
 .btn-tertiary {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
   text-decoration: none;
 }
 
 .btn-tertiary:hover {
-  background: var(--color-accent-hover);
-  color: #fff;
+  background: linear-gradient(45deg, #f57c00, #ffa726);
   text-decoration: none;
 }
 
-.mobile-header {
-  display: flex;
-  justify-content: center; /* центрирует сам логотип */
-  align-items: center;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 56px;
-  background: rgba(255, 255, 255, 0.95);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding: 0 12px;
-  z-index: 1000;
-}
-
-/* “карманы” по бокам для бургер и кнопки */
-.mobile-header__left,
-.mobile-header__right {
-  position: absolute;
-  top: 0;
-  height: 100%;
-  display: flex;
-  align-items: center;
-}
-
-/* левый и правый карман */
-.mobile-header__left {
-  left: 12px;
-}
-.mobile-header__right {
-  right: 12px;
-}
-
-/* логотип и имя */
-.mobile-header__logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-}
-.mobile-header__logo img {
+/* По умолчанию бургер скрыт */
+.burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
   width: 30px;
   height: 30px;
-}
-.mobile-header__logo span {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #1f2d78;
-  font-size: 15px;
-}
-
-/* бургер */
-.mobile-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 56px;
-  background: rgba(255,255,255,0.96);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding: 0 12px;
-  z-index: 1000;
-}
-/* --- бургер слева --- */
-.mobile-header__burger {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 34px;
-  height: 34px;
-  background: transparent;
-  border: none;
   cursor: pointer;
-  flex-shrink: 0; /* не сжимается */
-}
-.mobile-header__burger span {
+  align-items: center;
+  position: fixed; /* если нужен фикс */
+  top: 20px;
+  right: 20px;
+  z-index: 150;
+} 
+
+.burger span {
   display: block;
-  width: 24px;
   height: 3px;
-  background-color: #1f2d78;
-  border-radius: 2px;
-  transition: all 0.3s ease;
+  width: 100%;
+  background-color: #333;
+   border-radius: 3px; 
+  transition: all 0.3s ease-in-out;
+   transform-origin: center;
+}  
+
+/* Состояние "крестик" */
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(8px);
 }
-.mobile-header__burger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-.mobile-header__burger.active span:nth-child(2) {
+.burger.open span:nth-child(2) {
   opacity: 0;
 }
-.mobile-header__burger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
-}
-/* --- Центр: логотип и текст --- */
-.mobile-header__center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  text-decoration: none;
-  position: absolute; /* позволяет точное выравнивание */
-  left: 50%;
-  transform: translateX(-50%);
-}
-.mobile-header__center img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-}
-.mobile-header__center span {
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  color: #1f2d78;
-  font-size: 15px;
-  white-space: nowrap;
-}
-/* --- Кнопка справа --- */
-.mobile-header__trial {
-  background: linear-gradient(135deg, #f64f59, #c471ed);
-  color: #fff;
-  border: none;
-  border-radius: 16px;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  flex-shrink: 0;
-  box-shadow: 0 2px 8px rgba(246, 79, 89, 0.3);
-  transition: transform 0.2s ease;
-}
-.mobile-header__trial:active {
-  transform: scale(0.96);
-}
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-8px);
+}  
 
 .nav {
   display: flex;
@@ -446,7 +334,7 @@ a:hover {
   gap: 40px;
   flex-wrap: wrap;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1200px; 
   margin: 0 auto;
 }
 
@@ -467,9 +355,9 @@ a:hover {
 }
 
 .nav.show {
-  background: rgba(255, 255, 255, 1); /*прозрачный белый*/
-  background-image: url("/svg/chess-bg.svg");
-  background-size: 80px 80px;
+  background: rgba(255, 255, 255, 1); /*прозрачный белый*/ 
+  background-image: url('/svg/chess-bg.svg');
+  background-size: 40px 40px;
   background-repeat: repeat;
   position: fixed;
   left: 0;
@@ -484,6 +372,8 @@ a:hover {
   gap: 1rem;
   padding: 20px;
   transition: all 0.3s ease;
+  
+  /* height: calc(100vh - 80px); */
 }
 
 .nav.show a span {
@@ -501,7 +391,7 @@ a:hover {
 /* прикольный эффект в виде линии подчеркивания*/
 
 .nav a {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1rem;
   text-decoration: none;
   color: var(--color-text);
@@ -514,7 +404,7 @@ a:hover {
 }
 
 .nav a::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   bottom: -4px;
@@ -531,7 +421,11 @@ a:hover {
   transform-origin: left;
 }
 
+
+
+
 /* прикольный эффект в виде линии подчеркивания*/
+
 
 /*        en ru */
 
@@ -551,7 +445,7 @@ a:hover {
 /*        en ru */
 
 .logo-caption {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 0.75rem;
   color: var(--color-primary);
   font-weight: bold;
@@ -563,7 +457,7 @@ a:hover {
   display: flex;
   justify-content: center;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: #e6f0fa;
 }
 
 .about-card {
@@ -573,10 +467,8 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 20px;
-  background: var(--color-surface);
+  background: #f0f8ff;
   border-radius: 12px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
 }
 
 .about-left,
@@ -612,7 +504,7 @@ a:hover {
 }
 
 .champion-gif {
-  text-align: center;
+ text-align: center;
   margin-bottom: 0; /* или 5px */
   padding-bottom: 0;
 }
@@ -622,7 +514,7 @@ a:hover {
   width: 100%;
   display: block;
   margin: 0 auto;
-  transform: translateY(-40px); 
+  transform: translateY(-40px); /* ПОДНЯЛИ видео */
 }
 
 .lesson-heading {
@@ -650,18 +542,16 @@ a:hover {
   width: 150px;
   height: 150px;
   position: absolute;
-  margin-left: 320px;
-  top: 10px;
-  transition: transform 0.3s ease;
+   margin-left: 320px;
+   top: 10px; 
+   transition: transform 0.3s ease;
 }
 
 /* Анимация руки с ферзём */
 .icon {
   width: 100px;
   height: auto;
-  transition:
-    transform 0.4s ease,
-    filter 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .icon:hover {
@@ -669,14 +559,15 @@ a:hover {
   filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.3)) brightness(1.1);
 }
 
-/*  Блок "Почему выбирают меня" */
+
+
+/* 💎 Блок "Почему выбирают меня" */
 .why-choose {
-  background-color: var(--color-surface);
-  border-radius: 12px;
+  background-color: #e0f2fe;
+  border-radius: 16px;
   padding: 2rem 3rem;
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
-  border: 1px solid var(--color-border);
-  border-top: 4px solid var(--color-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-left: 8px solid var(--color-accent);
   max-width: 900px;
   margin: 0 auto;
   position: relative;
@@ -684,7 +575,7 @@ a:hover {
 }
 
 .choose__title {
-  font-family: "Playfair Display", serif;
+  font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
   margin-bottom: 1.2rem;
   color: var(--color-primary);
@@ -698,12 +589,10 @@ a:hover {
   width: 300px;
   height: 120px;
   margin: 0.5rem auto 0;
-  background-image: url("images/stars.png"); /* Укажи путь к своей звезде */
+  background-image: url('images/stars.png'); /* Укажи путь к своей звезде */
   background-size: contain;
   background-repeat: no-repeat;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .choose__title:hover::after {
@@ -717,7 +606,7 @@ a:hover {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+    gap: 1.5rem;
   font-size: 1.2rem;
 }
 
@@ -729,7 +618,7 @@ a:hover {
 }
 
 .choose li::before {
-  content: "✔️";
+  content: '✔️';
   font-size: 1.2rem;
   transform: translateY(1px);
 }
@@ -739,24 +628,27 @@ a:hover {
   justify-content: center;
   gap: 16px;
   margin-bottom: 20px;
-  padding-left: -40px;
+   padding-left: -40px;
   flex-wrap: wrap; /* чтобы на мобилке не ломалось */
-  position: relative;
-  align-items: flex-start; /* выравнивание по верху */
+   position: relative;
+  align-items: flex-start;  /* выравнивание по верху */
   justify-content: flex-start;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  	background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 @keyframes gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
 
 .work__areas .icon {
@@ -764,9 +656,7 @@ a:hover {
   height: auto;
   margin-top: 50px;
   margin-left: 65px;
-  transition:
-    transform 0.4s ease,
-    filter 0.4s ease;
+   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .icon-left:hover {
@@ -795,7 +685,7 @@ a:hover {
   width: 500px;
   height: 280px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
 }
 
 /* === ГАЛЕРЕЯ "НАШИ ЧЕМПИОНЫ" === */
@@ -803,7 +693,7 @@ a:hover {
   padding: 40px 20px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.05);
   overflow-x: hidden;
   margin-bottom: 30px;
 }
@@ -822,7 +712,7 @@ a:hover {
   overflow-x: auto;
   white-space: nowrap;
   scroll-snap-type: x mandatory;
-  padding-bottom: 10px;
+   padding-bottom: 10px;
 }
 .carousel-track::-webkit-scrollbar {
   display: none; /* если не хочешь видеть скроллбар */
@@ -865,20 +755,19 @@ section h2 {
   color: #1e3a8a;
 }
 
-section p,
-section li {
+section p, section li {
   font-size: 18px;
   line-height: 1.6;
 }
 
 .choose {
-  background-color: var(--color-surface);
-  border-left: 5px solid var(--color-accent);
+  background-color: #e0f2fe;
+  border-left: 5px solid #0284c7;
   padding: 20px 30px;
   margin: 40px auto;
   max-width: 900px;
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(31, 45, 120, 0.08);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .choose__title {
@@ -889,7 +778,7 @@ section li {
 
 .video-gallery {
   position: relative;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: #99cdf3;
   padding: 30px 0;
   overflow-x: hidden;
 }
@@ -897,7 +786,7 @@ section li {
 .video-gallery h2 {
   text-align: center;
   margin-bottom: 20px;
-  color: var(--color-primary);
+  color: #042cbf;
 }
 
 .video-gallery a {
@@ -920,10 +809,9 @@ section li {
 .video-slide {
   flex: 0 0 auto;
   width: 300px;
-  border-radius: 12px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 12px rgba(31, 45, 120, 0.08);
+  border-radius: 16px;
+  background: rgb(245, 226, 10);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   scroll-snap-align: start;
 }
 
@@ -939,15 +827,15 @@ section li {
 }
 
 .features li::before {
-  content: "✔";
+  content: '✔'; /* можно заменить на '✓' — чуть легче выглядит */
   position: absolute;
   left: 0;
   top: 0;
-  color: var(--color-accent);
+  color: #4CAF50;
   font-weight: bold;
   font-size: 18px;
   line-height: 1;
-  transform: translateY(2px);
+  transform: translateY(2px); /* выравнивание по вертикали */
 }
 
 /*  стилизуем стрелки   */
@@ -998,8 +886,8 @@ section li {
   font-size: 16px;
 }
 
-.video-slide:hover p {
-  transform: scale(1.2);
+.video-slide:hover p{
+   transform: scale(1.2);
 }
 
 .video-scroll {
@@ -1035,16 +923,22 @@ section li {
 }
 
 .reveal__choose {
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 .reveal {
   opacity: 0;
   transform: translateY(50px) scale(0.95);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
+
 
 .reveal.visible {
   opacity: 1;
@@ -1054,9 +948,7 @@ section li {
 .reveal-top {
   opacity: 0;
   transform: translateY(-40px);
-  transition:
-    opacity 0.8s ease,
-    transform 0.8s ease;
+  transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .reveal-top.visible {
@@ -1068,10 +960,7 @@ section li {
   opacity: 0;
   transform: translateY(40px);
   filter: blur(4px);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease,
-    filter 1.2s ease;
+  transition: opacity 1.2s ease, transform 1.2s ease, filter 1.2s ease;
 }
 
 .reveal-bottom.visible {
@@ -1091,9 +980,7 @@ section li {
   right: 10px;
   position: absolute;
   cursor: pointer;
-  transition:
-    transform 0.3s ease,
-    opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .quality__mark:hover {
@@ -1113,9 +1000,7 @@ section li {
 
 .icon__heart svg {
   fill: var(--color-heart);
-  transition:
-    fill 0.3s ease,
-    transform 0.3s ease;
+  transition: fill 0.3s ease, transform 0.3s ease;
 }
 
 .icon__heart:hover svg {
@@ -1123,13 +1008,10 @@ section li {
   transform: scale(1.2);
 }
 
-.zoom,
-.teams {
+.zoom, .teams {
   width: 80px;
   height: auto; /* сохраняет пропорции */
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
   animation: pulse 3s infinite ease-in-out;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -1179,10 +1061,7 @@ section li {
   width: 32px;
   height: 32px;
   fill: #e2e8f0;
-  transition:
-    transform 0.3s ease,
-    fill 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, fill 0.3s ease, filter 0.3s ease;
   filter: grayscale(0.2) brightness(0.95);
 }
 
@@ -1224,7 +1103,7 @@ section li {
 }
 
 .review-list::-webkit-scrollbar {
-  display: none; /* Chrome, Safari  убираем внизу при прокрутке линию*/
+  display: none; /* Chrome, Safari  убираем внизу при прокрутке линию*/ 
 }
 
 .review-card {
@@ -1244,7 +1123,7 @@ section li {
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .review-card img {
@@ -1276,9 +1155,9 @@ section li {
 }
 /* Затемнение + эффект "..." */
 .review-text::after {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #f9f9f9);
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #f9f9f9);
   position: absolute;
-  content: "";
+  content: '';
   bottom: 0;
   left: 0;
   width: 100%;
@@ -1316,7 +1195,7 @@ section li {
 /* FAQ*/
 .faq {
   width: 100%;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: linear-gradient(to bottom right, #f0f8ff, #e8f4ff);
   padding: 80px 20px;
   box-sizing: border-box;
   margin-bottom: 100px;
@@ -1328,11 +1207,9 @@ section li {
 }
 
 .accordion-item {
-  border: 1px solid var(--color-border);
-  margin-bottom: 12px;
+  border: 1px solid #6ef845;
+  margin-bottom: 15px;
   background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
 }
 
 .accordion-header {
@@ -1348,11 +1225,10 @@ section li {
   justify-content: space-between;
   align-items: center;
   transition: background 0.3s;
-  color: var(--color-primary);
 }
 
 .accordion-header:hover {
-  background: rgba(31, 45, 120, 0.05);
+  background: #49ef49;
 }
 
 .accordion-content {
@@ -1394,23 +1270,18 @@ section li {
 /*                            telegramPriceForm              */
 .bot-button {
   display: inline-block;
-  background: var(--color-primary);
+  background: linear-gradient(90deg, #56ab2f, #a8e063);
   color: #fff;
   padding: 12px 24px;
   text-decoration: none;
   border-radius: 8px;
   font-size: 1rem;
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s,
-    background 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .bot-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(31, 45, 120, 0.3);
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 /*                            telegramPriceForm              */
@@ -1418,31 +1289,32 @@ section li {
 /* footer */
 
 .footer {
-  background: var(--color-primary-dark);
-  color: #e2e8f0;
+  background: linear-gradient(180deg, #ee4787, #98749b, #ddf810, #8f4ff4);
+	background-size: 400% 400%;
+	animation: gradient__footer 20s ease infinite;
+  color: #e0f2fe;
   padding: 40px 20px;
   font-size: 16px;
-  opacity: 0;
-  transform: translateY(60px) scale(0.95);
-  transition:
-    transform 0.8s ease,
-    opacity 0.8s ease;
+   opacity: 0;
+   transform: translateY(60px) scale(0.95);
+  transition: transform 0.8s ease, opacity 0.8s ease;
 }
 
 @keyframes gradient__footer {
-  0% {
-    background-position: 50% 0%;
-  }
-  50% {
-    background-position: 50% 100%;
-  }
-  100% {
-    background-position: 50% 0%;
-  }
+	0% {
+		background-position: 50% 0%;
+	}
+	50% {
+		background-position: 50% 100%;
+	}
+	100% {
+		background-position: 50% 0%;
+	}
 }
 
+
 .footer.visible {
-  opacity: 1;
+   opacity: 1;
   transform: translateY(0) scale(1);
 }
 
@@ -1466,7 +1338,7 @@ section li {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 12px;
-  color: #fff;
+  color: #2d019d;
 }
 
 .footer__icons {
@@ -1482,18 +1354,16 @@ section li {
 .footer__icons img {
   width: 32px;
   height: 32px;
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer__bottom {
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(20, 0, 0, 0.1);
   padding-top: 20px;
   margin-top: 30px;
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #0f4403;
 }
 
 .footer__bottom p:hover {
@@ -1514,9 +1384,7 @@ section li {
 }
 
 .footer__icons a {
-  transition:
-    transform 0.3s ease,
-    filter 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .footer__icons a:hover {
@@ -1528,7 +1396,8 @@ section li {
 .footer__block a,
 .phone {
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.8);
+  /* color: #020562; */
+  color: #3c048a;
   text-decoration: none;
   margin: 6px 0;
   font-weight: 700;
@@ -1536,27 +1405,19 @@ section li {
 
 .footer__block a:hover,
 .phone:hover {
-  color: var(--color-accent);
+  color: #e0025e;
   text-decoration: none;
 }
 
 /*                        swiper*/
 /* Увеличиваем размер кружочков */
 .swiper-pagination .swiper-pagination-bullet {
-  width: 10px;
-  height: 10px;
-  margin: 0 6px;
+  width: 20px;  /* Увеличьте значение по своему усмотрению */
+  height: 20px; /* Увеличьте значение по своему усмотрению */
+  margin: 0 8px; /* Размещение между кружочками */
   border-radius: 50%;
-  background-color: var(--color-primary);
-  opacity: 0.3;
-  transition:
-    background-color 0.3s ease,
-    opacity 0.3s ease;
-}
-
-.swiper-pagination .swiper-pagination-bullet-active {
-  background-color: var(--color-accent);
-  opacity: 1;
+  background-color: rgb(79, 2, 211); /* Можно изменить на нужный вам цвет */
+  transition: background-color 0.3s ease;
 }
 /* Контейнер Swiper */
 .mySwiper {
@@ -1567,22 +1428,22 @@ section li {
 
 /* Обертка для слайдов */
 .swiper-wrapper {
-  display: flex; /* Это гарантирует горизонтальное расположение слайдов */
+  display: flex;  /* Это гарантирует горизонтальное расположение слайдов */
   flex-wrap: nowrap; /* Слайды не будут переноситься на новую строку */
 }
 
 /* Каждый слайд */
 .swiper-slide {
-  flex-shrink: 0; /* Слайды не сжимаются */
-  width: 100%; /* Можно задать фиксированную ширину, если нужно */
-  padding: 10px; /* Отступы между слайдами */
+  flex-shrink: 0;  /* Слайды не сжимаются */
+  width: 100%;     /* Можно задать фиксированную ширину, если нужно */
+  padding: 10px;   /* Отступы между слайдами */
 }
 
 /* Стили для картинок внутри слайдов */
 .review-card img {
-  width: 70%;
-  height: 250px;
-  border-radius: 60%;
+    width: 70%;
+    height: 250px;
+    border-radius: 60%;
 }
 
 /* Для пагинации и стрелок */
@@ -1594,8 +1455,7 @@ section li {
   text-align: center;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.swiper-button-next, .swiper-button-prev {
   color: #333;
   font-size: 24px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -1616,9 +1476,9 @@ section li {
   max-width: 1200px;
   margin: 0 auto;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
+  background: linear-gradient(135deg, #03c4ff, #5165c7);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 .price__title {
   font-size: 36px;
@@ -1628,6 +1488,7 @@ section li {
 }
 
 /*      иконки для блока с ценами*/
+
 
 .icon-title {
   width: 60px;
@@ -1666,9 +1527,7 @@ section li {
 }
 
 .icon-clock {
-  transition:
-    transform 0.3s,
-    filter 0.3s;
+  transition: transform 0.3s, filter 0.3s;
 }
 
 .icon-clock:hover {
@@ -1705,14 +1564,15 @@ section li {
 }
 /**/
 
+
 /*                       intensive*/
 .intensives {
   text-align: center;
   padding: 30px;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
 }
 .intensives h2 {
-  color: var(--color-primary);
+  color: #000;
 }
 
 .intensive-grid {
@@ -1729,17 +1589,16 @@ section li {
   max-width: 300px;
   padding: 20px;
   border-radius: 12px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
+  background: linear-gradient(135deg, #00c3ff, #ffff1c);
+  color: #000000;
   text-align: left;
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
-  border-top: 3px solid var(--color-accent);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  
 }
 
 .intensive-card h3 {
   margin-top: 0;
-  color: var(--color-primary);
+  color: #000;
 }
 .intensive-card details {
   margin: 10px 0;
@@ -1747,7 +1606,7 @@ section li {
   border-radius: 6px;
   padding: 8px 12px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: background 0.3s;
 }
 
@@ -1790,17 +1649,15 @@ section li {
 .btn__intensive {
   display: inline-block;
   padding: 10px 20px;
-  background: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(135deg, #3fa7d6, #6dd5fa);
+  color: #000000;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(31, 45, 120, 0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
   text-decoration: none;
   border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .card-content {
@@ -1813,14 +1670,13 @@ section li {
 
 .btn__intensive:hover {
   transform: scale(1.05);
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: linear-gradient(135deg, #3fa7d6, #38b2ac);
 }
 
 /*                    button rezult                    */
 .btn-disabled {
-  background: #d1d5db;
-  color: #6b7280;
+  background: #70f42d;
+  color: #555;
   cursor: not-allowed;
   opacity: 0.7;
   margin-top: 20px;
@@ -1853,30 +1709,34 @@ section li {
   margin-bottom: 20px;
 }
 
+
 .price-card {
   flex: 1 1 280px;
   max-width: 300px;
-  border-radius: 12px;
-  padding: 24px 20px;
+  border-radius: 16px;
+  padding: 20px;
   margin: 10px;
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: var(--color-text);
+  color: #111; /* или #222 */
   font-size: 16px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-primary);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  
+background: linear-gradient(90deg, #e70000,#ff8c00,#ffef00,#00bc93,#0044ff);background: -webkit-linear-gradient(90deg, #fe4e4e,#ff8c00,#ffef00,#00bc93,#0044ff);
+  background-size: 200% 200%;
+  background-position: left top;
+
+  color: #111;
+  font-size: 16px;
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-position 0.5s ease;
 }
 
 .price-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(31, 45, 120, 0.14);
+  background-position: right bottom;
+   box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 /* заголовки */
@@ -1884,7 +1744,7 @@ section li {
   font-size: 22px;
   font-weight: 700;
   color: #000;
-  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+  text-shadow: 0 1px 2px rgba(255,255,255,0.6);
 }
 
 /* список */
@@ -1915,37 +1775,59 @@ section li {
 }
 
 .price-badge {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: linear-gradient(45deg, #ff1500, #872000);
+  color: #fbea01;
   padding: 4px 10px;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1.2rem;
   display: inline-block;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
-/* ховер для всех — дублирующее правило удалено, см. выше */
+/* разные карточки */
+/* .price-card--group {
+  background: -webkit-linear-gradient(90deg, #d1f4b6,#66dfbc,#00c2da,#009df2,#476ade);background: linear-gradient(90deg, #d1f4b6,#66dfbc,#00c2da,#009df2,#476ade);
+   background-size: 200% 200%;
+}
 
-.btn-primary,
-.fancy-btn {
-  background: var(--color-primary);
-  color: #fff;
+.price-card--intensive {
+  background: linear-gradient(135deg, #a18cd1, #fbc2eb);
+  background-size: 200% 200%;
+}
+
+.price-card--abonement {
+  background: linear-gradient(135deg, #84fab0, #8fd3f4);
+  background-size: 200% 200%;
+}
+
+.price-card--free {
+  background: linear-gradient(135deg, #f6d365, #fda085);
+  background-size: 200% 200%;
+} */
+
+/* ховер для всех */
+.price-card:hover {
+  background-position: right bottom;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+.btn-primary, .fancy-btn {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #010101;
   border: none;
-  border-radius: 8px;
-  padding: 12px 24px;
+  border-radius: 30px;
+  padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(31, 45, 120, 0.2);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
-.btn-primary:hover,
-.fancy-btn:hover {
+.btn-primary:hover, .fancy-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(31, 45, 120, 0.25);
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
 }
 
 .lesson-age {
@@ -1953,8 +1835,8 @@ section li {
   margin-top: 2rem;
 }
 .lesson-age h3 {
-  font-size: 1.4rem;
-  margin-bottom: 0.5rem;
+   font-size: 1.4rem;
+   margin-bottom: 0.5rem;
 }
 .lesson-age p {
   max-width: 400px;
@@ -1977,28 +1859,27 @@ section li {
 }
 
 .fancy-btn {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #000000;
   border: none;
   font-weight: 700;
-  border-radius: 8px;
-  padding: 12px 28px;
+  border-radius: 30px;
+  padding: 12px 25px;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.3);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
 
 .fancy-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(201, 162, 39, 0.4);
-  background: var(--color-accent-hover);
-  color: #fff;
+  box-shadow: 0 6px 10px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #00f2fe, #4facfe);
 }
 
 .btn-pink-purple {
-  background: var(--color-primary);
-  color: #fff;
+  background: linear-gradient(135deg, #2aa9d0, #27ff56);
+  color: #060606;
   font-weight: 700;
   margin: 0 auto;
 }
@@ -2020,7 +1901,7 @@ section li {
   line-height: 1;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0,0,0,0.1);
   transition: background 0.3s ease;
 }
 .form-close:hover {
@@ -2030,6 +1911,7 @@ section li {
 
 .course-card {
   position: relative;
+
 }
 
 .badge {
@@ -2045,7 +1927,10 @@ section li {
 }
 
 .courses {
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 /* .courses:hover {
@@ -2066,7 +1951,7 @@ section li {
 .course-card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   overflow: hidden;
   flex: 1 1 300px;
   max-width: 500px;
@@ -2104,7 +1989,7 @@ section li {
 }
 
 .course-buttons button {
-  padding: 12px 20px;
+    padding: 12px 20px;
   font-size: 16px;
   max-width: 220px;
   width: 100%;
@@ -2112,31 +1997,30 @@ section li {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  background: var(--color-primary);
+  background: #01b5dd;
   color: white;
   text-align: center;
 }
 
 .course-buttons button:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: #0056b3;
 }
 
 .course-buttons button.secondary {
-  background: transparent;
-  color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  background: #f8f9fa;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
 
 .course-buttons button.secondary:hover {
-  background: rgba(31, 45, 120, 0.08);
+  background: #e2e6ea;
 }
 
 .course-description {
   background: #f9f9f9;
   padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .course-description h2 {
@@ -2205,16 +2089,15 @@ section li {
   text-align: center;
   border-radius: 8px;
   cursor: pointer;
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: #f90;
+  color: #000;
   font-weight: bold;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .buy__btn:hover {
-  background: var(--color-accent-hover);
-  color: #fff;
+  background: rgb(248, 0, 0);
   text-decoration: none;
 }
 
@@ -2294,17 +2177,13 @@ section li {
 /* затемнение */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1000;
 }
 
@@ -2320,7 +2199,8 @@ section li {
   right: -300px;
   width: 300px;
   height: 100%;
-  background: linear-gradient(160deg, #e8f4ff 0%, #d0e6ff 100%);
+  background: #c2efff url('/svg/chess-bg.svg') center/cover; /* шахматный фон */
+  background-size: 40px 40px;
   z-index: 2000;
   transition: right 0.3s ease;
   display: flex;
@@ -2336,7 +2216,7 @@ section li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+   position: relative;
 }
 
 .close-btn {
@@ -2358,10 +2238,11 @@ section li {
   user-select: none;
   line-height: 1;
   z-index: 5000;
+  
 }
 
 .close-btn:hover {
-  background: rgba(31, 45, 120, 0.1);
+  background: rgba(118, 243, 145, 0.5);
   border-radius: 50%;
   z-index: 5000;
 }
@@ -2373,7 +2254,7 @@ section li {
   justify-content: center;
   gap: 15px;
   text-align: left;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .side-menu__nav a {
@@ -2389,6 +2270,7 @@ section li {
   justify-content: center;
   gap: 15px;
   margin-bottom: 30px;
+  
 }
 
 .socials-olympic img {
@@ -2397,7 +2279,7 @@ section li {
 }
 
 .socials-olympic img:hover {
-  transform: scale(1.2);
+   transform: scale(1.2);
 }
 
 .side-menu {
@@ -2407,23 +2289,18 @@ section li {
 .btn-mobile-signup {
   display: inline-block;
   margin: 20px auto;
-  padding: 12px 24px;
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  padding: 10px 20px;
+  background: #f5844c;
+  color: #1d0143;
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   font-weight: 700;
-  transition:
-    background 0.2s ease,
-    transform 0.2s ease;
 }
 
 .btn-mobile-signup:hover {
   text-decoration: none;
-  background: var(--color-accent-hover);
-  color: #fff;
-  transform: translateY(-2px);
+  transform: scale(1.1);
 }
 
 .burger {
@@ -2436,13 +2313,13 @@ section li {
   align-items: center;
   cursor: pointer;
   position: fixed;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   transition: background 0.3s ease;
-  z-index: 1000;
+   z-index: 1000;
 }
 
 .burger:hover {
-  background: rgba(31, 45, 120, 0.08);
+  background: #9bf598;
 }
 
 .burger span {
@@ -2472,7 +2349,10 @@ section li {
 .books {
   text-align: center;
   padding: 3rem 2rem;
-  background: linear-gradient(135deg, #f0f2f8 0%, #e8ecf8 100%);
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+	transform: translate3d(0, 0, 0);
 }
 
 .books__list {
@@ -2487,7 +2367,7 @@ section li {
   max-width: 900px;
   background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   padding: 1rem;
   text-align: left;
 }
@@ -2522,10 +2402,7 @@ section li {
 }
 
 .book {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   border: 1px solid transparent;
   border-radius: 8px;
   position: relative;
@@ -2578,28 +2455,27 @@ section li {
 .book__view {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
-  background-color: var(--color-primary);
+  background-color: #4e63c3;
   color: #fff;
   border: none;
   cursor: pointer;
   font-size: 1rem;
-  border-radius: 6px;
-  transition: background 0.2s ease;
+  border-radius: 4px;
 }
 
 .book__view:hover {
-  color: var(--color-primary-dark);
-  background-color: var(--color-accent);
+  color: #000;
+  background-color: #00ff00;
 }
 
 .book__order {
   display: inline-block;
   margin-top: 0.5rem;
-  background: var(--color-primary);
+  background: #106216;
   color: white;
   text-decoration: none;
   padding: 0.4rem 0.8rem;
-  border-radius: 6px;
+  border-radius: 4px;
   font-size: 0.85rem;
   transition: background 0.3s ease;
   position: absolute;
@@ -2608,8 +2484,8 @@ section li {
 }
 
 .book__order:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
+  background: #de5f24;
+  color: #000;
   text-decoration: none;
   font-weight: bold;
 }
@@ -2617,16 +2493,17 @@ section li {
 /*                          phone                     */
 .footer__block a.phone {
   font-weight: bold;
-  color: rgba(255, 255, 255, 0.8);
+  color: #3c048a;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer__block a.phone:hover {
-  color: var(--color-accent);
+  color: #a9035e;
   text-decoration: none;
 }
 /*                          phone                    */
+
 
 /*                          book reader                         */
 
@@ -2634,58 +2511,40 @@ section li {
   max-width: 500px;
   margin: 0 auto;
   padding: 2rem;
-  background: var(--color-surface);
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgba(31, 45, 120, 0.08);
-  border: 1px solid var(--color-border);
+  background: #f9f9f9;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
 .form-section h2 {
   text-align: center;
   margin-bottom: 1rem;
-  color: var(--color-primary);
 }
 
 #telegramForm input,
 #telegramForm textarea {
   width: 100%;
-  padding: 12px 14px;
+  padding: 10px;
   margin-bottom: 1rem;
-  border-radius: 8px;
-  border: 1px solid #d1d5db;
-  font-size: 16px;
-  font-family: "Inter", sans-serif;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-  outline: none;
-}
-
-#telegramForm input:focus,
-#telegramForm textarea:focus {
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(31, 45, 120, 0.1);
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
 }
 
 #telegramForm button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   font-size: 1rem;
-  font-weight: 700;
-  background: var(--color-primary);
+  background: #0077cc;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
-  transition:
-    background 0.3s,
-    transform 0.2s;
+  transition: 0.3s;
 }
 
 #telegramForm button:hover {
-  background: var(--color-accent);
-  color: var(--color-primary-dark);
-  transform: translateY(-1px);
+  background: #005fa3;
 }
 
 #form-status {
@@ -2717,9 +2576,7 @@ section li {
   width: 130px; /* подстрой под размер */
   animation: hop 4s ease-in-out infinite;
   transform-origin: center;
-  transition:
-    transform 0.4s ease,
-    filter 0.4s ease;
+  transition: transform 0.4s ease, filter 0.4s ease;
 }
 
 .hidden {
@@ -2732,7 +2589,7 @@ section li {
   padding: 20px;
   background: white;
   border-radius: 10px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
   position: fixed;
   top: 50%;
   left: 50%;
@@ -2751,9 +2608,7 @@ section li {
   font-weight: 700;
   opacity: 0;
   transform: translateY(5px);
-  transition:
-    opacity 0.4s ease,
-    transform 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 #bot-icon:hover .label {
@@ -2784,29 +2639,17 @@ section li {
 }
 
 @keyframes hop {
-  0% {
-    transform: translateY(0);
-  }
-  30% {
-    transform: translateY(-6px);
-  }
-  50% {
-    transform: translateY(0);
-  }
-  70% {
-    transform: translateY(-3px);
-  }
-  100% {
-    transform: translateY(0);
-  }
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-6px); }
+  50%  { transform: translateY(0); }
+  70%  { transform: translateY(-3px); }
+  100% { transform: translateY(0); }
 }
 .preloader {
   position: fixed;
   z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: white;
   display: flex;
   justify-content: center;
@@ -2836,10 +2679,8 @@ section li {
 .preloader {
   position: fixed;
   z-index: 9999;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: white;
   display: flex;
   justify-content: center;
@@ -2863,13 +2704,10 @@ section li {
   text-align: center;
 }
 
+
 @keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /*                        подсветка ошибкок в форме             */
@@ -2878,3 +2716,7 @@ section li {
   border: 1px solid red !important;
   background-color: #ffe6e6;
 }
+
+
+
+

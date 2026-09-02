@@ -1,8 +1,0 @@
-# Jekyll config
-include:
-  - education.xml
-  - sitemap.xml
-
-exclude:
-  - "*.md"
-  - node_modules

@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://ilyaduzhakov.ru/sitemap.xml
-# Yandex education feed
-# https://ilyaduzhakov.ru/education.yml
+Sitemap: https://ilyaduzhakov.github.io/chess-coach/sitemap.xml

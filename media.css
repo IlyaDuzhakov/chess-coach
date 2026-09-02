@@ -1,40 +1,34 @@
+/* ======================= */
+/* 💻 Desktop ≥1025px */
+/* ======================= */
 @media (min-width: 1025px) {
-  .mobile-header__burger,
-  .mobile-header,
-  .bottom-nav {
-    display: none !important;
-  }
-  .header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
   .nav {
     display: flex;
     justify-content: center;
     gap: 40px;
   }
-  .language-switcher-desktop {
-    display: block;
-  }
-  .language-switcher-mobile {
-    display: none;
-  }
+  .burger { display: none; }
+  .header__buttons { display: flex; }
+  .language-switcher-desktop { display: block; }
+  .language-switcher-mobile { display: none; }
 }
 
+/* ======================= */
+/* 📋 Tablet ≤1024px */
+/* ======================= */
 @media (max-width: 1024px) {
-  .header__buttons,
+    .header__buttons,
   .header__title,
   .tooltip {
     display: none;
   }
-  .header {
+   .header {
     display: none;
   }
   .header__logo img {
     display: none;
   }
-  .mobile-header__burger {
+  .burger {
     z-index: 2;
   }
 
@@ -54,11 +48,9 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(255, 255, 255, 0.95);
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(255,255,255,0.95);
     z-index: 1000;
     justify-content: flex-start;
     align-items: center;
@@ -71,7 +63,7 @@
     width: 90%;
     max-width: 300px;
     text-align: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
   }
 
   .language-switcher-mobile {
@@ -83,27 +75,27 @@
     width: 100px;
     height: 100px;
   }
-  .choose__title::after {
-    width: 240px;
-    margin-top: 30px;
+    .choose__title::after {
+        width: 240px;
+        margin-top: 30px;
   }
   .quality__mark {
     width: 220px;
     height: 220px;
     margin-top: -214px;
-  }
+  }  
 }
 
-@media (max-width: 1020px) {
-  .intensive-grid {
+@media (max-width: 1000px) {
+    .intensive-grid {
     flex-direction: column;
     align-items: center;
   }
 
   .intensive-grid > div {
-    width: 90%; /* или min(90%, 500px) */
+    width: 90%;                 /* или min(90%, 500px) */
     max-width: 500px;
-    margin-bottom: 30px; /* промежуток между карточками */
+    margin-bottom: 30px;       /* промежуток между карточками */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
   }
@@ -111,251 +103,73 @@
     right: 70px;
   }
   .lesson-heading .icon {
-    width: 80px;
-    height: 80px;
-    right: 60px;
-  }
-  .about-card {
+        width: 80px;
+        height: 80px;
+        right: 60px;
+  } 
+   .about-card {
     flex-direction: column;
   }
   .about-right p {
     font-size: 1.8rem;
-  }
-  .quality__mark {
+}
+.quality__mark {
     width: 180px;
     height: 180px;
-  }
-  .mobile-header {
-    display: flex;
-    justify-content: center;
-  }
-  .mobile-header__logo {
-    display: flex;
-    align-items: center;
-    /* margin-left: 50px; */
-  }
-
-  .bottom-nav__item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
 
-@media (max-width: 480px) {
-  .header__title {
-    font-size: 22px;
-    margin-right: 10px;
-  }
+/* ======================= */
+/* 📱 Mobile ≤768px */
+/* ======================= */
+@media (max-width: 768px) {
   .header__logo img {
-    max-height: 70px;
-  }
-  .header__logo {
-    margin-top: -100px;
-    margin-left: -50px;
+    max-height: 120px;
   }
 
-  .header__buttons {
-    gap: 6px;
+  .header__title {
+    font-size: 26px;
+    margin-right: 38px;
   }
 
-  .header__button {
-    font-size: 10px;
+  .tooltip {
+    max-width: 300px;
   }
 
-  .nav {
-    font-size: 14px;
+  .carousel-item {
+    display: none;
+    margin: 0 auto;
   }
-  .quality__mark {
-    width: 180px;
-    height: 180px;
+  .carousel-item img {
+      object-fit: cover;
+  }
+
+
+  .carousel-item.active {
+    display: block;
+  }
+  .zoom, .teams {
+    width: 60px;
   }
   #bot-form {
-    max-width: 95%;
-    padding: 10px;
+    max-width: 90%;
+    padding: 15px;
   }
-  #bot-form input,
-  #bot-form textarea,
-  #bot-form button {
-    font-size: 14px;
+  .review-card {
+    padding: 0.8rem;
   }
-}
 
-.mobile-header {
-  display: none;
-}
+  .review-card h3 {
+    font-size: 1rem;
+  }
 
-.sticky-cta {
-  display: none;
-}
+  .review-card p {
+    font-size: 0.95rem;
+    padding: 0 0.5rem;
+  }
 
-.bottom-nav {
-  display: none;
-}
-
-@media (max-width: 1024px) {
-  /* Скрываем десктопный хедер */
-  .header,
-  .language-switcher-desktop,
-  .nav {
-    display: none;
-  }
-  /* Показываем мобильный header */
-  .mobile-header {
-    display: -webkit-flex;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
-    background: rgba(255, 255, 255, 0.95);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    padding: 0 12px;
-    z-index: 1000;
-  }
-  .mobile-header__center {
-    display: flex;
-    align-items: center;
-  }
-  /* Бургер-меню */
-  .mobile-header__burger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    width: 36px;
-    height: 36px;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    z-index: 1101;
-  }
-  .mobile-header__burger span {
-    width: 22px;
-    height: 2px;
-    background: #1f2d78;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-  .mobile-header__burger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .mobile-header__burger.active span:nth-child(2) {
-    opacity: 0;
-  }
-  .mobile-header__burger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-  }
-  /* Боковое меню */
-  .side-menu {
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 340px;
-    height: 100vh;
-    background: #fff;
-    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    z-index: 1100;
-    display: flex;
-    flex-direction: column;
-  }
-  .side-menu.show {
-    right: 0;
-  }
-  .side-menu__header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px;
-    border-bottom: 1px solid #eee;
-  }
-  .close-btn {
-    background: none;
-    border: none;
-    font-size: 28px;
-    line-height: 1;
-    color: #1f2d78;
-    cursor: pointer;
-  }
-  /* Затемнение под меню */
-  .overlay {
-    display: none;
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1000;
-    transition: opacity 0.3s ease;
-  }
-  .overlay.show {
-    display: block;
-    opacity: 1;
-  }
-  /* Нижняя панель */
-  .bottom-nav {
-    display: -webkit-flex;
-    display: flex;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    background: rgba(255, 255, 255, 0.96);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.05);
-    z-index: 999;
-  }
-  .bottom-nav__item {
-    flex: 1;
-    text-align: center;
-    color: #888;
-    font-size: 11px;
-    padding-top: 4px;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-  }
-  .bottom-nav__item svg {
-    width: 22px;
-    height: 22px;
-  }
-  .bottom-nav__item:hover,
-  .bottom-nav__item.active {
-    color: #1f2d78;
-  }
-  .bottom-nav__item--cta {
-    background: -webkit-linear-gradient(135deg, #f64f59, #c471ed);
-    background: linear-gradient(135deg, #f64f59, #c471ed);
-    color: #fff;
-  }
-  /* Корректируем отступы контента */
-  body {
-    padding-top: 56px;
-    padding-bottom: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  .mobile-header__logo img {
-    width: 28px;
-    height: 28px;
-  }
-  .mobile-header__logo span {
-    font-size: 14px;
-  }
-  .side-menu {
-    width: 85%;
-  }
-  .bottom-nav__item {
-    font-size: 10px;
+  .swiper {
+    padding-bottom: 1.5rem;
   }
 }
 
@@ -363,15 +177,15 @@
   .header__logo img {
     max-height: 90px;
   }
-  .header__logo {
+   .header__logo {
     margin-top: -60px;
-    margin-left: -20px;
+    margin-left: -20px; 
   }
-  .header__title {
+   .header__title {
     font-size: 24px;
     margin-right: 10px;
   }
-
+  
   .section h2 {
     font-size: 24px;
   }
@@ -392,65 +206,83 @@
 }
 
 @media (max-width: 580px) {
-  .about-right p {
+    .about-right p {
     font-size: 1.3rem;
-  }
+}
 }
 
+
+/* ======================= */
+/* 📟 Tiny screens ≤480px */
+/* ======================= */
 @media (max-width: 480px) {
-  .mobile-header__burger {
-    width: 32px;
-    height: 32px;
+  .header__title {
+    font-size: 22px;
+    margin-right: 10px;
   }
-  .mobile-header__burger span {
-    width: 18px;
+  .header__logo img {
+    max-height: 70px;
   }
-  .side-menu {
-    width: 90%;
+   .header__logo {
+    margin-top: -100px;
+    margin-left: -50px;
+    
   }
-  .bottom-nav__item {
-    font-size: 9px;
+
+  .header__buttons {
+    gap: 6px;
   }
-  body {
-    padding-top: 52px;
-    padding-bottom: 56px;
+
+  .header__button {
+    font-size: 10px;
   }
-  .mobile-header__center span {
+
+  .nav {
     font-size: 14px;
   }
-  .mobile-header__trial {
-    padding: 5px 10px;
-    font-size: 11px;
+   .quality__mark {
+    width: 180px;
+    height: 180px;
+  }  
+   #bot-form {
+    max-width: 95%;
+    padding: 10px;
+  }
+  #bot-form input,
+  #bot-form textarea,
+  #bot-form button {
+    font-size: 14px;
   }
 }
 
-@media (max-width: 400px) {
-  .header__title {
-    position: absolute;
-    left: 40px;
-    font-size: 24px;
-  }
-  .full-text {
-    font-size: 16px;
-  }
-  .about-right p {
-    font-size: 1rem;
-  }
-  .lesson-heading .icon {
-    width: 60px;
-    height: 60px;
-    right: 20px;
-  }
-  .header__button {
-    font-size: 12px;
-  }
-  .text__title {
-    margin-top: 10px;
-    font-weight: 700;
-    max-width: 112px;
-    margin-right: 45px;
-  }
 
+@media (max-width: 400px) {
+   .header__title {
+      position: absolute;
+      left: 40px;
+      font-size: 24px;    
+    }
+    .full-text {
+      font-size: 16px;
+    }
+    .about-right p {
+    font-size: 1rem;
+    }
+    .lesson-heading .icon {
+        width: 60px;
+        height: 60px;
+        right: 20px;
+  } 
+    .header__button {
+      font-size: 12px;
+    }
+   .text__title {
+      margin-top: 10px;
+      font-weight: 700;
+      max-width: 112px;
+      margin-right: 45px;
+   } 
+    
   .form-section h2 {
     font-size: 20px;
   }
@@ -463,31 +295,30 @@
     margin-bottom: -25px;
     margin-top: -15px;
   }
-  .section h2 {
+   .section h2 {
     font-size: 24px;
   }
-  .zoom,
-  .teams {
+  .zoom, .teams {
     width: 40px;
   }
   .carousel-track img {
     height: 100%;
     width: 100%;
-  }
-  .quality__mark {
-    width: 165px;
-    height: 165px;
-  }
-  .fancy-btn {
-    margin-top: 10px;
-    font-size: 1.1rem;
-  }
-  .price__title {
-    font-size: 28px;
-  }
-  .intensives h2 {
-    font-size: 22px;
-  }
+}
+    .quality__mark {
+        width: 165px;
+        height: 165px;
+    }
+    .fancy-btn {
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
+    .price__title {
+      font-size: 28px;
+    }
+    .intensives h2 {
+      font-size: 22px;
+    }
   .reviews h2 {
     font-size: 24px;
   }
@@ -501,19 +332,15 @@
     font-size: 24px;
   }
   .choose__title::after {
-    width: 240px;
-    margin-top: 30px;
+        width: 240px;
+        margin-top: 30px;
   }
   .book__order {
-    font-size: 0.6rem;
+    font-size: 0.60rem;
     width: 64px;
   }
   .courses {
     max-width: 93%;
   }
-
-  #mobileHeader {
-    display: flex;
-    width: 100%;
-  }
 }
+

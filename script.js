@@ -526,6 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const lang = e.target.value;
     //console.log(`Переключение на: ${lang}`);
     loadLanguage(lang);
+    renderIntensives(lang);
   };
 
   if (switcherDesktop) switcherDesktop.addEventListener('change', handleLangChange);

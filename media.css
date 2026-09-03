@@ -136,6 +136,9 @@
   .header__logo img {
     max-height: 120px;
   }
+  body {
+  background-attachment: scroll;
+}
 
   .header__title {
     font-size: 26px;
@@ -180,13 +183,6 @@
 
   .swiper {
     padding-bottom: 1.5rem;
-  }
-  .mySwiper,
-  .video-scroll,
-  .carousel-track,
-  .review-scroll,
-  .review-list {
-    touch-action: pan-y;
   }
 }
 

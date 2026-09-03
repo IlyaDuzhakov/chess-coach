@@ -1,4 +1,4 @@
-const CACHE_NAME = 'chess-coach-v2';
+const CACHE_NAME = 'chess-coach-v3';
 
 const FILES_TO_CACHE = [
   '/',

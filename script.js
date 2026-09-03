@@ -681,7 +681,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? `<div style="color: red; font-weight: bold; margin-top:10px;">
                      ${noteText}
                    </div>`
-                : `<button class="btn__intensive">${lang === 'ru' ? 'Записаться' : 'Sign up'}</button>`
+                : `<button class="btn__intensive">${lang === 'ru' ? 'Запись через Telegram' : 'Sign up'}</button>`
             }
           </div>
         `;
@@ -768,8 +768,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
           item.options.forEach(opt => {
             html += `<p>⌛ ${opt.duration} — <strong>${opt.price || ''}</strong> 
-              ${opt.old ? `<br><small>(вместо ${opt.old})</small>` : ''} 
-              ${opt.note || ''}</p>`;
+          ${opt.perLesson ? `<br><small>(${opt.perLesson})</small>` : ''} 
+          ${opt.note || ''}</p>`;
           });
 
           if (item.notes) {

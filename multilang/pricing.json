@@ -5,12 +5,13 @@
       "title": "Индивидуальные занятия",
       "icon": "images/target.png",
       "options": [
-        { "duration": "1 час", "price": "30 €", "note": "(или в рублях по курсу)" },
-        { "duration": "45 минут", "price": "25 €" },
-        { "duration": "30 минут", "price": "15 €" }
+        { "duration": "1 час", "price": "35 €" },
+        { "duration": "45 минут", "price": "30 €" },
+        { "duration": "30 минут", "price": "20 €" }
       ],
       "notes": [
-        "Занятия подходят для любого уровня — онлайн, с подробным разбором ваших партий и персональным планом тренировок."
+        "Подходит для персональной работы с учётом уровня, целей и темпа ученика.",
+        "При регулярных занятиях выгоднее абонемент — экономия до 50%."
       ],
       "button": "Записаться"
     },
@@ -19,9 +20,7 @@
       "title": "Групповые занятия",
       "icon": "images/grups.png",
       "people": "до 4 человек",
-      "options": [
-        { "duration": "60 минут", "price": "10 €/чел" }
-      ],
+      "options": [{ "duration": "60 минут", "price": "10 €/чел" }],
       "notes": [
         "Даже если соберутся только 2–3 человека — проведём занятие!",
         "В 2,5 раза дешевле, чем индивидуальные, но с такой же внимательностью к каждому.",
@@ -46,29 +45,37 @@
       "type": "abonement",
       "title": "Выгодные абонементы",
       "icon": "svg/abonement.png",
-      "badge": "🔥 Экономьте до 25%",
+      "badge": "🔥 Экономьте до 50%",
       "options": [
-        { "duration": "8×45 мин", "price": "160 €", "old": "200 €" },
-        { "duration": "8×60 мин", "price": "200 €", "old": "240 €" },
-        { "duration": "8×30 мин", "price": "100 €", "old": "120 €" }
+        {
+          "duration": "4×45 мин",
+          "price": "100 €",
+          "perLesson": "25 € за занятие"
+        },
+        {
+          "duration": "8×45 мин",
+          "price": "180 €",
+          "perLesson": "22.50 € за занятие"
+        },
+        {
+          "duration": "12×45 мин",
+          "price": "240 €",
+          "perLesson": "20 € за занятие"
+        }
       ],
       "notes": [
         "Оплата вперёд. Возможен платёж двумя частями.",
         "Все подробности и другие форматы — в полной таблице."
       ],
       "link": "docs/pricing-guide.pdf",
-      "link_text": "📎 Скачать полный прайс‑лист (ZIP)"
+      "link_text": "📎 Скачать полный прайс‑лист (pdf)"
     },
     {
       "type": "trial",
       "title": "Бесплатное пробное занятие",
       "icon": "images/present.png",
-      "options": [
-        { "duration": "30 минут бесплатно" }
-      ],
-      "notes": [
-        "Познакомимся, определим уровень и обсудим план тренировок!"
-      ],
+      "options": [{ "duration": "30 минут бесплатно" }],
+      "notes": ["Познакомимся, определим уровень и обсудим план тренировок!"],
       "button": "Записаться"
     }
   ],
@@ -78,12 +85,13 @@
       "title": "Individual lessons",
       "icon": "images/target.png",
       "options": [
-        { "duration": "1 hour", "price": "30 €", "note": "(or in rubles at the exchange rate)" },
-        { "duration": "45 minutes", "price": "25 €" },
-        { "duration": "30 minutes", "price": "15 €" }
+        { "duration": "1 hour", "price": "35 €" },
+        { "duration": "45 minutes", "price": "30 €" },
+        { "duration": "30 minutes", "price": "20 €" }
       ],
       "notes": [
-        "Suitable for any level — online, with detailed analysis of your games and a personal training plan."
+        "Personal lessons tailored to the student's level, goals, and learning pace.",
+        "Regular lessons are more affordable with a subscription — save up to 50%."
       ],
       "button": "Sign up"
     },
@@ -92,9 +100,7 @@
       "title": "Group lessons",
       "icon": "images/grups.png",
       "people": "up to 4 people",
-      "options": [
-        { "duration": "60 minutes", "price": "10 €/person" }
-      ],
+      "options": [{ "duration": "60 minutes", "price": "10 €/person" }],
       "notes": [
         "Even if only 2–3 people gather — we’ll hold the lesson!",
         "2.5 times cheaper than individual, but with the same attention to each.",
@@ -107,7 +113,10 @@
       "title": "Intensives and master classes",
       "icon": "images/raket.png",
       "options": [
-        { "duration": "3–5 days in a row", "price": "from 75 € for the full course" }
+        {
+          "duration": "3–5 days in a row",
+          "price": "from 75 € for the full course"
+        }
       ],
       "notes": [
         "Want to quickly improve tactics, study openings, or prepare for a tournament? Intensive will help!",
@@ -119,26 +128,32 @@
       "type": "abonement",
       "title": "Benefit subscriptions",
       "icon": "svg/abonement.png",
-      "badge": "🔥 Save up to 25%",
+      "badge": "🔥 Save up to 50%",
       "options": [
-        { "duration": "8×45 min", "price": "160 €", "old": "200 €" },
-        { "duration": "8×60 min", "price": "200 €", "old": "240 €" },
-        { "duration": "8×30 min", "price": "100 €", "old": "120 €" }
-      ],
-      "notes": [
-        "Payment in advance. Possible to pay in two parts.",
-        "All details and other formats — in the full table."
+        {
+          "duration": "4×45 min",
+          "price": "100 €",
+          "perLesson": "25 € per lesson"
+        },
+        {
+          "duration": "8×45 min",
+          "price": "180 €",
+          "perLesson": "22.50 € per lesson"
+        },
+        {
+          "duration": "12×45 min",
+          "price": "240 €",
+          "perLesson": "20 € per lesson"
+        }
       ],
       "link": "docs/pricing-guide.pdf",
-      "link_text": "📎 Download full price list (ZIP)"
+      "link_text": "📎 Download full price list (pdf)"
     },
     {
       "type": "trial",
       "title": "Free trial lesson",
       "icon": "images/present.png",
-      "options": [
-        { "duration": "30 minutes free" }
-      ],
+      "options": [{ "duration": "30 minutes free" }],
       "notes": [
         "We’ll get to know each other, assess your level and discuss a training plan!"
       ],

@@ -64,6 +64,13 @@
 </head>
 <body>
 
+  <img
+  src="images/king.png"
+  alt="king-decoration"
+  class="king-decoration"
+  aria-hidden="true"
+/>
+
 <div class="preloader" id="preloader">
   <div class="scene">
     <img src="svg/knight_preloader.svg" alt="Chess Guide" class="preloader-knight">
@@ -965,7 +972,7 @@
   <p>12×45 мин — <strong>240 €</strong> <br><small>( 20 € за занятие)</small></p>
   <p class="note">Оплата вперёд. Возможен платёж двумя частями.</p>
   <p class="note">Все подробности и другие форматы — в полной таблице.</p>
-<a href="docs/pricing-guide.pdf.zip" download class="btn btn-primary btn-pink-purple">
+<a href="docs/pricing-guide.pdf" download class="btn btn-primary btn-pink-purple">
   📎 Скачать полный прайс‑лист (ZIP)
 </a>
 
@@ -1061,8 +1068,12 @@
       <div class="course-buttons">
       <button data-i18n="show_program" id="toggle-program">Показать программу ▼</button>
   </div>
-       <p  class="price">8 999 ₽</p>
-  <a href="https://krivenkochess.getcourse.ru/teach/control/stream/view/id/924410928" data-i18n="buy_course" target="_blank" rel="noopener noreferrer" class="buy__btn">
+       <!-- <p  class="price">9 990 ₽</p> -->
+       <div class="course-price">
+  <span class="old-price">11 500 ₽</span>
+  <span class="new-price">9 990 ₽</span>
+</div>
+  <a href="https://t.me/Ilya_Duzhakov" data-i18n="buy_course" target="_blank" rel="noopener noreferrer" class="buy__btn">
   Купить курс
 </a>
 
@@ -1108,8 +1119,12 @@
     <div class="course-buttons">
       <button data-i18n="show_program" id="toggle-program-2">Показать программу ▼</button>
 
-      <p class="price">4 500 ₽</p>
-      <a href="https://krivenkochess.getcourse.ru/teach/control/stream/view/id/934004010" 
+      <!-- <p class="price">4 500 ₽</p> -->
+         <div class="course-price">
+  <span class="old-price">6000 ₽</span>
+  <span class="new-price">4500 ₽</span>
+</div>
+      <a href="https://t.me/Ilya_Duzhakov" 
       data-i18n="buy_course" 
          target="_blank" 
          rel="noopener noreferrer" 
@@ -1235,13 +1250,47 @@
     </div>
   </div>
 
-  <div class="footer__bottom">
-    <a class="footer__bottom" href="#home">
-      <p data-i18n="copyright">© 2025 Илья Дужаков — шахматный тренер </p>
-      <p data-i18n="icons-title">Иконки - <a href="https://favicon.io/" target="_blank" rel="noopener">favicon.io</a>
-        </p>
+<div class="footer__bottom">
+
+  <p class="footer__copyright">
+    <a
+      href="#home"
+      class="footer__home-link"
+      data-i18n="copyright"
+    >
+      © 2026 Илья Дужаков — шахматный тренер
+    </a>
+  </p>
+
+  <div class="footer__threads-row">
+    <a
+      href="https://www.threads.com/@ilyaduzhakov"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="footer__threads-link"
+    >
+      <img
+        src="svg/threads.svg"
+        alt=""
+        class="footer__threads-icon"
+        loading="lazy"
+      >
+      <span>Threads</span>
     </a>
   </div>
+
+  <p class="footer__credits">
+    <span data-i18n="icons-title">Иконки —</span>
+    <a
+      href="https://favicon.io/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+     
+    </a>
+  </p>
+
+</div>
 </footer>
 
 <div id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">

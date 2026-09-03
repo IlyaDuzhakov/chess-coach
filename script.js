@@ -602,19 +602,26 @@ function showLarge(src) {
   modal.style.display = 'flex';
   modal.onclick = () => modal.style.display = 'none';
 }
-
 // intensives
-document.addEventListener('DOMContentLoaded', () => {
-  // const monthIndex = new Date().getMonth(); // или const monthIndex = 2; - каждый месяц  
+
+function renderIntensives(lang = 'ru') {
   const monthIndex = new Date().getMonth();
+
   const monthNames = [
     'january', 'february', 'march', 'april', 'may', 'june',
     'july', 'august', 'september', 'october', 'november', 'december'
   ];
+
   const monthNamesRu = [
     'Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
     'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'
   ];
+
+  const monthNamesEn = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+
   const gradients = {
     winter: 'linear-gradient(135deg, #b2fefa, #0ed2f7)',
     spring: 'linear-gradient(135deg, #a1ffce, #faffd1)',
@@ -623,65 +630,120 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   let gradient = gradients.autumn;
-  if ([11, 0, 1].includes(monthIndex)) gradient = gradients.winter;
-  else if ([2, 3, 4].includes(monthIndex)) gradient = gradients.spring;
-  else if ([5, 6, 7].includes(monthIndex)) gradient = gradients.summer;
+
+  if ([11, 0, 1].includes(monthIndex)) {
+    gradient = gradients.winter;
+  } else if ([2, 3, 4].includes(monthIndex)) {
+    gradient = gradients.spring;
+  } else if ([5, 6, 7].includes(monthIndex)) {
+    gradient = gradients.summer;
+  }
 
   const monthKey = monthNames[monthIndex];
-  const monthName = monthNamesRu[monthIndex];
-  const lang = localStorage.getItem('lang') || 'ru';
 
   const section = document.getElementById('intensives');
   const grid = document.getElementById('intensiveGrid');
   const monthNameEl = document.getElementById('monthName');
 
+  if (!section || !grid || !monthNameEl) return;
+
   section.style.background = gradient;
-  monthNameEl.textContent = lang === 'ru' ? monthName : monthName.charAt(0) + monthName.slice(1).toLowerCase();
+
+  monthNameEl.textContent =
+    lang === 'ru'
+      ? monthNamesRu[monthIndex]
+      : monthNamesEn[monthIndex];
 
   fetch('multilang/intensives.json')
     .then(res => res.json())
     .then(intensives => {
       const data = intensives[monthKey]?.[lang];
+
       if (!Array.isArray(data) || data.length === 0) {
-        const noDataMsg = lang === 'ru'
-          ? 'Нет интенсивов на этот месяц'
-          : 'No intensives scheduled for this month';
-        grid.innerHTML = `<p style="text-align:center; padding:20px;">${noDataMsg}</p>`;
+        const noDataMsg =
+          lang === 'ru'
+            ? 'Нет интенсивов на этот месяц'
+            : 'No intensives scheduled for this month';
+
+        grid.innerHTML = `
+          <p style="text-align:center; padding:20px;">
+            ${noDataMsg}
+          </p>
+        `;
+
         return;
       }
 
       grid.innerHTML = '';
+
       data.forEach(item => {
         const card = document.createElement('div');
         card.classList.add('intensive-card');
 
         const isPostponed = item.status === 'postponed';
+
         const noteText = isPostponed
-          ? (item.note || (lang === 'ru'
-              ? 'Интенсив перенесён. Следите за новостями.'
-              : 'This intensive is postponed. Stay tuned for updates.'))
+          ? (
+              item.note ||
+              (
+                lang === 'ru'
+                  ? 'Интенсив перенесён. Следите за новостями.'
+                  : 'This intensive is postponed. Stay tuned for updates.'
+              )
+            )
           : '';
 
         card.innerHTML = `
           <h3>${item.title}</h3>
-          <p>📆 <strong>${lang === 'ru' ? 'Даты' : 'Dates'}:</strong> ${item.dates}</p>
-          <p>⌛ <strong>${lang === 'ru' ? 'Формат' : 'Format'}:</strong> ${item.format}</p>
+
+          <p>
+            📆 <strong>${lang === 'ru' ? 'Даты' : 'Dates'}:</strong>
+            ${item.dates}
+          </p>
+
+          <p>
+            ⌛ <strong>${lang === 'ru' ? 'Формат' : 'Format'}:</strong>
+            ${item.format}
+          </p>
+
           <details>
-            <summary>📋 ${lang === 'ru' ? 'Программа по дням' : 'Program by days'}</summary>
+            <summary>
+              📋 ${lang === 'ru' ? 'Программа по дням' : 'Program by days'}
+            </summary>
+
             <ul>
               ${item.program.map(day => `<li>${day}</li>`).join('')}
             </ul>
           </details>
-          <p>🎯 <strong>${lang === 'ru' ? 'Для кого' : 'For whom'}:</strong> ${item.for}</p>
-          <p>🎁 <strong>${lang === 'ru' ? 'Бонус' : 'Bonus'}:</strong> ${item.bonus.replace('до 10%', 'от 10 до 20%').replace('up to 10%', 'from 10% to 20%')}</p>
-          <p>💶 <strong>${lang === 'ru' ? 'Цена' : 'Price'}:</strong> ${item.price}</p>
+
+          <p>
+            🎯 <strong>${lang === 'ru' ? 'Для кого' : 'For whom'}:</strong>
+            ${item.for}
+          </p>
+
+          <p>
+            🎁 <strong>${lang === 'ru' ? 'Бонус' : 'Bonus'}:</strong>
+            ${item.bonus}
+          </p>
+
+          <p>
+            💶 <strong>${lang === 'ru' ? 'Цена' : 'Price'}:</strong>
+            ${item.price}
+          </p>
+
           <div class="button-wrapper">
             ${
               isPostponed
-                ? `<div style="color: red; font-weight: bold; margin-top:10px;">
-                     ${noteText}
-                   </div>`
-                : `<button class="btn__intensive">${lang === 'ru' ? 'Запись через Telegram' : 'Sign up'}</button>`
+                ? `
+                  <div style="color:red; font-weight:bold; margin-top:10px;">
+                    ${noteText}
+                  </div>
+                `
+                : `
+                  <button class="btn__intensive">
+                    ${lang === 'ru' ? 'Запись через Telegram' : 'Sign up via Telegram'}
+                  </button>
+                `
             }
           </div>
         `;
@@ -691,10 +753,18 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(err => {
       console.error(err);
-      grid.innerHTML = `<p style="text-align:center; padding:20px; color:red;">
-        ${lang === 'ru' ? 'Ошибка загрузки данных' : 'Failed to load data'}
-      </p>`;
+
+      grid.innerHTML = `
+        <p style="text-align:center; padding:20px; color:red;">
+          ${lang === 'ru' ? 'Ошибка загрузки данных' : 'Failed to load data'}
+        </p>
+      `;
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const currentLang = localStorage.getItem('lang') || 'ru';
+  renderIntensives(currentLang);
 });
 
 document.getElementById('intensiveBtn').addEventListener('click', () => {

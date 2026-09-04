@@ -2870,6 +2870,27 @@ background: linear-gradient(90deg, #e70000,#ff8c00,#ffef00,#00bc93,#0044ff);back
   font-weight: 600;
 }
 
+.kids-lessons-link {
+  margin: 18px 0 24px;
+  text-align: center;
+}
+
+.kids-lessons-link a {
+  border: 2px solid #f4d37a;
+  padding: 5px;
+  display: inline-block;
+  color: #f4d37a;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.kids-lessons-link a:hover {
+  color: #fff0b5;
+  transform: translateX(3px);
+}
+
 @media (max-width: 768px) {
   .king-decoration {
     display: none;

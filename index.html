@@ -972,8 +972,13 @@
   <p>12×45 мин — <strong>240 €</strong> <br><small>( 20 € за занятие)</small></p>
   <p class="note">Оплата вперёд. Возможен платёж двумя частями.</p>
   <p class="note">Все подробности и другие форматы — в полной таблице.</p>
-<a href="docs/pricing-guide.pdf" download class="btn btn-primary btn-pink-purple">
-  📎 Скачать полный прайс‑лист (ZIP)
+<a
+  id="pricing-link"
+  href="docs/pricing-guide.pdf"
+  download
+  class="btn btn-primary btn-pink-purple"
+>
+  📎 Скачать полный прайс-лист (Pdf)
 </a>
 
     
@@ -1005,7 +1010,8 @@
     <p data-i18n="student_age_text">От 5 лет и без ограничений — помогу каждому мыслить стратегически и уверенно принимать решения за шахматной доской!</p>
   </div>
   <div class="kids-lessons-link">
-  <a href="chess-for-kids.html">
+  <a href="chess-for-kids.html"
+    data-i18n="chess_lessons_more">
     Подробнее об онлайн-занятиях по шахматам →
   </a>
 </div>
@@ -1336,7 +1342,7 @@
   }
 </script> 
 
-  <script src="/preloader.js"></script>
+  <script src="./preloader.js"></script>
 <script src="telegram-form.js"></script>
 <script src="popup.js"></script>
         </body>

@@ -451,7 +451,9 @@ function loadLanguage(lang) {
           faqItem.innerHTML = `
             <button class="accordion-header">
               <span>${item.question}</span>
-              <svg class="icon" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6" /></svg>
+              <svg class="icon" viewBox="0 0 24 24">
+                <path d="M6 9l6 6 6-6" />
+              </svg>
             </button>
             <div class="accordion-content">
               ${item.answers.map(ans => `<p>${ans}</p>`).join('')}
@@ -466,6 +468,15 @@ function loadLanguage(lang) {
 
       if (switcherDesktop) switcherDesktop.value = lang;
       if (switcherMobile) switcherMobile.value = lang;
+
+      const pricingLink = document.getElementById('pricing-link');
+
+      if (pricingLink) {
+        pricingLink.href =
+          lang === 'en'
+            ? './docs/pricing-guide-en.pdf'
+            : './docs/pricing-guide.pdf';
+      }
 
       localStorage.setItem('lang', lang);
     })

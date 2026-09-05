@@ -60,7 +60,7 @@
     "chessClassics": "Шахматная классика",
     "fortress": "Крепость в шахматной партии",
     "goodBad": "Хорошие и плохие шахи",
-
+     "chess_lessons_more": "Подробнее об онлайн-занятиях по шахматам →",
     "reviewsTitle": "Отзывы учеников",
 "review1": "«Нам очень нравится заниматься с Ильёй! Он всё объясняет понятно, показывает классные комбинации и всегда помогает, когда что-то не получается. Теперь мы любим шахматы ещё больше!»",
 "review1name": "Nick and Jacob",
@@ -185,7 +185,7 @@
     "btn_sign_up": "Sign up for a lesson",
     "btn_courses": "Courses",
     "btn_workbooks": "Workbooks",
-
+    "chess_lessons_more": "Learn More About Online Chess Lessons →",
     "lessonExamplesTitle": "Lesson examples with students",
     "analysisGames": "Student Game Analysis",
     "studyTheory": "Studying the Opening",

@@ -2877,6 +2877,7 @@ background: linear-gradient(90deg, #e70000,#ff8c00,#ffef00,#00bc93,#0044ff);back
 
 .kids-lessons-link a {
   border: 2px solid #f4d37a;
+  border-radius: 6px;
   padding: 5px;
   display: inline-block;
   color: #f4d37a;
